@@ -5,6 +5,8 @@ import NextLink from 'next/link';
 import router from 'next/router';
 import { Fragment } from 'react';
 import { useRecoilState } from 'recoil';
+import { useAuthContext } from '../context/AuthContext';
+import { auth } from '../lib/firebase';
 import { modalLogin } from './atoms/modalAtom';
 import ModalLogin from './ModalLogin';
 // import { useAuthContext } from '../context/AuthContext';
@@ -14,7 +16,7 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Posts', href: '/posts' },
   { name: 'Search', href: 'search' },
-  { name: 'Login', href: '/login' },
+  // { name: 'Login', href: '/login' },
 ];
 
 export default function Header() {
@@ -25,6 +27,14 @@ export default function Header() {
   //   alert('ログアウト完了');
   // };
   const [ open, setOpen ] = useRecoilState(modalLogin);
+
+  const { user } = useAuthContext();
+
+  const logout = () => {
+    auth.signOut();
+    alert('ログアウト完了')
+    location.reload()
+  }
 
   return (
     <div className='relative bg-white shadow-sm border-b'>
@@ -49,7 +59,7 @@ export default function Header() {
                 <div className='flex items-center flex-grow flex-shrink-0 lg:flex-grow-0'>
                   <div className='flex items-center justify-between w-full md:w-auto'>
                     <NextLink href='/'>
-                      <span className='text-2xl -mt-4'>⚡️ Talexy</span>
+                      <span className='text-2xl -mt-4 lg:-mt-2'>⚡️ Talexy</span>
                     </NextLink>
                     <div className='-mr-2 flex items-center md:hidden'>
                       <Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none'>
@@ -69,18 +79,7 @@ export default function Header() {
                       {item.name}
                     </a>
                   ))}
-                  {/* <button class='bg-teal-500 hover:bg-blue-700 text-white py-2 px-4 rounded'>
-                    新規登録
-                  </button> */}
-                  {/* {user && ( */}
-                    {/* <button
-                      // onClick={logout}
-                      class='bg-teal-500 hover:bg-blue-700 text-white py-2 px-4 rounded'
-                    >
-                      ログアウト
-                    </button> */}
-                  {/* )} */}
-                  {/* {!user && ( */}
+                  { !user && (
                     <span className='inline-block'>
                       <button onClick={()=> setOpen(true)} class='bg-teal-500 hover:bg-blue-700 text-white py-2 px-2 rounded'>
                         {/* <NextLink href='/signin'>Log in</NextLink> */}
@@ -88,6 +87,16 @@ export default function Header() {
                       </button>
                       <ModalLogin />
                     </span>
+                  )}
+                  { user && (
+                    <span className='inline-block'>
+                    <button onClick={logout} class='bg-teal-500 hover:bg-blue-700 text-white py-2 px-2 rounded'>
+                      {/* <NextLink href='/signin'>Log in</NextLink> */}
+                      <span>Log out</span>
+                    </button>
+                    <ModalLogin />
+                  </span>
+                  )}
                   {/* )} */}
                 </div>
               </nav>
