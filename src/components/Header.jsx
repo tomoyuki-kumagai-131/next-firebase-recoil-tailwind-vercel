@@ -39,7 +39,7 @@ export default function Header() {
   return (
     <div className='relative bg-white shadow-sm border-b'>
       <div className='max-w-7xl mx-auto'>
-        <div className='relative z-10 pb-1 bg-white sm:pb-16 md:pb-5 lg:max-w-2xl lg:w-full lg:pb-5 xl:pb-5'>
+        <div className='relative z-10 pb-2 bg-white sm:pb-2 md:pb-5 lg:max-w-2xl lg:w-full lg:pb-5 xl:pb-5'>
           <svg
             className='hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2'
             fill='currentColor'
@@ -58,9 +58,11 @@ export default function Header() {
               >
                 <div className='flex items-center flex-grow flex-shrink-0 lg:flex-grow-0'>
                   <div className='flex items-center justify-between w-full md:w-auto'>
-                    <NextLink href='/'>
-                      <span className='text-2xl -mt-4 lg:-mt-2'>⚡️ Talexy</span>
-                    </NextLink>
+                      <span className='text-2xl -mt-4 lg:-mt-2'>
+                        <NextLink href='/'>
+                          ⚡️ Talexy
+                        </NextLink>
+                      </span>
                     <div className='-mr-2 flex items-center md:hidden'>
                       <Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none'>
                         <span className='sr-only'>Open main menu</span>
@@ -90,7 +92,7 @@ export default function Header() {
                   )}
                   { user && (
                     <span className='inline-block'>
-                    <button onClick={logout} class='bg-teal-500 hover:bg-blue-700 text-white py-2 px-2 rounded'>
+                    <button onClick={logout} class='bg-yellow-400 hover:bg-blue-700 text-white py-2 px-2 rounded'>
                       {/* <NextLink href='/signin'>Log in</NextLink> */}
                       <span>Log out</span>
                     </button>
