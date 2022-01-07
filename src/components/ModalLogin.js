@@ -1,6 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { LoginIcon } from "@heroicons/react/outline";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signInWithRedirect } from "firebase/auth";
 import { Fragment } from "react";
 import { useRecoilState } from "recoil";
 import { auth, provider } from "../lib/firebase";
@@ -11,7 +11,7 @@ function ModalLogin() {
 
 	const handleLogin = async (e) => {
 		try {
-			await signInWithPopup(auth, provider);
+			await signInWithRedirect(auth, provider);
 			alert("ログイン完了");
 		} catch (err) {
 			console.log(err);
