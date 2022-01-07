@@ -93,11 +93,12 @@ function Todos() {
       </form>
 
       {/* Dream表示エリア */}
+      {/* {postRender()} */}
       <div className="flex justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => {
             return (
-              <div key={post.id}　 class="relative flex grid justify-center items-center text-center mt-6 h-72 bg-gray-50 shadow-md rounded-lg mx-24 md:w-80 md:mt-10 lg:flex lg:grid lg:w-96 lg:mt-8">
+              <div key={post.id} class="relative flex grid justify-center items-center text-center mt-6 h-72 bg-gray-50 shadow-md rounded-lg mx-24 md:w-80 md:mt-10 lg:flex lg:grid lg:w-96 lg:mt-8">
                 <h1 class="text-gray-800 text-3xl font-semibold mx-12">{post.caption}</h1>
                 <p class="text-gray-600 mx-12 -mt-20 lg:mx-8 lg:-mt-32">{post.description}</p>
                 <TrashIcon className="absolute h-7 w-7 right-0 mt-52 mr-4" />
