@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router'
 import { useRecoilState } from 'recoil'
 import { modalLogin } from '../components/atoms/modalAtom'
+import ModalLogin from '../components/ModalLogin'
 
 export default function Home() {
 
@@ -33,6 +34,7 @@ export default function Home() {
             <img className='flex justify-center items-center my-4' src='https://image.freepik.com/free-vector/business-team-work-process-steps-from-idea-target-business-workflow-business-process-efficiency-working-activity-pattern-concept-pinkish-coral-bluevector-isolated-illustration_335657-1649.jpg' />
             <div className='flex justify-center items-center'>
               <button onClick={()=> setOpen(true)} className='bg-teal-500 text-white border m-2 p-1 w-40 rounded-lg'>Log in</button>
+              <ModalLogin />
               <button onClick={()=> router.push('/')} className='border text-white bg-yellow-400 m-2 p-1 w-40 rounded-lg'>About</button>
             </div>
           </div>
