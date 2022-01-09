@@ -20,12 +20,7 @@ const navigation = [
 ];
 
 export default function Header() {
-  // const { user } = useAuthContext();
-  // const logout = () => {
-  //   auth.signOut();
-  //   router.replace('/');
-  //   alert('ログアウト完了');
-  // };
+
   const [ open, setOpen ] = useRecoilState(modalLogin);
 
   const { user } = useAuthContext();
@@ -63,12 +58,12 @@ export default function Header() {
                           ⚡️ Talexy
                         </NextLink>
                       </span>
-                    <div className='-mr-2 flex items-center md:hidden'>
+                    {/* <div className='-mr-2 flex items-center md:hidden'>
                       <Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none'>
                         <span className='sr-only'>Open main menu</span>
                         <MenuIcon className='h-6 w-6 -mt-3' aria-hidden='true' />
                       </Popover.Button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className='hidden md:block md:ml-10 md:pr-4 md:space-x-8'>
@@ -81,30 +76,32 @@ export default function Header() {
                       {item.name}
                     </a>
                   ))}
-                  { !user && (
-                    <span className='inline-block'>
-                      <button onClick={()=> setOpen(true)} class='bg-teal-500 hover:bg-blue-700 text-white py-2 px-2 rounded'>
-                        {/* <NextLink href='/signin'>Log in</NextLink> */}
+                </div>
+                <div className='-mt-2 mb-1 sm:-mt-2 md:-mt-2 lg:mb-0 lg:-mt-2 lg:flex'>
+                { !user && (
+                    <span>
+                      <button onClick={()=> setOpen(true)} class='bg-teal-500 hover:bg-blue-700 text-white py-2 px-2 rounded-md'>
                         <span>Log in</span>
                       </button>
                       <ModalLogin />
                     </span>
                   )}
                   { user && (
-                    <span className='inline-block'>
-                    <button onClick={logout} class='bg-yellow-400 hover:bg-blue-700 text-white py-2 px-2 rounded'>
+                    <div className=''>
+                    <span className='flex'>
+                    <button onClick={logout} class='bg-yellow-400 hover:bg-blue-700 text-white py-2 px-2 rounded lg:mt-2'>
                       {/* <NextLink href='/signin'>Log in</NextLink> */}
                       <span>Log out</span>
                     </button>
-                    <ModalLogin />
-                  </span>
+                    <img src={user.photoURL} className='flex items-center justify-center rounded-full w-9 h-9 ml-3 mt-1 lg:mt-3' />
+                    </span>
+                    </div>
                   )}
-                  {/* )} */}
                 </div>
               </nav>
             </div>
 
-            <Transition
+            {/* <Transition
               as={Fragment}
               enter='duration-150 ease-out'
               enterFrom='opacity-0 scale-95'
@@ -112,15 +109,15 @@ export default function Header() {
               leave='duration-100 ease-in'
               leaveFrom='opacity-100 scale-100'
               leaveTo='opacity-0 scale-95'
-            >
-              <Popover.Panel
+            > */}
+              {/* <Popover.Panel
                 focus
                 className='absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden'
               >
                 <div className='rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden'>
                   <div className='px-5 pt-4 flex items-center justify-between'>
                     <NextLink href='/'>
-                      <span className='text-2xl'>⚡️ Mastee</span>
+                      <span className='text-2xl'>⚡️ Talexy</span>
                     </NextLink>
                     <div className='-mr-2'>
                       <Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center focus:outline-none'>
@@ -128,8 +125,8 @@ export default function Header() {
                         <XIcon className='h-6 w-6' aria-hidden='true' />
                       </Popover.Button>
                     </div>
-                  </div>
-                  <div className='px-2 pt-2 pb-3 space-y-1'>
+                  </div> */}
+                  {/* <div className='px-2 pt-2'>
                     {navigation.map((item) => (
                       <a
                         key={item.name}
@@ -145,10 +142,10 @@ export default function Header() {
                       Log in
                     </span>
                   </button>
-                  <ModalLogin />
-                </div>
-              </Popover.Panel>
-            </Transition>
+                  <ModalLogin /> */}
+                {/* </div>
+              </Popover.Panel> */}
+            {/* </Transition> */}
           </Popover>
         </div>
       </div>
