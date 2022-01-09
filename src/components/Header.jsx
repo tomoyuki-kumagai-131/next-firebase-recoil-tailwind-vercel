@@ -127,10 +127,10 @@ export default function Header() {
                                 active
                                   ? "bg-gray-100 text-gray-900"
                                   : "text-gray-700"
-                              } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
+                              } flex w-full px-4 py-2 text-sm leading-5 text-left`}
                             >
-                              <CogIcon className='relative h-6 w-6 ml-0 -mr-11'/>
-                              <span className='flex justify-center items-center mr-4 mt-0.5'>Account settings</span>
+                              <CogIcon className='relative h-6 w-6 ml-0'/>
+                              <span className='flex justify-center items-center mt-0.5 ml-2'>Account settings</span>
                             </a>
                             </>
                           )}
@@ -143,10 +143,10 @@ export default function Header() {
                                 active
                                   ? "bg-gray-100 text-gray-900"
                                   : "text-gray-700"
-                              } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
+                              } flex justify-start w-full px-4 py-2 text-sm leading-5 text-left`}
                             >
-                              <HomeIcon className='relative h-6 w-6 ml-0 -mr-11'/>
-                              <span className='flex justify-center items-center mr-24 mt-0.5'>Home</span>
+                              <HomeIcon className='relative h-6 w-6 ml-0'/>
+                              <span className='justify-start items-center mt-0.5 ml-2'>Home</span>
                             </a>
                           )}
                         </Menu.Item>
@@ -165,10 +165,10 @@ export default function Header() {
                                 active
                                   ? "bg-gray-100 text-gray-900"
                                   : "text-gray-700"
-                              } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
+                              } flex w-full px-4 py-2 text-sm leading-5 text-left`}
                             >
-                              <ChatIcon className='relative h-6 w-6 ml-0 -mr-11'/>
-                              <span className='flex justify-center items-center mr-24 mt-0.5'>About</span>
+                              <ChatIcon className='relative h-6 w-6 ml-0'/>
+                              <span className='flex justify-center items-center mt-0.5 ml-2'>About</span>
                             </a>
                           )}
                         </Menu.Item>
