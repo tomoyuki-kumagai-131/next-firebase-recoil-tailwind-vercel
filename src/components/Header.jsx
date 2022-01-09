@@ -1,17 +1,17 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Popover, Transition } from '@headlessui/react';
-import { ChatIcon, CogIcon, HomeIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+import { ChatIcon, CogIcon, HomeIcon, MenuIcon, PlusCircleIcon, XIcon } from '@heroicons/react/outline';
 import NextLink from 'next/link';
-import router from 'next/router';
-import { Fragment } from 'react';
 import { useRecoilState } from 'recoil';
 import { useAuthContext } from '../context/AuthContext';
 import { auth } from '../lib/firebase';
-import { modalLogin } from './atoms/modalAtom';
+import { modalLogin, modalPost } from './atoms/modalAtom';
 import ModalLogin from './ModalLogin';
-// import { useAuthContext } from '../context/AuthContext';
-// import { auth } from '../lib/firebase';
+// import ModalLogin from './ModalLogin';
+
 import { Menu } from '@headlessui/react'
+import ModalPost from './ModalPost';
+
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -23,6 +23,8 @@ const navigation = [
 export default function Header() {
 
   const [ open, setOpen ] = useRecoilState(modalLogin);
+
+  const [ openPost, setPostOpen ] = useRecoilState(modalPost);
 
   const { user } = useAuthContext();
 
@@ -87,12 +89,15 @@ export default function Header() {
                       <ModalLogin />
                     </span>
                   )}
-                  { user && (
+            { user && (
+              <>
+              <PlusCircleIcon onClick={()=> setPostOpen(true)} className='relative h-8 w-8 flex mr-3 -mt-7 sm:hidden md:hidden lg:hidden' />
+              <ModalPost />
               <Menu>
                 {({ open }) => (
                 <>
                   <span className="">
-                    <Menu.Button className="pt-2">
+                    <Menu.Button className="pt-2 lg:pt-3">
                       <img src={user.photoURL} className='rounded-full w-9 h-9'/>
                     </Menu.Button>
                   </span>
@@ -113,7 +118,7 @@ export default function Header() {
                       <div className="px-4 py-3">
                         <p className="text-sm leading-5">Signed in as</p>
                         <p className="text-sm font-medium leading-5 text-gray-900 truncate">
-                          {user.email}
+                          {user.displayName}
                         </p>
                       </div>
 
@@ -194,6 +199,7 @@ export default function Header() {
                 </>
               )}
             </Menu>
+            </>
                   )}
                 </div>
               </nav>
