@@ -69,7 +69,7 @@ function Todos() {
       <h1 className="flex justify-center text-xl pt-6">Add Your Dream<AnnotationIcon  className='absolute h-5 w-5 mt-1 ml-24' /></h1>
 
       {/* Dream入力エリア */}
-      <form className="text-center">
+      <form className="hidden sm:block text-center md:block text-center lg:block text-center xl:block text-center">
         <div className="relative rounded-md">
           <div className="inset-y-0 pt-2 flex justify-center items-center">
             {/* <PencilIcon className="absolute mx-32 h-4 w-4 text-gray-500 md:ml-40 lg:ml-80"/> */}
@@ -104,7 +104,7 @@ function Todos() {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
           {posts.map((post) => {
             return (
-              <div key={post.id} class="relative grid justify-center items-center text-center mt-6 h-72 w-80 bg-gray-50 shadow-md rounded-lg mx-2 md:w-80 md:mt-10 lg:flex lg:grid lg:w-96 lg:mt-8 xl:mx-12">
+              <div key={post.id} class="relative grid justify-center items-center text-center mt-6 h-72 w-80 bg-gray-50 shadow-md rounded-lg mx-2 md:w-80 md:mt-10 lg:flex lg:grid lg:w-96 lg:mt-10 xl:mx-12">
                 <h1 class="text-gray-800 text-3xl font-semibold mx-12">{post.caption}</h1>
                 <p class="text-gray-600 mx-12 -mt-20 lg:mx-8 lg:-mt-32">{post.description}</p>
                 <TrashIcon className="absolute h-7 w-7 right-0 mt-52 mr-4" />
