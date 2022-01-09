@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Popover, Transition } from '@headlessui/react';
-import { MenuIcon, XIcon } from '@heroicons/react/outline';
+import { ChatIcon, CogIcon, HomeIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import NextLink from 'next/link';
 import router from 'next/router';
 import { Fragment } from 'react';
@@ -11,6 +11,7 @@ import { modalLogin } from './atoms/modalAtom';
 import ModalLogin from './ModalLogin';
 // import { useAuthContext } from '../context/AuthContext';
 // import { auth } from '../lib/firebase';
+import { Menu } from '@headlessui/react'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -77,7 +78,7 @@ export default function Header() {
                     </a>
                   ))}
                 </div>
-                <div className='-mt-2 mb-1 sm:-mt-2 md:-mt-2 lg:mb-0 lg:-mt-2 lg:flex'>
+                <div className='-mt-2 mb-1 sm:-mt-2 md:-mt-2 lg:mb-0 lg:-mt-2'>
                 { !user && (
                     <span>
                       <button onClick={()=> setOpen(true)} class='bg-teal-500 hover:bg-blue-700 text-white py-2 px-2 rounded-md'>
@@ -87,20 +88,116 @@ export default function Header() {
                     </span>
                   )}
                   { user && (
-                    <div className=''>
-                    <span className='flex'>
-                    <button onClick={logout} class='bg-yellow-400 hover:bg-blue-700 text-white py-2 px-2 rounded lg:mt-2'>
-                      {/* <NextLink href='/signin'>Log in</NextLink> */}
-                      <span>Log out</span>
-                    </button>
-                    <img src={user.photoURL} className='flex items-center justify-center rounded-full w-9 h-9 ml-3 mt-1 lg:mt-3' />
-                    </span>
-                    </div>
+              <Menu>
+                {({ open }) => (
+                <>
+                  <span className="">
+                    <Menu.Button className="pt-2">
+                      <img src={user.photoURL} className='rounded-full w-9 h-9'/>
+                    </Menu.Button>
+                  </span>
+
+                  <Transition
+                    show={open}
+                    // enter="transition ease-out duration-150"
+                    // enterFrom="transform opacity-0 scale-95"
+                    // enterTo="transform opacity-100 scale-100"
+                    // leave="transition ease-in duration-75"
+                    // leaveFrom="transform opacity-100 scale-100"
+                    // leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items
+                      static
+                      className="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+                    >
+                      <div className="px-4 py-3">
+                        <p className="text-sm leading-5">Signed in as</p>
+                        <p className="text-sm font-medium leading-5 text-gray-900 truncate">
+                          {user.email}
+                        </p>
+                      </div>
+
+                      <div className="py-1">
+                        <Menu.Item>
+                          {({ active }) => (
+                            <>
+                            <a
+                              href="#account-settings"
+                              className={`${
+                                active
+                                  ? "bg-gray-100 text-gray-900"
+                                  : "text-gray-700"
+                              } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
+                            >
+                              <CogIcon className='relative h-6 w-6 ml-0 -mr-11'/>
+                              <span className='flex justify-center items-center mr-4 mt-0.5'>Account settings</span>
+                            </a>
+                            </>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="/"
+                              className={`${
+                                active
+                                  ? "bg-gray-100 text-gray-900"
+                                  : "text-gray-700"
+                              } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
+                            >
+                              <HomeIcon className='relative h-6 w-6 ml-0 -mr-11'/>
+                              <span className='flex justify-center items-center mr-24 mt-0.5'>Home</span>
+                            </a>
+                          )}
+                        </Menu.Item>
+                        {/* <Menu.Item
+                          as="span"
+                          disabled
+                          className="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50"
+                        >
+                          New feature (soon)
+                        </Menu.Item> */}
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="/about"
+                              className={`${
+                                active
+                                  ? "bg-gray-100 text-gray-900"
+                                  : "text-gray-700"
+                              } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
+                            >
+                              <ChatIcon className='relative h-6 w-6 ml-0 -mr-11'/>
+                              <span className='flex justify-center items-center mr-24 mt-0.5'>About</span>
+                            </a>
+                          )}
+                        </Menu.Item>
+                      </div>
+                      <div className="py-1">
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              onClick={logout}
+                              className={`${
+                                active
+                                  ? "bg-gray-100 text-gray-900"
+                                  : "text-gray-700"
+                              } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
+                            >
+                              Sign out
+                            </a>
+                          )}
+                        </Menu.Item>
+                      </div>
+                    </Menu.Items>
+                  </Transition>
+                </>
+              )}
+            </Menu>
                   )}
                 </div>
               </nav>
             </div>
-
             {/* <Transition
               as={Fragment}
               enter='duration-150 ease-out'
