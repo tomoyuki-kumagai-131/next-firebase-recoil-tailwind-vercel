@@ -80,7 +80,7 @@ export default function Header() {
                     </a>
                   ))}
                 </div>
-                <div className='-mt-2 mb-1 sm:-mt-2 md:-mt-2 lg:mb-0 lg:-mt-2'>
+                <div className='-mt-2 mb-1 sm:-mt-2 md:-mt-2 lg:mb-0 lg:-mt-1'>
                 { !user && (
                     <span>
                       <button onClick={()=> setOpen(true)} class='bg-teal-500 hover:bg-blue-700 text-white py-2 px-2 rounded-md'>
@@ -89,7 +89,7 @@ export default function Header() {
                       <ModalLogin />
                     </span>
                   )}
-            { user && (
+              { user && (
               <>
               <PlusCircleIcon onClick={()=> setPostOpen(true)} className='relative h-8 w-8 flex mr-3 -mt-7 sm:hidden md:hidden lg:hidden' />
               <ModalPost />
