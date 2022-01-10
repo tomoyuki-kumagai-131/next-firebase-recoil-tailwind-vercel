@@ -1,5 +1,5 @@
 import { AnnotationIcon, PencilIcon, SearchIcon, TrashIcon } from "@heroicons/react/outline"
-import { collection, deleteDoc, doc, onSnapshot, orderBy, query } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp } from "firebase/firestore";
 import { useEffect, useRef, useState } from "react";
 import { useAuthContext } from "../context/AuthContext"
 import { db } from "../lib/firebase";
@@ -10,13 +10,30 @@ function Todos() {
 
   console.log(user);
 
-  const [ isLoading, setIsLoading ] = useState(false);
+  const [ loading, setLoading ] = useState(false);
   const [ posts, setPosts ] = useState([])
 
   const titleRef = useRef(null);
 	const descriptionRef = useRef(null);
 
-  // 夢の削除
+  // 投稿
+	const postDream = async () => {
+		if (loading) return;
+		setLoading(true);
+		await addDoc(collection(db, "posts"), {
+			username: user.displayName,
+			title: titleRef.current.value,
+			description: descriptionRef.current.value,
+			photoURL: user.photoURL,
+			timestamp: serverTimestamp(),
+		});
+		setLoading(false);
+    titleRef.current.value = '';
+    descriptionRef.current.value = '';
+  };
+
+
+  // 投稿の削除
   const deletePost = async ( id, res ) => {
     // setIsLoading(true);
     if(confirm('この夢を削除します')) {
@@ -32,10 +49,10 @@ function Todos() {
     onSnapshot(query(collection(db, 'posts'), orderBy('timestamp', 'desc')), (snapshot) => {
       setPosts(snapshot.docs)
     })
-  },[db])
+  },[])
 
   return (
-    <div className=''>
+    <div className='bg-blue-50'>
       <h1 className="flex justify-center text-xl pt-3 lg:pt-6">Add Your Dream<AnnotationIcon  className='absolute h-5 w-5 mt-1 ml-24' /></h1>
 
       {/* Dream入力エリア */}
@@ -56,6 +73,7 @@ function Todos() {
               />
               <div className="mt-5 sm:mt-6 lg:mt-5">
                 <button
+                  onClick={postDream}
                   type="button"
                   className="inline-flex justify-center w-full rounded-md border border-transparent shadow-md  py-3  w-32 bg-red-400 text-base font-medium text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm disabled:bg-gray-300 disabled:cursor-not-allowed hover:disabled:bg-gray-300"
                 >
