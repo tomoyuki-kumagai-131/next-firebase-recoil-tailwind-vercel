@@ -9,3 +9,8 @@ export const modalPost = atom({
   key: 'modalPost',
   default: false
 })
+
+export const modalDelete = atom({
+  key: 'modalDelete',
+  default: false
+})
