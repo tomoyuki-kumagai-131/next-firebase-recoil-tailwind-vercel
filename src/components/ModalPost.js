@@ -21,6 +21,7 @@ function ModalPost() {
 		setLoading(true);
 		await addDoc(collection(db, "posts"), {
 			username: user.displayName,
+			uid: user.uid,
 			title: titleRef.current.value,
 			description: descriptionRef.current.value,
 			photoURL: user.photoURL,

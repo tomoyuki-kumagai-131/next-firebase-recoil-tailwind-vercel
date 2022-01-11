@@ -22,6 +22,7 @@ function Todos() {
 		setLoading(true);
 		await addDoc(collection(db, "posts"), {
 			username: user.displayName,
+      uid: user.uid,
 			title: titleRef.current.value,
 			description: descriptionRef.current.value,
 			photoURL: user.photoURL,
@@ -53,7 +54,7 @@ function Todos() {
 
   return (
     <div className='bg-blue-50'>
-      <h1 className="flex justify-center text-xl pt-3 lg:pt-6">Add Your Dream<AnnotationIcon  className='absolute h-5 w-5 mt-1 ml-24' /></h1>
+      <h1 className="flex justify-center text-xl pt-6 lg:pt-6">Add Your Dream<AnnotationIcon  className='absolute h-5 w-5 mt-1 ml-24' /></h1>
 
       {/* Dream入力エリア */}
       <form className="hidden sm:block text-center md:block text-center lg:block text-center xl:block text-center">
@@ -92,7 +93,9 @@ function Todos() {
           <Post
             key={post.id}
             id={post.id}
+            uid={post.data().uid}
             username={post.data().username}
+            photoURL={post.data().photoURL}
             title={post.data().title}
             description={post.data().description}
             timestamp={post.data().timestamp}
