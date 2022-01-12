@@ -1,11 +1,11 @@
 import { AnnotationIcon, PencilIcon, SearchIcon, TrashIcon } from "@heroicons/react/outline"
 import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp } from "firebase/firestore";
-import { useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { useAuthContext } from "../context/AuthContext"
 import { db } from "../lib/firebase";
 import Post from "./Post";
 
-const Posts: React.FC = () => {
+const Posts = () => {
   const {user} = useAuthContext();
 
   console.log(user);

@@ -2,6 +2,7 @@ import { HeartIcon, TrashIcon } from "@heroicons/react/outline"
 import { HeartIcon as HeartFullIcon } from "@heroicons/react/solid"
 import { collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp, setDoc } from "firebase/firestore";
 import moment from "moment";
+import { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import Moment from "react-moment";
 import { useRecoilState } from "recoil";
@@ -18,9 +19,10 @@ type Props = {
   title: string,
   description: string,
   timestamp: string,
+  children?: ReactNode
 }
 
-const Post: React.FC<Props> = ({id, username, uid, photoURL, title, description, timestamp}) => {
+const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description, timestamp }) => {
 
   const [ open, setOpen ] = useRecoilState(modalDelete);
 
