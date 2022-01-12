@@ -29,12 +29,12 @@ export default function Home() {
         ) : (
           <div className='flex grid items-center justify-center'>
             <h1 className='text-2xl my-3 p-5 text-center lg:text-3xl lg:p-9 lg:my-3'>⚡️Talexy</h1>
-            <h1 className='text-2xl p-1 text-center lg:text-3xl'>Make your small dreams come true!</h1>
-            <img className='flex justify-center items-center my-4' src='https://image.freepik.com/free-vector/business-team-work-process-steps-from-idea-target-business-workflow-business-process-efficiency-working-activity-pattern-concept-pinkish-coral-bluevector-isolated-illustration_335657-1649.jpg' />
+            <h1 className='text-2xl p-1 text-center lg:mb-8 lg:text-3xl'>Make your small dreams come true!</h1>
+            <img className='flex justify-center items-center my-4 mb-8' src='https://image.freepik.com/free-vector/business-team-work-process-steps-from-idea-target-business-workflow-business-process-efficiency-working-activity-pattern-concept-pinkish-coral-bluevector-isolated-illustration_335657-1649.jpg' />
             <div className='flex justify-center items-center'>
               <button onClick={()=> setOpen(true)} className='bg-teal-500 text-white border m-2 p-1 w-40 rounded-lg'>Log in</button>
               <ModalLogin />
-              <button onClick={()=> router.push('/')} className='border text-white bg-yellow-400 m-2 p-1 w-40 rounded-lg'>About</button>
+              <button onClick={()=> router.push('/about')} className='border text-white bg-yellow-400 m-2 p-1 w-40 rounded-lg'>About</button>
             </div>
           </div>
         ) }
