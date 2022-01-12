@@ -18,7 +18,7 @@ type Props = {
   photoURL: string,
   title: string,
   description: string,
-  timestamp: string,
+  timestamp: any,
   children?: ReactNode
 }
 
