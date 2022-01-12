@@ -11,13 +11,12 @@ import ModalLogin from './ModalLogin';
 
 import { Menu } from '@headlessui/react'
 import ModalPost from './ModalPost';
+import Link from 'next/link';
 
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Posts', href: '/posts' },
-  { name: 'Search', href: 'search' },
-  // { name: 'Login', href: '/login' },
+  { name: 'About', href: '/about' },
 ];
 
 export default function Header() {
@@ -57,9 +56,9 @@ export default function Header() {
                 <div className='flex items-center flex-grow flex-shrink-0 lg:flex-grow-0'>
                   <div className='flex items-center justify-between w-full md:w-auto'>
                       <span className='text-2xl -mt-4 lg:-mt-2'>
-                        <NextLink href='/'>
+                        <Link href='/'>
                           ⚡️ Talexy
-                        </NextLink>
+                        </Link>
                       </span>
                     {/* <div className='-mr-2 flex items-center md:hidden'>
                       <Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none'>
@@ -71,13 +70,13 @@ export default function Header() {
                 </div>
                 <div className='hidden md:block md:ml-10 md:pr-4 md:space-x-8'>
                   {navigation.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
                       href={item.href}
                       className='font-medium text-gray-500 hover:text-gray-900'
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
                 <div className='-mt-2 mb-1 sm:-mt-2 md:-mt-2 lg:-mb-1 lg:-mt-1 lg:ml-1'>
@@ -127,7 +126,7 @@ export default function Header() {
                           {({ active }) => (
                             <>
                             <a
-                              href="#account-settings"
+                              href="/"
                               className={`${
                                 active
                                   ? "bg-gray-100 text-gray-900"
@@ -155,13 +154,6 @@ export default function Header() {
                             </a>
                           )}
                         </Menu.Item>
-                        {/* <Menu.Item
-                          as="span"
-                          disabled
-                          className="flex justify-between w-full px-4 py-2 text-sm leading-5 text-left text-gray-700 cursor-not-allowed opacity-50"
-                        >
-                          New feature (soon)
-                        </Menu.Item> */}
                         <Menu.Item>
                           {({ active }) => (
                             <a
@@ -204,51 +196,6 @@ export default function Header() {
                 </div>
               </nav>
             </div>
-            {/* <Transition
-              as={Fragment}
-              enter='duration-150 ease-out'
-              enterFrom='opacity-0 scale-95'
-              enterTo='opacity-100 scale-100'
-              leave='duration-100 ease-in'
-              leaveFrom='opacity-100 scale-100'
-              leaveTo='opacity-0 scale-95'
-            > */}
-              {/* <Popover.Panel
-                focus
-                className='absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden'
-              >
-                <div className='rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden'>
-                  <div className='px-5 pt-4 flex items-center justify-between'>
-                    <NextLink href='/'>
-                      <span className='text-2xl'>⚡️ Talexy</span>
-                    </NextLink>
-                    <div className='-mr-2'>
-                      <Popover.Button className='bg-white rounded-md p-2 inline-flex items-center justify-center focus:outline-none'>
-                        <span className='sr-only'>Close main menu</span>
-                        <XIcon className='h-6 w-6' aria-hidden='true' />
-                      </Popover.Button>
-                    </div>
-                  </div> */}
-                  {/* <div className='px-2 pt-2'>
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className='block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50'
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                  <button onClick={()=> setOpen(true)} className='block w-full px-5 py-3 text-center font-medium text-gray-500 bg-white hover:bg-gray-400'>
-                    <span className='font-medium text-gray-500 hover:text-gray-900'>
-                      Log in
-                    </span>
-                  </button>
-                  <ModalLogin /> */}
-                {/* </div>
-              </Popover.Panel> */}
-            {/* </Transition> */}
           </Popover>
         </div>
       </div>
