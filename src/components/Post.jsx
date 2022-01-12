@@ -67,11 +67,11 @@ function Post({id, username, uid, photoURL, title, description, timestamp}) {
     <div className="flex justify-center items-center">
       <div className="">
         <div key={id} className="relative flex grid justify-center items-center mt-6 h-64 w-72 bg-gray-50 shadow-md rounded-lg mx-2 md:w-80 md:mt-10 lg:h-72 lg:w-80 lg:mt-10 lg:mb-8 xl:mx-10 ">
-          <h1 class="text-gray-800 text-xl -mt-7 mx-8">{title}</h1>
+          <h1 className="text-gray-800 text-xl -mt-7 mx-8">{title}</h1>
           <Moment fromNow className="text-xs -mt-36 ml-40 mx-1 -my-2 lg:mx-1 lg:ml-44 lg:-mt-40">
             {timestamp && timestamp.toDate()}
           </Moment>
-          <p class="text-gray-600 mx-10 -mt-40 lg:mx-8 lg:-mt-58">{description}</p>
+          <p className="text-gray-600 mx-10 -mt-40 lg:mx-8 lg:-mt-58">{description}</p>
           {hasLiked? (
             <HeartFullIcon onClick={likePost} className="absolute left-0 ml-4 text-red-400 border-none outline-none h-8 w-8 right-0 mt-52 mb-3 cursor-pointer mx-5 md:ml-3 lg:left-0 lg: ml-4 lg:-mb-3 lg:mx-4" />
           ) : (

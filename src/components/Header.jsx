@@ -83,7 +83,7 @@ export default function Header() {
                 <div className='-mt-2 mb-1 sm:-mt-2 md:-mt-2 lg:-mb-1 lg:-mt-1 lg:ml-1'>
                 { !user && (
                     <span>
-                      <button onClick={()=> setOpen(true)} class='bg-teal-500 hover:bg-blue-700 text-white py-2 px-2 rounded-md'>
+                      <button onClick={()=> setOpen(true)} className='bg-teal-500 hover:bg-blue-700 text-white py-2 px-2 rounded-md'>
                         <span>Log in</span>
                       </button>
                       <ModalLogin />

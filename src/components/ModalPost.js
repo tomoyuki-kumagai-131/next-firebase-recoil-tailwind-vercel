@@ -66,23 +66,6 @@ function ModalPost() {
 						leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
 					>
 						<div className="inline-block align-bottom bg-white w-86 rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-full sm:p-6 ">
-							{/* {selectedFile ? (
-								<img
-									className="w-full object-contain cursor-pointer"
-									src={selectedFile}
-									onClick={() => setSelectedFile(null)}
-								/>
-							) : (
-								<div
-									onClick={() => filePickerRef.current.click()}
-									className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 cursor-pointer"
-								>
-									<CameraIcon
-										className="h-6 w-6 text-red-500"
-										aria-hidden="true"
-									/>
-								</div>
-							)} */}
 							<h1 className="flex justify-center text-xl pt-1">
 								Add Your Dream
 								<AnnotationIcon className="absolute h-5 w-5 mt-1 ml-24" />

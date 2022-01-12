@@ -30,7 +30,6 @@ export default function Home() {
           <div className='flex grid items-center justify-center'>
             <h1 className='text-2xl my-3 p-5 text-center lg:text-3xl lg:p-9 lg:my-3'>⚡️Talexy</h1>
             <h1 className='text-2xl p-1 text-center lg:text-3xl'>Make your small dreams come true!</h1>
-            {/* <h2 className='text-xl -mt-12 my-0 p-7 lg:my-12'>小さな積み重ねが自己肯定感を高めてくれるはず 👍</h2> */}
             <img className='flex justify-center items-center my-4' src='https://image.freepik.com/free-vector/business-team-work-process-steps-from-idea-target-business-workflow-business-process-efficiency-working-activity-pattern-concept-pinkish-coral-bluevector-isolated-illustration_335657-1649.jpg' />
             <div className='flex justify-center items-center'>
               <button onClick={()=> setOpen(true)} className='bg-teal-500 text-white border m-2 p-1 w-40 rounded-lg'>Log in</button>

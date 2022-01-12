@@ -66,7 +66,6 @@ function Todos() {
               border-gray-300 focus:ring-black focus:border-black rounded-md"
                 type="text" placeholder="Add your dreams title"
               />
-              {/* <AnnotationIcon className="absolute h-5 w-5 top-1/2 right-0 mr-12 mt-2 text-gray-500 md:ml-40 xl:mr-96"/> */}
               <br/>
               <input ref={descriptionRef} className="bg-gray-200 w-80 h-14 pl-10 sm:text-sm lg:w-96 md:w-96
               border-gray-500 focus:ring-black focus:border-black rounded-md"
