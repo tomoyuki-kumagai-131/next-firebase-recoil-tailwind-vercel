@@ -1,4 +1,5 @@
 import { RecoilRoot } from "recoil";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { AuthProvider } from "../context/AuthContext";
 import "../styles/globals.css";
@@ -10,6 +11,7 @@ function MyApp({ Component, pageProps }) {
 				<RecoilRoot>
 					<Header />
 					<Component {...pageProps} />
+					<Footer />
 				</RecoilRoot>
 			</AuthProvider>
 		</>
