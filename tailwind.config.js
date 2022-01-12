@@ -4,9 +4,9 @@ module.exports = {
 	mode: "jit", //JITモードを有効化
 	// パージの対象ファイルを設定
 	purge: [
-		"./src/pages/**/*.{js,jsx}",
-		"./src/components/**/*.{js,jsx}",
-		"./src/components/*.{js,jsx}",
+		"./src/pages/**/*.{js,ts,tsx,jsx}",
+		"./src/components/**/*.{js,ts,tsx,jsx}",
+		"./src/components/*.{js,ts,tsx,jsx}",
 	],
 	darkMode: false,
 	theme: {

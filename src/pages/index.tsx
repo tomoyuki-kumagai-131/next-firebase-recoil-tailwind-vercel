@@ -10,7 +10,7 @@ import ModalLogin from '../components/ModalLogin'
 
 export default function Home() {
 
-  const { user } = useAuthContext();
+  const { user }: any = useAuthContext();
 
   const [ open, setOpen ] = useRecoilState(modalLogin)
 
