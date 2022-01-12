@@ -15,7 +15,7 @@ function Post({id, username, uid, photoURL, title, description, timestamp}) {
 
   const [ open, setOpen ] = useRecoilState(modalDelete);
 
-  const { user } = useAuthContext();
+  const { user }:any = useAuthContext();
 
   // 夢の削除
   const deletePost = async ( id, res ) => {

@@ -25,7 +25,7 @@ export default function Header() {
 
   const [ openPost, setPostOpen ] = useRecoilState(modalPost);
 
-  const { user } = useAuthContext();
+  const { user }:any = useAuthContext();
 
   const logout = () => {
     auth.signOut();
