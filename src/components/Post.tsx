@@ -10,8 +10,17 @@ import { db } from "../lib/firebase";
 import { modalDelete } from "./atoms/modalAtom";
 import ModalDelete from "./ModalDelete";
 
+type Props = {
+  id: string,
+  username: string,
+  uid: string,
+  photoURL: string,
+  title: string,
+  description: string,
+  timestamp: string,
+}
 
-function Post({id, username, uid, photoURL, title, description, timestamp}) {
+const Post: React.FC<Props> = ({id, username, uid, photoURL, title, description, timestamp}) => {
 
   const [ open, setOpen ] = useRecoilState(modalDelete);
 

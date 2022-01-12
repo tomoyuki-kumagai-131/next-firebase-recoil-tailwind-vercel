@@ -5,7 +5,7 @@ import { useAuthContext } from "../context/AuthContext"
 import { db } from "../lib/firebase";
 import Post from "./Post";
 
-function Posts() {
+const Posts: React.FC = () => {
   const {user} = useAuthContext();
 
   console.log(user);
@@ -35,7 +35,7 @@ function Posts() {
 
 
   // 投稿の削除
-  const deletePost = async ( id, res ) => {
+  const deletePost = async (id) => {
     // setIsLoading(true);
     if(confirm('この夢を削除します')) {
       // console.log(res.data());
