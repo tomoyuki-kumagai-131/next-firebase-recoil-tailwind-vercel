@@ -125,7 +125,7 @@ export default function Header() {
                         <Menu.Item>
                           {({ active }) => (
                             <>
-                            <a
+                            <span
                               href="/"
                               className={`${
                                 active
@@ -135,13 +135,13 @@ export default function Header() {
                             >
                               <CogIcon className='relative h-6 w-6 ml-0'/>
                               <span className='flex justify-center items-center mt-0.5 ml-2'>Account settings</span>
-                            </a>
+                            </span>
                             </>
                           )}
                         </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
-                            <a
+                            <span
                               href="/"
                               className={`${
                                 active
@@ -151,12 +151,12 @@ export default function Header() {
                             >
                               <HomeIcon className='relative h-6 w-6 ml-0'/>
                               <span className='justify-start items-center mt-0.5 ml-2'>Home</span>
-                            </a>
+                            </span>
                           )}
                         </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
-                            <a
+                            <span
                               href="/about"
                               className={`${
                                 active
@@ -166,14 +166,14 @@ export default function Header() {
                             >
                               <ChatIcon className='relative h-6 w-6 ml-0'/>
                               <span className='flex justify-center items-center mt-0.5 ml-2'>About</span>
-                            </a>
+                            </span>
                           )}
                         </Menu.Item>
                       </div>
                       <div className="py-1">
                         <Menu.Item>
                           {({ active }) => (
-                            <a
+                            <span
                               onClick={logout}
                               className={`${
                                 active
@@ -182,7 +182,7 @@ export default function Header() {
                               } flex justify-between w-full px-4 py-2 text-sm leading-5 text-left`}
                             >
                               Sign out
-                            </a>
+                            </span>
                           )}
                         </Menu.Item>
                       </div>
