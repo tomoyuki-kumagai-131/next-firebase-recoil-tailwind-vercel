@@ -11,7 +11,6 @@ function MyApp({ Component, pageProps }) {
 				<RecoilRoot>
 					<Header />
 					<Component {...pageProps} />
-					<Footer />
 				</RecoilRoot>
 			</AuthProvider>
 		</>
