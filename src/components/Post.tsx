@@ -18,7 +18,7 @@ function Post({id, username, uid, photoURL, title, description, timestamp}) {
   const { user }:any = useAuthContext();
 
   // 夢の削除
-  const deletePost = async ( id, res ) => {
+  const deletePost = async ( id ): Promise<void> => {
     // setIsLoading(true);
     if(confirm('この夢を削除します')) {
       // console.log(res.data());
@@ -33,7 +33,7 @@ function Post({id, username, uid, photoURL, title, description, timestamp}) {
   const [likes, setLikes] = useState([]);
   const [hasLiked, setHasLiked] = useState(false);
 
-  const likePost = async() => {
+  const likePost = async(): Promise<void> => {
     if(hasLiked) {
       await deleteDoc(doc(db, 'posts', id, 'likes', user.uid));
     } else {
@@ -96,4 +96,4 @@ function Post({id, username, uid, photoURL, title, description, timestamp}) {
   )
 }
 
-export default Post;
+export default Post

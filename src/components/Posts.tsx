@@ -5,7 +5,7 @@ import { useAuthContext } from "../context/AuthContext"
 import { db } from "../lib/firebase";
 import Post from "./Post";
 
-function Todos() {
+function Posts() {
   const {user} = useAuthContext();
 
   console.log(user);
@@ -106,4 +106,4 @@ function Todos() {
   )
 }
 
-export default Todos
+export default Posts
