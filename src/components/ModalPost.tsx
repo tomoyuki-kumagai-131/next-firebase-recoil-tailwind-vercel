@@ -73,7 +73,6 @@ function ModalPost() {
 							<form className="text-center">
 								<div className="relative rounded-md">
 									<div className="inset-y-0 pt-2 flex justify-center items-center">
-										{/* <PencilIcon className="absolute mx-32 h-4 w-4 text-gray-500 md:ml-40 lg:ml-80"/> */}
 										<div className="pt-2">
 											<input
 												ref={titleRef}
@@ -82,7 +81,6 @@ function ModalPost() {
 												type="text"
 												placeholder="Add your dreams title"
 											/>
-											{/* <AnnotationIcon className="absolute h-5 w-5 top-1/2 right-0 mr-12 mt-2 text-gray-500 md:ml-40 xl:mr-96"/> */}
 											<br />
 											<input
 												ref={descriptionRef}
