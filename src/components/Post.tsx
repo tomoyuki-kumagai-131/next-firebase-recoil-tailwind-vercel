@@ -31,7 +31,7 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
   // 夢の削除
   const deletePost = async ( id ): Promise<void> => {
     // setIsLoading(true);
-    if(confirm('この夢を削除します')) {
+    if(confirm('この投稿を削除します')) {
       // console.log(res.data());
       await deleteDoc(doc(db, "posts", id));
       // setIsLoading(false);
@@ -98,9 +98,6 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
           )}
           <img src={photoURL} className="absolute rounded-full h-7 w-7 right-0 mt-52 mr-20 mb-3 cursor-pointer lg:mr-20 lg:-mb-3" />
           <span className="absolute text-sm right-0 mt-52 mr-4 mb-3 cursor-pointer lg:mr-3 lg:-mb-3">{username}</span>
-          {/* <TrashIcon onClick={() => setOpen(true)} className="absolute h-7 w-7 right-0 mt-52 mr-4 mb-3 cursor-pointer lg:mr-4 lg:-mb-3" /> */}
-          {/* <HeartIcon onClick={() => setOpen(true)} className="absolute h-7 w-7 right-0 mt-52 mr-4 mb-3 cursor-pointer lg:left-0 lg: ml-4 lg:-mb-3" /> */}
-          {/* <ModalDelete deletePost={deletePost} id={id} /> */}
         </div>
       </div>
     </div>

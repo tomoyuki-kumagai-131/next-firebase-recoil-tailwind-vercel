@@ -3,7 +3,7 @@ function about() {
     <div className="h-screen">
       <div className='items-center justify-center'>
         <h1 className='text-2xl my-3 p-5 text-center lg:text-3xl lg:p-9 lg:my-3'>⚡️Talexy</h1>
-        <p className='text-xl p-4 text-center lg:text-xl'>Talexyは小さな夢から大きな夢まで、カジュアルに投稿することができるアプリです。</p>
+        <p className='text-xl p-4 text-center lg:text-xl'>Talexyは小さな目標から大きな目標まで、カジュアルに投稿することができるアプリです。</p>
         <p className='text-xl p-4 text-center lg:text-xl'>いいな！と思った投稿にはいいねを付けて交流しましょう。</p>
         <p className='text-xl p-4 text-center lg:text-xl'>使用技術</p>
         <p className='text-xl p-4 text-center lg:text-xl'>Next.js(React.js) / TypeScript / Recoil / Tailwind CSS / Firebase v9 / Vercel </p>
