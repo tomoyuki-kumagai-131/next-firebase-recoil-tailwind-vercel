@@ -145,22 +145,25 @@ const Header = () => {
                               } flex justify-start w-full px-4 py-2 text-sm leading-5 text-left`}
                             >
                               <HomeIcon className='relative h-6 w-6 ml-0'/>
-                              <span className='justify-start items-center mt-0.5 ml-2'>Home</span>
+                              <Link href='/'>
+                                <span className='justify-start items-center mt-0.5 ml-2'>Home</span>
+                              </Link>
                             </span>
                           )}
                         </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
                             <span
-                              href="/about"
-                              className={`${
+                            className={`${
                                 active
                                   ? "bg-gray-100 text-gray-900"
                                   : "text-gray-700"
                               } flex w-full px-4 py-2 text-sm leading-5 text-left`}
                             >
                               <ChatIcon className='relative h-6 w-6 ml-0'/>
-                              <span className='flex justify-center items-center mt-0.5 ml-2'>About</span>
+                              <Link href='/about'>
+                                <span className='flex justify-center items-center mt-0.5 ml-2'>About</span>
+                              </Link>
                             </span>
                           )}
                         </Menu.Item>
