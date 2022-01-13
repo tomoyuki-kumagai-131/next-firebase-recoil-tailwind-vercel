@@ -10,7 +10,7 @@ Talexyは小さな目標から大きな目標まで、カジュアルに投稿�
 いいな！と思った投稿にはいいねを付けて交流することができます。
 
 ## 使用技術
-Next.js(React.js) / JavaScript / TypeScript / Recoil / Tailwind CSS / Firebase v9 / Vercel
+Next.js(React.js) / React Hooks / JavaScript / TypeScript / Recoil / Tailwind CSS / Firebase v9 / Vercel
 
 - ユーザー管理はFirebase Authenticationで行なっています
 - データ管理はFirebase Firestoreで行なっています
