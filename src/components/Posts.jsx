@@ -54,7 +54,7 @@ const Posts = () => {
 
   return (
     <div className='bg-blue-50'>
-      <h1 className="flex justify-center text-xl pt-6 lg:pt-6">Add Your Dream<AnnotationIcon  className='absolute h-5 w-5 mt-1 ml-24' /></h1>
+      <h1 className="flex justify-center text-xl pt-6 lg:pt-6">Add Your Goal!<AnnotationIcon  className='absolute h-5 w-5 mt-1 ml-24' /></h1>
 
       {/* Dream入力エリア */}
       <form className="hidden sm:block text-center md:block text-center lg:block text-center xl:block text-center">

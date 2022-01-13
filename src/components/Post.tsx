@@ -51,6 +51,8 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
   const sendComment = async (e) => {
     e.preventDefault();
 
+    if (!comment) return;
+
     const commentToSend = comment;
     setComment('');
 
