@@ -14,6 +14,7 @@ Next.js(React.js) / JavaScript / TypeScript / Recoil / Tailwind CSS / Firebase v
 
 - ユーザー管理はFirebase Authenticationで行なっています
 - データ管理はFirebase Firestoreで行なっています
+- 状態管理はReact Hooks、Recoilで行なっています
 - CSSはTailwindCSSを利用しています
 - モーダル開閉など、Recoilを導入しています
 - Vercelにデプロイしています
