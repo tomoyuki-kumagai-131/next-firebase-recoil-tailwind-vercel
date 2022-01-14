@@ -26,6 +26,6 @@ Next.js(React.js) / React Hooks / JavaScript / TypeScript / Recoil / Tailwind CS
 - Vercelにデプロイしています
 
 ## 今後の追加予定機能等
-- コメント機能
+- ~~コメント機能~~→1/13対応済み
 - 画像投稿機能
 - TypeScript本格対応
