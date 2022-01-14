@@ -29,7 +29,7 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
   const { user }:any = useAuthContext();
 
   // 夢の削除
-  const deletePost = async ( id ): Promise<void> => {
+  const deletePost = async ( id: string ): Promise<void> => {
     // setIsLoading(true);
     if(confirm('この投稿を削除します')) {
       // console.log(res.data());
@@ -101,8 +101,6 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
     ),
     [likes]
   })
-
-  console.log(user);
 
   return (
     <div className="flex justify-center items-center">

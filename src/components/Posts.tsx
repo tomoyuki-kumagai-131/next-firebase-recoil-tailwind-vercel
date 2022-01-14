@@ -5,19 +5,29 @@ import { useAuthContext } from "../context/AuthContext"
 import { db } from "../lib/firebase";
 import Post from "./Post";
 
-const Posts = () => {
-  const {user} = useAuthContext();
+type UserInfo = {
+  id: string,
+  username: string,
+  uid: string,
+  title: string,
+  description: string,
+  photoURL: string,
+  timestamp: any,
+  data(): any,
+  deletePost: any
+}
 
-  console.log(user);
+const Posts: React.FC<UserInfo> = () => {
+  const {user} = useAuthContext();
 
   const [ loading, setLoading ] = useState(false);
   const [ posts, setPosts ] = useState([])
 
-  const titleRef = useRef(null);
-	const descriptionRef = useRef(null);
+  const titleRef = useRef<HTMLInputElement>(null);
+	const descriptionRef = useRef<HTMLInputElement>(null);
 
   // 投稿
-	const postDream = async () => {
+	const postDream = async (): Promise<void> => {
 		if (loading) return;
 		setLoading(true);
 		await addDoc(collection(db, "posts"), {
@@ -35,7 +45,7 @@ const Posts = () => {
 
 
   // 投稿の削除
-  const deletePost = async (id) => {
+  const deletePost = async (id: string) => {
     // setIsLoading(true);
     if(confirm('この夢を削除します')) {
       // console.log(res.data());
@@ -98,7 +108,6 @@ const Posts = () => {
             title={post.data().title}
             description={post.data().description}
             timestamp={post.data().timestamp}
-            deletePost={deletePost}
           />
         ))}
       </div>

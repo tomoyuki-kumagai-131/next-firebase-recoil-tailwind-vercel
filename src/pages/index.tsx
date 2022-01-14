@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import { useRecoilState } from 'recoil'
 import { modalLogin } from '../components/atoms/modalAtom'
 import ModalLogin from '../components/ModalLogin'
+import Posts from '../components/Posts'
 
 export default function Home() {
 
@@ -25,7 +26,7 @@ export default function Home() {
       </Head>
       <div className='bg-blue-50 h-screen'>
         { user ? (
-          <Todos />
+          <Posts />
         ) : (
           <div className='flex grid items-center justify-center'>
             <h1 className='text-2xl my-3 p-5 text-center lg:text-3xl lg:p-9 lg:my-3'>⚡️Talexy</h1>
