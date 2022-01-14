@@ -5,19 +5,7 @@ import { useAuthContext } from "../context/AuthContext"
 import { db } from "../lib/firebase";
 import Post from "./Post";
 
-type UserInfo = {
-  id: string,
-  username: string,
-  uid: string,
-  title: string,
-  description: string,
-  photoURL: string,
-  timestamp: any,
-  data(): any,
-  deletePost: any
-}
-
-const Posts: React.FC<UserInfo> = () => {
+const Posts: React.FC = () => {
   const {user} = useAuthContext();
 
   const [ loading, setLoading ] = useState(false);
