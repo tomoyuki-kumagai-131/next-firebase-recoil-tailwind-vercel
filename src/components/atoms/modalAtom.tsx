@@ -5,6 +5,11 @@ export const modalLogin = atom({
   default: false
 })
 
+export const modalGuestLogin = atom({
+  key: 'modalGuestLogin',
+  default: false
+})
+
 export const modalPost = atom({
   key: 'modalPost',
   default: false
