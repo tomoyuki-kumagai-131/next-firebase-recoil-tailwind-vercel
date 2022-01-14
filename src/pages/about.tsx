@@ -1,4 +1,5 @@
 function about() {
+
   return (
     <div className="h-screen">
       <div className='items-center justify-center'>
