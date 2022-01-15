@@ -7,9 +7,11 @@ Talexyは小さな目標から大きな目標まで、カジュアルに投稿�
 
 https://next-firebase-recoil-tailwind-vercel-tomo-0131.vercel.app/
 
-![スクリーンショット 2022-01-13 9 51 21](https://user-images.githubusercontent.com/63157348/149246310-a5be6743-f896-4eef-94aa-4f8e59b1d50f.png)
+![スクリーンショット 2022-01-15 0 15 18](https://user-images.githubusercontent.com/63157348/149538950-53201441-f60b-48e8-aea1-edcaa2e40c0b.png)
 
-![スクリーンショット 2022-01-13 9 54 02](https://user-images.githubusercontent.com/63157348/149246537-2b0fd33e-c6ce-4ce6-8861-5d6a7df70925.png)
+
+![スクリーンショット 2022-01-15 0 16 49](https://user-images.githubusercontent.com/63157348/149539100-e53be64d-b9e5-4b46-8475-9128a14b6d58.png)
+
 
 
 
@@ -27,5 +29,6 @@ Next.js(React.js) / React Hooks / JavaScript / TypeScript / Recoil / Tailwind CS
 
 ## 今後の追加予定機能等
 - ~~コメント機能~~→1/13対応済み
+- ゲストユーザーログイン機能を実装しました(Firebase Auth)
 - 画像投稿機能
-- TypeScript本格対応
+- TypeScript本格対応中
