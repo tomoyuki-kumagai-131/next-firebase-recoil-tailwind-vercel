@@ -17,7 +17,7 @@ const navigation = [
   { name: 'About', href: '/about' },
 ];
 
-const Header = () => {
+const Header:React.FC = () => {
 
   const [ open, setOpen ] = useRecoilState(modalLogin);
 
@@ -32,6 +32,8 @@ const Header = () => {
   }
 
   const defaultImage: string = 'https://cdn.imgbin.com/5/6/23/imgbin-computer-icons-avatar-user-profile-avatar-GHAXcd0jhNHcF0KLRkgjBDLPL.jpg'
+  const defaultName: string = 'ゲストユーザー'
+
 
   return (
     <div className='relative bg-white shadow-sm border-b'>
@@ -67,7 +69,6 @@ const Header = () => {
                     <Link
                       key={item.name}
                       href={item.href}
-                      // className='font-medium text-gray-500 hover:text-gray-900'
                     >
                       {item.name}
                     </Link>
@@ -81,7 +82,7 @@ const Header = () => {
                       </button>
                       <ModalLogin />
                     </span>
-                  )}
+                )}
               { user && (
               <>
               <PlusCircleIcon onClick={()=> setPostOpen(true)} className='relative h-8 w-8 flex mr-3 -mt-7 sm:hidden md:hidden lg:hidden' />
@@ -90,7 +91,7 @@ const Header = () => {
                 {({ open }) => (
                 <>
                   <span className="">
-                    <Menu.Button className="pt-2 lg:pt-3">
+                    <Menu.Button className="pt-2 lg:pt-2">
                       {user.photoURL ? (
                         <img src={user.photoURL} className='rounded-full w-9 h-9'/>
                       ):(
@@ -114,9 +115,15 @@ const Header = () => {
                     >
                       <div className="px-4 py-3">
                         <p className="text-sm leading-5">Signed in as</p>
-                        <p className="text-sm font-medium leading-5 text-gray-900 truncate">
-                          {user.displayName}
-                        </p>
+                        {user.displayName ? (
+                          <p className="text-sm font-medium leading-8 text-gray-700 truncate">
+                            {user.displayName}
+                          </p>
+                        ) : (
+                          <p className="text-sm font-medium leading-8 text-gray-700 truncate">
+                            {defaultName}
+                          </p>
+                        )}
                       </div>
 
                       <div className="py-1">
