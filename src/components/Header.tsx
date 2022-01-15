@@ -7,12 +7,9 @@ import { useAuthContext } from '../context/AuthContext';
 import { auth } from '../lib/firebase';
 import { modalLogin, modalPost } from './atoms/modalAtom';
 import ModalLogin from './ModalLogin';
-// import ModalLogin from './ModalLogin';
-
 import { Menu } from '@headlessui/react'
 import ModalPost from './ModalPost';
 import Link from 'next/link';
-import { ReactNode } from 'react';
 
 
 const navigation = [
@@ -33,6 +30,8 @@ const Header = () => {
     alert('ログアウト完了')
     location.reload()
   }
+
+  const defaultImage: string = 'https://cdn.imgbin.com/5/6/23/imgbin-computer-icons-avatar-user-profile-avatar-GHAXcd0jhNHcF0KLRkgjBDLPL.jpg'
 
   return (
     <div className='relative bg-white shadow-sm border-b'>
@@ -68,7 +67,7 @@ const Header = () => {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className='font-medium text-gray-500 hover:text-gray-900'
+                      // className='font-medium text-gray-500 hover:text-gray-900'
                     >
                       {item.name}
                     </Link>
@@ -92,7 +91,11 @@ const Header = () => {
                 <>
                   <span className="">
                     <Menu.Button className="pt-2 lg:pt-3">
-                      <img src={user.photoURL} className='rounded-full w-9 h-9'/>
+                      {user.photoURL ? (
+                        <img src={user.photoURL} className='rounded-full w-9 h-9'/>
+                      ):(
+                        <img src={defaultImage} className='rounded-full w-9 h-9'/>
+                      )}
                     </Menu.Button>
                   </span>
 
@@ -107,7 +110,7 @@ const Header = () => {
                   >
                     <Menu.Items
                       static
-                      className="absolute right-0 w-56 mt-2 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none"
+                      className="absolute right-0 w-56 mt-0 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none lg:mr-64 lg:-mt-1"
                     >
                       <div className="px-4 py-3">
                         <p className="text-sm leading-5">Signed in as</p>
@@ -121,7 +124,6 @@ const Header = () => {
                           {({ active }) => (
                             <>
                             <span
-                              href="/"
                               className={`${
                                 active
                                   ? "bg-gray-100 text-gray-900"
@@ -137,7 +139,6 @@ const Header = () => {
                         <Menu.Item>
                           {({ active }) => (
                             <span
-                              href="/"
                               className={`${
                                 active
                                   ? "bg-gray-100 text-gray-900"
