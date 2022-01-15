@@ -138,7 +138,9 @@ const Header:React.FC = () => {
                               } flex w-full px-4 py-2 text-sm leading-5 text-left`}
                             >
                               <CogIcon className='relative h-6 w-6 ml-0'/>
-                              <span className='flex justify-center items-center mt-0.5 ml-2'>Account settings</span>
+                              <Link href='/mypage'>
+                                <span className='justify-start items-center mt-0.5 ml-2'>My page</span>
+                              </Link>
                             </span>
                             </>
                           )}
