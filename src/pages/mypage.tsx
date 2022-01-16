@@ -9,11 +9,11 @@ import { db } from "../lib/firebase";
 
 function mypage() {
 
-  const { user } = useAuthContext();
+  // const { user } = useAuthContext();
 
-  const [ posts, setPosts ] = useState([]);
+  // const [ posts, setPosts ] = useState([]);
 
-    // いいね機能のstate
+  //   // いいね機能のstate
   //   const [likes, setLikes] = useState([]);
   //   const [hasLiked, setHasLiked] = useState(false);
 
