@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Popover, Transition } from '@headlessui/react';
-import { ChatIcon, CogIcon, HomeIcon, MenuIcon, PlusCircleIcon, XIcon } from '@heroicons/react/outline';
+import { ChatIcon, CogIcon, HomeIcon, MenuIcon, PlusCircleIcon, SearchIcon, XIcon } from '@heroicons/react/outline';
 import NextLink from 'next/link';
 import { useRecoilState } from 'recoil';
 import { useAuthContext } from '../context/AuthContext';
@@ -74,6 +74,7 @@ const Header:React.FC = () => {
                     </Link>
                   ))}
                 </div>
+
                 <div className='-mt-2 mb-1 sm:-mt-2 md:-mt-2 lg:-mb-1 lg:-mt-1 lg:ml-1'>
                 { !user && (
                     <span>

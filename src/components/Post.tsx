@@ -2,6 +2,8 @@ import { EmojiHappyIcon, HeartIcon, TrashIcon } from "@heroicons/react/outline"
 import { HeartIcon as HeartFullIcon } from "@heroicons/react/solid"
 import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp, setDoc } from "firebase/firestore";
 import moment from "moment";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import Moment from "react-moment";
@@ -102,15 +104,31 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
     [likes]
   })
 
+  const router = useRouter();
+
   return (
     <div className="flex justify-center items-center">
       <div className="">
         <div key={id} className="relative flex grid justify-center items-center mt-6 h-96 w-96 bg-gray-50 shadow-md md:w-80 md:mt-10 lg:h-108 lg:w-96 lg:mt-10 lg:mb-8 xl:mx-10">
-          <h1 className="absolute text-gray-800 text-xl mx-2 -mt-80 ml-6 mx-5 lg:-mt-78 lg:ml-6">{title}</h1>
+          <h1 className="absolute text-gray-800 text-xl mx-2 -mt-80 ml-6 mx-5 lg:-mt-78 lg:ml-6">
+          <Link
+            href={{
+              pathname: "/posts/[id]",
+							query: {
+								id: id,
+                title: title,
+                ...router.query
+              },
+						}}
+            // as={`/posts/${id}`}
+					>
+            {title}
+          </Link>
+          </h1>
           <Moment fromNow className="absolute text-xs -mt-72 right-0 mr-10 mx-1 -my-2 lg:right-0 lg:-mt-64 lg:mr-3">
             {timestamp && timestamp.toDate()}
           </Moment>
-          <p className="absolute text-gray-600 mx-2 -mt-48 mx-7 lg:mx-8 lg:-mt-24">{description}</p>
+          <p className="absolute text-gray-600 mx-2 -mt-48 mx-7 truncate lg:mx-8 lg:-mt-24">{description}</p>
           {hasLiked? (
             <HeartFullIcon onClick={likePost} className="absolute left-0 ml-6 text-red-400 border-none outline-none h-8 w-8 right-0 mt-64 mb-4 cursor-pointer mx-5 md:ml-3 lg:left-0 lg:ml-4 lg:mb-3 lg:mx-4" />
           ) : (
