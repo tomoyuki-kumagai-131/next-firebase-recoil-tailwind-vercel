@@ -4,13 +4,13 @@ import { HeartIcon as HeartFullIcon } from "@heroicons/react/solid"
 
 import { useState } from "react";
 import { useEffect } from "react";
-import { useAuthContext } from "../context/AuthContext"
 import { db } from "../lib/firebase";
+import { UseAuthContext } from "../context/AuthContext";
 
 function Mypage() {
 
   const [ loading, setLoading ] = useState(false)
-  const { user } = useAuthContext();
+  const { user } = UseAuthContext();
 
   const [ posts, setPosts ] = useState([]);
 
