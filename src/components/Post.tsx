@@ -1,4 +1,4 @@
-import { EmojiHappyIcon, HeartIcon, TrashIcon } from "@heroicons/react/outline"
+import { EmojiHappyIcon, HeartIcon, PencilAltIcon, TrashIcon } from "@heroicons/react/outline"
 import { HeartIcon as HeartFullIcon } from "@heroicons/react/solid"
 import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp, setDoc } from "firebase/firestore";
 import moment from "moment";
@@ -8,7 +8,7 @@ import { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import Moment from "react-moment";
 import { useRecoilState } from "recoil";
-import { useAuthContext } from "../context/AuthContext";
+import { UseAuthContext } from "../context/AuthContext";
 import { db } from "../lib/firebase";
 import { modalDelete } from "./atoms/modalAtom";
 import ModalDelete from "./ModalDelete";
@@ -28,7 +28,7 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
 
   const [ open, setOpen ] = useRecoilState(modalDelete);
 
-  const { user }:any = useAuthContext();
+  const { user } = UseAuthContext();
 
   // 夢の削除
   const deletePost = async ( id: string ): Promise<void> => {
@@ -108,16 +108,27 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
 
   const seeMore = (id, e) => {
     e.stopPropagation();
-    router.replace(`/posts/${id}`)
+    router.push(`/posts/${id}`)
   }
 
   return (
     <div className="flex justify-center items-center">
       <div className="">
         <div key={id} className="relative flex grid justify-center items-center mt-6 h-96 w-96 bg-gray-50 shadow-md md:w-80 md:mt-10 lg:h-108 lg:w-96 lg:mt-10 lg:mb-8 xl:mx-10">
-          <h1 className="absolute text-gray-800 text-xl mx-2 -mt-80 ml-6 mx-5 lg:-mt-78 lg:ml-6">
-          <span onClick={(e)=> seeMore(id, e)}>{title}</span>
+          <h1 className="absolute text-gray-800 text-xl mx-2 -mt-80 ml-6 mx-5 lg:-mt-78 lg:ml-6 border-b-2 border-blue-500 cursor-point8">
+            <span onClick={(e)=> seeMore(id, e)}>
+              {title}
+            </span>
           </h1>
+          {user && uid == user.uid && (
+            <>
+            <Link href={{
+              pathname: `/posts/${id}`
+            }}>
+              <PencilAltIcon className="relative h-7 w-7 -mt-32 ml-64 my-4"/>
+            </Link>
+            </>
+          )}
           <Moment fromNow className="absolute text-xs -mt-72 right-0 mr-10 mx-1 -my-2 lg:right-0 lg:-mt-64 lg:mr-3">
             {timestamp && timestamp.toDate()}
           </Moment>

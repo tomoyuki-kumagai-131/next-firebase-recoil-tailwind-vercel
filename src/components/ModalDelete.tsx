@@ -7,14 +7,14 @@ import {
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { Fragment, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
-import { useAuthContext } from "../context/AuthContext";
+import { UseAuthContext } from "../context/AuthContext";
 import { auth, db, provider } from "../lib/firebase";
 import { modalDelete, modalPost } from "./atoms/modalAtom";
 
 function ModalDelete({ deletePost, id }) {
 	const [open, setOpen] = useRecoilState(modalDelete);
 	const [loading, setLoading] = useState(false);
-	const { user } = useAuthContext();
+	const { user } = UseAuthContext();
 
 	return (
 		<Transition.Root show={open} as={Fragment}>

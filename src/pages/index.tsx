@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Todos from '../components/Posts'
-import { useAuthContext } from '../context/AuthContext'
+import { UseAuthContext } from '../context/AuthContext'
 import styles from '../styles/Home.module.css'
 import { useRouter } from 'next/router'
 import { useRecoilState } from 'recoil'
@@ -12,7 +12,7 @@ import ModalGuestLogin from '../components/ModalGuestLogin'
 
 export default function Home() {
 
-  const { user }: any = useAuthContext();
+  const { user }: any = UseAuthContext();
 
   const [ open, setOpen ] = useRecoilState(modalLogin)
 

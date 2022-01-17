@@ -10,7 +10,7 @@ import { modalGuestLogin, modalLogin } from "./atoms/modalAtom";
 function ModalGuestLogin() {
 	const [openGuestModal, setOpenGuestModal] = useRecoilState(modalGuestLogin)
 	const router = useRouter();
-	const [ user, setUser ] = useState('')
+	const [ user, setUser ] = useState('');
 
 	const handleLogin = async (e):Promise<void> => {
 		try {

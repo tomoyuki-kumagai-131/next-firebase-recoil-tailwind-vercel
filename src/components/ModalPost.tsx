@@ -4,14 +4,14 @@ import { signInWithPopup, signInWithRedirect } from "firebase/auth";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { Fragment, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
-import { useAuthContext } from "../context/AuthContext";
+import { UseAuthContext } from "../context/AuthContext";
 import { auth, db, provider } from "../lib/firebase";
 import { modalPost } from "./atoms/modalAtom";
 
 function ModalPost() {
 	const [open, setOpen] = useRecoilState(modalPost);
 	const [loading, setLoading] = useState(false);
-	const { user } = useAuthContext();
+	const { user } = UseAuthContext();
 
 	const titleRef = useRef(null);
 	const descriptionRef = useRef(null);

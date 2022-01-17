@@ -3,7 +3,7 @@ import { auth } from "../lib/firebase";
 
 const AuthContext = createContext();
 
-export function useAuthContext() {
+export function UseAuthContext() {
   return useContext(AuthContext);
 }
 
