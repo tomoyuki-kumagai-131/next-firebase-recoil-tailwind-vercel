@@ -1,4 +1,4 @@
-import { EmojiHappyIcon, HeartIcon, TrashIcon } from "@heroicons/react/outline"
+import { EmojiHappyIcon, HeartIcon, PencilAltIcon, TrashIcon } from "@heroicons/react/outline"
 import { HeartIcon as HeartFullIcon } from "@heroicons/react/solid"
 import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp, setDoc } from "firebase/firestore";
 import moment from "moment";
@@ -115,9 +115,16 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
     <div className="flex justify-center items-center">
       <div className="">
         <div key={id} className="relative flex grid justify-center items-center mt-6 h-96 w-96 bg-gray-50 shadow-md md:w-80 md:mt-10 lg:h-108 lg:w-96 lg:mt-10 lg:mb-8 xl:mx-10">
-          <h1 className="absolute text-gray-800 text-xl mx-2 -mt-80 ml-6 mx-5 lg:-mt-78 lg:ml-6 border-b-2 border-blue-500 cursor-pointer">
-            <span onClick={(e)=> seeMore(id, e)}>{title}</span>
+          <h1 className="absolute text-gray-800 text-xl mx-2 -mt-80 ml-6 mx-5 lg:-mt-78 lg:ml-6 border-b-2 border-blue-500 cursor-point8">
+            <span onClick={(e)=> seeMore(id, e)}>
+              {title}
+            </span>
           </h1>
+          {user && uid == user.uid && (
+            <>
+              <PencilAltIcon className="relative h-7 w-7 -mt-32 ml-64 my-4" onClick={()=>router.push('/')} />
+            </>
+          )}
           <Moment fromNow className="absolute text-xs -mt-72 right-0 mr-10 mx-1 -my-2 lg:right-0 lg:-mt-64 lg:mr-3">
             {timestamp && timestamp.toDate()}
           </Moment>

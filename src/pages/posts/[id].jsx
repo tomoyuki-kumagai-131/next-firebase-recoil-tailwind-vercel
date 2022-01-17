@@ -1,3 +1,4 @@
+import { ArrowCircleLeftIcon } from "@heroicons/react/outline";
 import { collection, doc, docs, getDoc, getDocs, onSnapshot, query, where } from "firebase/firestore";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
@@ -48,6 +49,7 @@ export const getServerSideProps = async (ctx) => {
 // }
 
 function posts({postProps, likesProps}) {
+  const router = useRouter();
   // console.log(postProps);
   const post = JSON.parse(postProps);
   const likes = JSON.parse(likesProps);
@@ -62,10 +64,10 @@ function posts({postProps, likesProps}) {
   return (
     <div className="justify-center items-center">
       <div className="relative flex grid justify-center items-center mt-6 h-96 w-96 bg-gray-50 shadow-md md:w-80 md:mt-10 lg:h-108 lg:w-96 lg:mt-10 lg:mb-8 xl:mx-10">
-        <h1 className="absolute text-gray-800 text-xl mx-2 -mt-80 ml-6 mx-5 lg:-mt-78 lg:ml-6">
+        <h1 className="text-gray-800 text-xl mx-2">
           <span >{post.title}</span>
         </h1>
-        <p>{post.description}</p>
+        <p className="">{post.description}</p>
 
       {/* {likes.map((like)=> {
         return (
@@ -73,7 +75,10 @@ function posts({postProps, likesProps}) {
         )
         })
       } */}
-      <p>{likes.length} Likes</p>
+      <p className="right-0">{likes.length} Likes</p>
+      </div>
+      <div className="flex justify-center">
+        <ArrowCircleLeftIcon className="relative h-10 w-10 mt-5" onClick={()=>router.push('/')} />
       </div>
     </div>
   )
