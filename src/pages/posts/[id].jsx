@@ -3,36 +3,46 @@ import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { db } from "../../lib/firebase";
-import superjson from 'superjson';
 
 export const getServerSideProps = async (ctx) => {
-  console.log(ctx.query.id);
 
-  const docRef = collection(db, 'posts')
-  // const q =  JSON.parse(JSON.stringify(docRef))
+  const id = ctx.params.id;
 
-  const q = query(docRef, where('id', '==', ctx.query.id))
+  console.log(id);
 
-  // console.log(q);
+  const docRef = doc(db, 'posts', id)
 
-  const newQ = JSON.parse(JSON.stringify(q))
-
-
-  const querySnapshot = await getDocs(newQ)
+  const docSnap = await getDoc(docRef)
 
   return {
-    props: { querySnapshot } // ページコンポーネントにpropsとして渡されます。
+    props: { postProps: JSON.stringify(docSnap.data()) || null } // ページコンポーネントにpropsとして渡されます。
   }
 }
 
-function posts({id, title, querySnapshot}) {
-  const router = useRouter();
+// export const getStaticPaths = async() => {
 
+//   const snapshot = await getDocs(collection(db, 'posts'));
+//   const paths = snapshot.docs.map((doc) => {
+//     return {
+//       params: { id: doc.id.toString() }
+//     }
+//   })
+
+//   return {
+//     paths, fallback: false
+//   }
+// }
+
+function posts({postProps}) {
+  const router = useRouter();
+  const post = JSON.parse(postProps);
+  console.log(post);
   // console.log(router.query);
 
   return (
     <div>
       <p>詳細ページ</p>
+      <p>{post.title}</p>
     </div>
   )
 }
