@@ -28,7 +28,7 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
 
   const [ open, setOpen ] = useRecoilState(modalDelete);
 
-  const { user }:any = useAuthContext();
+  const { user } = useAuthContext();
 
   // 夢の削除
   const deletePost = async ( id: string ): Promise<void> => {
@@ -122,7 +122,9 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
           </h1>
           {user && uid == user.uid && (
             <>
-            <Link href={`/posts/${id}`}>
+            <Link href={{
+              pathname: `/posts/${id}`
+            }}>
               <PencilAltIcon className="relative h-7 w-7 -mt-32 ml-64 my-4"/>
             </Link>
             </>
