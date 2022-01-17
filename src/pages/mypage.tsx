@@ -9,9 +9,9 @@ import { db } from "../lib/firebase";
 
 function mypage() {
 
-  // const { user } = useAuthContext();
+  const { user } = useAuthContext();
 
-  // const [ posts, setPosts ] = useState([]);
+  const [ posts, setPosts ] = useState([]);
 
   //   // いいね機能のstate
   //   const [likes, setLikes] = useState([]);
@@ -30,11 +30,11 @@ function mypage() {
   //   }
   // }
 
-//   useEffect(()=> {
-//     onSnapshot(query(collection(db, 'posts'), where('uid', '==', user.uid)), (snapshot) => {
-//       setPosts(snapshot.docs)
-//     })
-//   },[])
+  useEffect(()=> {
+    onSnapshot(query(collection(db, 'posts'), where('uid', '==', user.uid)), (snapshot) => {
+      setPosts(snapshot.docs)
+    })
+  },[])
 
 //   useEffect(() =>
 //   onSnapshot(
