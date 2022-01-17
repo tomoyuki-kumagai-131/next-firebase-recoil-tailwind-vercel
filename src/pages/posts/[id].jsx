@@ -1,21 +1,35 @@
-import { collection, doc, getDoc, getDocs, onSnapshot, query, where } from "firebase/firestore";
+import { collection, doc, docs, getDoc, getDocs, onSnapshot, query, where } from "firebase/firestore";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useAuthContext } from "../../context/AuthContext";
 import { db } from "../../lib/firebase";
 
 export const getServerSideProps = async (ctx) => {
+  try {
+    const id = ctx.params.id;
 
-  const id = ctx.params.id;
+    const docRef = doc(db, 'posts', id)
 
-  console.log(id);
+    const docLikesRef = query(collection(db, 'posts', id, 'likes'));
+    // console.log(docLikesRef);
 
-  const docRef = doc(db, 'posts', id)
+    const docSnap = await getDoc(docRef)
+    // console.log(docSnap);
 
-  const docSnap = await getDoc(docRef)
+    const likesSnap = await getDocs(docLikesRef)
+    console.log(likesSnap);
+
+    const likesProps = likesSnap.docs.map((doc) => doc.data())
 
   return {
-    props: { postProps: JSON.stringify(docSnap.data()) || null } // ページコンポーネントにpropsとして渡されます。
+    props: {
+      postProps: JSON.stringify(docSnap.data()) || null,
+      likesProps: JSON.stringify(likesProps)
+    }
+  }
+  } catch(err) {
+    console.log(err);
   }
 }
 
@@ -33,16 +47,34 @@ export const getServerSideProps = async (ctx) => {
 //   }
 // }
 
-function posts({postProps}) {
-  const router = useRouter();
+function posts({postProps, likesProps}) {
+  // console.log(postProps);
   const post = JSON.parse(postProps);
-  console.log(post);
+  const likes = JSON.parse(likesProps);
+  // console.log(likes);
+  // const likes = JSON.parse(likesProps);
+  // console.log(post);
+  // console.log(likes);
   // console.log(router.query);
 
+  const { user } = useAuthContext();
+
   return (
-    <div>
-      <p>詳細ページ</p>
-      <p>{post.title}</p>
+    <div className="justify-center items-center">
+      <div className="relative flex grid justify-center items-center mt-6 h-96 w-96 bg-gray-50 shadow-md md:w-80 md:mt-10 lg:h-108 lg:w-96 lg:mt-10 lg:mb-8 xl:mx-10">
+        <h1 className="absolute text-gray-800 text-xl mx-2 -mt-80 ml-6 mx-5 lg:-mt-78 lg:ml-6">
+          <span >{post.title}</span>
+        </h1>
+        <p>{post.description}</p>
+
+      {/* {likes.map((like)=> {
+        return (
+          <p>{like.username}</p>
+        )
+        })
+      } */}
+      <p>{likes.length} Likes</p>
+      </div>
     </div>
   )
 }

@@ -4,13 +4,14 @@ import { signInWithEmailAndPassword, signInWithPopup, signInWithRedirect } from 
 import Router, { useRouter } from "next/router";
 import { Fragment, useState } from "react";
 import { useRecoilState } from "recoil";
+import { useAuthContext } from "../context/AuthContext";
 import { auth, provider } from "../lib/firebase";
 import { modalGuestLogin, modalLogin } from "./atoms/modalAtom";
 
 function ModalGuestLogin() {
 	const [openGuestModal, setOpenGuestModal] = useRecoilState(modalGuestLogin)
 	const router = useRouter();
-	const [ user, setUser ] = useState('')
+	const [ user, setUser ] = useState('');
 
 	const handleLogin = async (e):Promise<void> => {
 		try {
