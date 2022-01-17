@@ -9,6 +9,7 @@ import { db } from "../lib/firebase";
 
 function mypage() {
 
+  const [ loading, setLoading ] = useState(false)
   const { user } = useAuthContext();
 
   const [ posts, setPosts ] = useState([]);
@@ -31,9 +32,11 @@ function mypage() {
   // }
 
   useEffect(()=> {
+    setLoading(true)
     onSnapshot(query(collection(db, 'posts'), where('uid', '==', user.uid)), (snapshot) => {
       setPosts(snapshot.docs)
     })
+    setLoading(false)
   },[])
 
 //   useEffect(() =>
@@ -61,9 +64,9 @@ function mypage() {
       <div className="flex items-center justify-center">
         {user? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-          {posts.map((item) => {
+          {posts.map((item, i) => {
             return (
-              <div className="relative flex grid justify-center items-center mt-6 h-96 w-96 bg-gray-50 shadow-md md:w-80 md:mt-10 lg:h-108 lg:w-96 lg:mt-10 lg:mb-8 xl:mx-10">
+              <div className="relative flex grid justify-center items-center mt-6 h-96 w-96 bg-gray-50 shadow-md md:w-80 md:mt-10 lg:h-108 lg:w-96 lg:mt-10 lg:mb-8 xl:mx-10" key={i}>
                 <h1 className="absolute text-gray-800 text-xl mx-2 -mt-80 ml-6 mx-5 lg:-mt-78 lg:ml-6">{item.data().title}</h1>
                 <p className="absolute text-gray-600 mx-2 -mt-48 mx-7 lg:mx-8 lg:-mt-24">{item.data().description}</p>
               </div>
