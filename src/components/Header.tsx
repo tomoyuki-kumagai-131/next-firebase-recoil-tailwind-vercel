@@ -3,7 +3,7 @@ import { Popover, Transition } from '@headlessui/react';
 import { ChatIcon, CogIcon, HomeIcon, MenuIcon, PlusCircleIcon, SearchIcon, XIcon } from '@heroicons/react/outline';
 import NextLink from 'next/link';
 import { useRecoilState } from 'recoil';
-import { useAuthContext } from '../context/AuthContext';
+import { UseAuthContext } from '../context/AuthContext';
 import { auth } from '../lib/firebase';
 import { modalLogin, modalPost } from './atoms/modalAtom';
 import ModalLogin from './ModalLogin';
@@ -23,7 +23,7 @@ const Header:React.FC = () => {
 
   const [ openPost, setPostOpen ] = useRecoilState(modalPost);
 
-  const { user } = useAuthContext();
+  const { user } = UseAuthContext();
 
   const logout = () => {
     auth.signOut();

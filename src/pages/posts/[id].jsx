@@ -3,7 +3,7 @@ import { collection, doc, docs, getDoc, getDocs, onSnapshot, query, where } from
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useAuthContext } from "../../context/AuthContext";
+import { UseAuthContext, useAuthContext } from "../../context/AuthContext";
 import { db } from "../../lib/firebase";
 
 export const getServerSideProps = async (ctx) => {
@@ -59,7 +59,7 @@ function posts({postProps, likesProps}) {
   // console.log(likes);
   // console.log(router.query);
 
-  const { user } = useAuthContext();
+  const { user } = UseAuthContext();
 
   return (
     <div className="justify-center items-center">

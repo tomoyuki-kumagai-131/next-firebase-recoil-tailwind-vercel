@@ -8,7 +8,7 @@ import { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import Moment from "react-moment";
 import { useRecoilState } from "recoil";
-import { useAuthContext } from "../context/AuthContext";
+import { UseAuthContext } from "../context/AuthContext";
 import { db } from "../lib/firebase";
 import { modalDelete } from "./atoms/modalAtom";
 import ModalDelete from "./ModalDelete";
@@ -28,7 +28,7 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
 
   const [ open, setOpen ] = useRecoilState(modalDelete);
 
-  const { user } = useAuthContext();
+  const { user } = UseAuthContext();
 
   // 夢の削除
   const deletePost = async ( id: string ): Promise<void> => {
