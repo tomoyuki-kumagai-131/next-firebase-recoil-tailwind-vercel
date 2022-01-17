@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useAuthContext } from "../context/AuthContext"
 import { db } from "../lib/firebase";
 
-function mypage() {
+function Mypage() {
 
   const [ loading, setLoading ] = useState(false)
   const { user } = useAuthContext();
@@ -81,4 +81,4 @@ function mypage() {
   )
 }
 
-export default mypage
+export default Mypage
