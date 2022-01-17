@@ -4,7 +4,6 @@ import { signInWithEmailAndPassword, signInWithPopup, signInWithRedirect } from 
 import Router, { useRouter } from "next/router";
 import { Fragment, useState } from "react";
 import { useRecoilState } from "recoil";
-import { useAuthContext } from "../context/AuthContext";
 import { auth, provider } from "../lib/firebase";
 import { modalGuestLogin, modalLogin } from "./atoms/modalAtom";
 
