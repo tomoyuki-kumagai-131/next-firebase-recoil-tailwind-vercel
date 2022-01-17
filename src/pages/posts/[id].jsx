@@ -48,7 +48,7 @@ export const getServerSideProps = async (ctx) => {
 //   }
 // }
 
-function posts({postProps, likesProps}) {
+function PostDetail({postProps, likesProps}) {
   const router = useRouter();
   // console.log(postProps);
   const post = JSON.parse(postProps);
@@ -84,4 +84,4 @@ function posts({postProps, likesProps}) {
   )
 }
 
-export default posts;
+export default PostDetail;
