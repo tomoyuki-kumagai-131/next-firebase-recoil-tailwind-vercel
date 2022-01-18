@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { UseAuthContext, useAuthContext } from "../../context/AuthContext";
 import { db } from "../../lib/firebase";
 
-export const getServerSideProps = async (ctx) => {
+export const getStaticProps = async (ctx) => {
   try {
     const id = ctx.params.id;
 
@@ -35,19 +35,19 @@ export const getServerSideProps = async (ctx) => {
   }
 }
 
-// export const getStaticPaths = async() => {
+export const getStaticPaths = async() => {
 
-//   const snapshot = await getDocs(collection(db, 'posts'));
-//   const paths = snapshot.docs.map((doc) => {
-//     return {
-//       params: { id: doc.id.toString() }
-//     }
-//   })
+  const snapshot = await getDocs(collection(db, 'posts'));
+  const paths = snapshot.docs.map((doc) => {
+    return {
+      params: { id: doc.id.toString() }
+    }
+  })
 
-//   return {
-//     paths, fallback: false
-//   }
-// }
+  return {
+    paths, fallback: false
+  }
+}
 
 function PostDetail({postProps, likesProps, id}) {
   const router = useRouter();
