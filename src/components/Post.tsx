@@ -1,6 +1,6 @@
 import { EmojiHappyIcon, HeartIcon, PencilAltIcon, TrashIcon } from "@heroicons/react/outline"
 import { HeartIcon as HeartFullIcon } from "@heroicons/react/solid"
-import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp, setDoc } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 import moment from "moment";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -10,15 +10,16 @@ import Moment from "react-moment";
 import { useRecoilState } from "recoil";
 import { UseAuthContext } from "../context/AuthContext";
 import { db } from "../lib/firebase";
-import { modalDelete } from "./atoms/modalAtom";
+import { modalDelete, modalUpdate } from "./atoms/modalAtom";
 import ModalDelete from "./ModalDelete";
+import ModalUpdate from "./ModalUpdate";
 
 type Props = {
   id: string,
   username: string,
   uid: string,
   photoURL: string,
-  title: string,
+  title: any,
   description: string,
   timestamp: any,
   children?: ReactNode
@@ -27,6 +28,8 @@ type Props = {
 const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description, timestamp }) => {
 
   const [ open, setOpen ] = useRecoilState(modalDelete);
+
+  const [ openEdit, setOpenEdit ] = useRecoilState(modalUpdate);
 
   const { user } = UseAuthContext();
 
@@ -111,6 +114,11 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
     router.push(`/posts/${id}`)
   }
 
+  // const showEditModal = (ctx, id) => {
+  //   console.log(ctx);
+  //   setOpenEdit(true);
+  // }
+
   return (
     <div className="flex justify-center items-center">
       <div className="">
@@ -122,11 +130,8 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
           </h1>
           {user && uid == user.uid && (
             <>
-            <Link href={{
-              pathname: `/posts/${id}`
-            }}>
-              <PencilAltIcon className="absolute h-6 w-6 -mt-80 ml-80 my-3"/>
-            </Link>
+              <PencilAltIcon onClick={(e) => seeMore(id, e)} className="absolute h-6 w-6 -mt-80 ml-80 my-4 cursor-pointer"/>
+              {/* <ModalUpdate /> */}
             </>
           )}
           <Moment fromNow className="absolute text-xs -mt-72 right-0 mr-10 mx-1 -my-2 lg:right-0 lg:-mt-64 lg:mr-3">

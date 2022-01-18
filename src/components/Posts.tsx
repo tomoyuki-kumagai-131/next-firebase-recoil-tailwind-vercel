@@ -3,6 +3,7 @@ import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverT
 import { ReactNode, useEffect, useRef, useState } from "react";
 import { UseAuthContext } from "../context/AuthContext"
 import { db } from "../lib/firebase";
+import ModalUpdate from "./ModalUpdate";
 import Post from "./Post";
 
 const Posts: React.FC = () => {
@@ -86,17 +87,19 @@ const Posts: React.FC = () => {
       {/* Dreams表示エリア */}
       {/* TODO:ここをComponent分割 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
-        {posts.map((post) => (
-          <Post
-            key={post.id}
-            id={post.id}
-            uid={post.data().uid}
-            username={post.data().username}
-            photoURL={post.data().photoURL}
-            title={post.data().title}
-            description={post.data().description}
-            timestamp={post.data().timestamp}
-          />
+        {posts.map((post, i) => (
+          <div key={i}>
+            <Post
+              key={post.id}
+              id={post.id}
+              uid={post.data().uid}
+              username={post.data().username}
+              photoURL={post.data().photoURL}
+              title={post.data().title}
+              description={post.data().description}
+              timestamp={post.data().timestamp}
+            />
+          </div>
         ))}
       </div>
     </div>
