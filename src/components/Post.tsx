@@ -125,7 +125,7 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
             <Link href={{
               pathname: `/posts/${id}`
             }}>
-              <PencilAltIcon className="relative h-7 w-7 -mt-32 ml-64 my-4"/>
+              <PencilAltIcon className="absolute h-6 w-6 -mt-80 ml-80 my-3"/>
             </Link>
             </>
           )}
