@@ -18,14 +18,15 @@ https://next-firebase-recoil-tailwind-vercel-tomo-0131.vercel.app/
 いいな！と思った投稿にはいいねを付けて交流することができます。
 
 ## 使用技術
-Next.js(React.js) / React Hooks / JavaScript / TypeScript / Recoil / Tailwind CSS / Firebase v9 / Vercel
+Next.js(React.js) / React Hooks / SWR / JavaScript / TypeScript / Recoil / Tailwind CSS / Firebase v9 / Vercel
 
-- ユーザー管理はFirebase Authenticationで行なっています
-- データ管理はFirebase Firestoreで行なっています
-- 状態管理はReact Hooks、Recoilで行なっています
-- CSSはTailwindCSSを利用しています
-- モーダル開閉など、Recoilを導入しています
-- Vercelにデプロイしています
+- ユーザー管理はFirebase Authentication
+- データ管理はFirebase Firestore
+- 状態管理はReact Hooks、SWR, Recoil
+- CSSはTailwind CSS
+- モーダル開閉など、Recoilを導入
+- SWRを利用したNext内部apiサーバーからのfetch機能(News API利用)
+- Vercelにデプロイ
 
 ## 今後の追加予定機能等
 - ~~コメント機能~~→1/13対応済み
@@ -36,4 +37,4 @@ Next.js(React.js) / React Hooks / JavaScript / TypeScript / Recoil / Tailwind CS
 ## 課題
 - コードに統一性を持たせる
 - Recoilの役割を増やして、state管理をシンプルにしたい
-- SWRを導入して、APIからfetchし、表示する機能を行うページ(News等) を実装したい
+- ~~SWRを導入して、APIからfetchし、表示する機能を行うページ(News等) を実装したい~~ 
