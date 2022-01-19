@@ -70,7 +70,7 @@ const Posts: React.FC = () => {
               border-gray-500 focus:ring-black focus:border-black rounded-md"
                 type="text" placeholder="Add your dreams description"
               />
-              <div className="mt-5 sm:mt-6 lg:mt-5">
+              <div className="mt-5 sm:mt-6 lg:mt-9">
                 <button
                   onClick={postDream}
                   type="button"

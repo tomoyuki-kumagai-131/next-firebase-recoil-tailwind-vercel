@@ -14,6 +14,7 @@ import Link from 'next/link';
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
+  { name: 'News', href: '/news'}
 ];
 
 const Header:React.FC = () => {
@@ -173,6 +174,22 @@ const Header:React.FC = () => {
                               <ChatIcon className='relative h-6 w-6 ml-0'/>
                               <Link href='/about'>
                                 <span className='flex justify-center items-center mt-0.5 ml-2'>About</span>
+                              </Link>
+                            </span>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <span
+                            className={`${
+                                active
+                                  ? "bg-gray-100 text-gray-900"
+                                  : "text-gray-700"
+                              } flex w-full px-4 py-2 text-sm leading-5 text-left`}
+                            >
+                              <ChatIcon className='relative h-6 w-6 ml-0'/>
+                              <Link href='/news'>
+                                <span className='flex justify-center items-center mt-0.5 ml-2'>News</span>
                               </Link>
                             </span>
                           )}
