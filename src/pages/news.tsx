@@ -22,7 +22,7 @@ function News() {
     </button>
     {headline.articles.map((item, i) => {
         return (
-          <div key={i} className='mb-12'>
+          <div key={i} className='mb-12 mx-8'>
             <Link href={item.url}>
               <span className='border-b'>{item.title}</span>
             </Link>
