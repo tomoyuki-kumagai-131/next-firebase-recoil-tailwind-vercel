@@ -22,7 +22,7 @@ Next.js(React.js) / React Hooks / SWR / JavaScript / TypeScript / Recoil / Tailw
 
 - ユーザー管理はFirebase Authentication
 - データ管理はFirebase Firestore
-- 状態管理はReact Hooks、SWR, Recoil
+- 状態管理はReact Hook, SWR, Recoil
 - CSSはTailwind CSS
 - モーダル開閉など、Recoilを導入
 - SWRを利用したNext内部apiサーバーからのfetch機能(News API利用)
