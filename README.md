@@ -32,3 +32,8 @@ Next.js(React.js) / React Hooks / JavaScript / TypeScript / Recoil / Tailwind CS
 - ゲストユーザーログイン機能を実装しました(Firebase Auth)
 - 画像投稿機能
 - TypeScript本格対応中
+
+## 課題
+- コードに統一性を持たせる
+- Recoilの役割を増やして、state管理をシンプルにしたい
+- SWRを導入して、APIからfetchし、表示する機能を行うページ(News等) を実装したい
