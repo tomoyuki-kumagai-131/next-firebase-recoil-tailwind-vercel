@@ -38,3 +38,4 @@ Next.js(React.js) / React Hooks / SWR / JavaScript / TypeScript / Recoil / Tailw
 - コードに統一性を持たせる
 - Recoilの役割を増やして、state管理をシンプルにしたい
 - ~~SWRを導入して、APIからfetchし、表示する機能を行うページ(News等) を実装したい~~ 
+  → 実装着手中
