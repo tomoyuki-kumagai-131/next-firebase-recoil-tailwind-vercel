@@ -6,5 +6,7 @@ export default async function (req, res) {
 
 	const data = await url.json();
 
+	// console.log(data);
+
 	res.status(200).json({ data });
 }
