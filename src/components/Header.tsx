@@ -14,7 +14,7 @@ import Link from 'next/link';
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'News', href: '/news'}
+  // { name: 'News', href: '/news'}
 ];
 
 const Header:React.FC = () => {
