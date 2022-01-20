@@ -42,7 +42,6 @@ function News() {
         {data.map((item) => {
           return (
             <>
-            {!data && '...loading'}
               {item.articles.map((item, id) => {
                 return (
                   <div key={id} className='mb-12 mx-8 text-left'>
