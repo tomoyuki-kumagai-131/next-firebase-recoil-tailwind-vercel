@@ -62,13 +62,13 @@ function News() {
           })}
       </div>
       <div className=''>
-        <button className='mb-12 border p-2 rounded-lg bg-orange-400 text-white outline-none' onClick={() => setSize(size + 1) }>
+        <button className='mb-12 border p-3 rounded-lg bg-orange-400 text-white outline-none' onClick={() => setSize(size + 1) }>
           {isLoading? (
-            <div className="relative flex justify-center p-3">
+            <span className="relative flex justify-center p-3">
               <div className="animate-ping h-2 w-2 bg-white rounded-full"></div>
               <div className="animate-ping h-2 w-2 bg-white rounded-full mx-4"></div>
               <div className="animate-ping h-2 w-2 bg-white rounded-full"></div>
-            </div>
+            </span>
           ): (
             '読み込む'
           )}
