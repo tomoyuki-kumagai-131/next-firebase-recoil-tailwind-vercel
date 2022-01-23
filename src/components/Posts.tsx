@@ -52,7 +52,7 @@ const Posts: React.FC = () => {
   },[])
 
   return (
-    <div className='bg-blue-50 max-w-7xl mx-auto'>
+    <div className='max-w-7xl mx-auto'>
       <div className='flex justify-between items-center bg-yellow-500 border-y border-x border-black py-10 lg:py-0'>
         <div className='px-10 space-y-5 text-white'>
           <h1 className='text-5xl max-w-xl font-serif'>
@@ -72,12 +72,12 @@ const Posts: React.FC = () => {
               <div className="pt-2">
                 <input ref={titleRef} className="bg-white w-80 h-11 pl-10 mb-5 sm:text-sm lg:w-96 md:w-96
                 border-gray-300 focus:ring-black focus:border-black rounded-md"
-                  type="text" placeholder="Add your dreams title"
+                  type="text" placeholder="Add your goals title"
                 />
                 <br/>
                 <input ref={descriptionRef} className="bg-white w-80 h-14 pl-10 sm:text-sm lg:w-96 md:w-96
                 border-gray-500 focus:ring-black focus:border-black rounded-md"
-                  type="text" placeholder="Add your dreams description"
+                  type="text" placeholder="Add your goals description"
                 />
                 <div className="mt-5 sm:mt-6 lg:mt-9">
                   <button
@@ -103,7 +103,7 @@ const Posts: React.FC = () => {
 
       {/* Dreams表示エリア */}
       {/* TODO:ここをComponent分割 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
         {posts.map((post, i) => (
           <div key={i}>
             <Post

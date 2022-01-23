@@ -1,8 +1,7 @@
 import { EmojiHappyIcon, HeartIcon, PencilAltIcon, TrashIcon } from "@heroicons/react/outline"
 import { HeartIcon as HeartFullIcon } from "@heroicons/react/solid"
 import { addDoc, collection, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
-import moment from "moment";
-import Link from "next/link";
+
 import { useRouter } from "next/router";
 import { ReactNode } from "react";
 import { useEffect, useState } from "react";
@@ -11,8 +10,6 @@ import { useRecoilState } from "recoil";
 import { UseAuthContext } from "../context/AuthContext";
 import { db } from "../lib/firebase";
 import { modalDelete, modalUpdate } from "./atoms/modalAtom";
-import ModalDelete from "./ModalDelete";
-import ModalUpdate from "./ModalUpdate";
 
 type Props = {
   id: string,
@@ -123,7 +120,7 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
     <div className="flex justify-center items-center">
       <div className="">
         <div key={id} className="relative flex grid justify-center items-center mt-6 h-96 w-96 bg-gray-50 shadow-md md:w-80 md:mt-10 lg:h-108 lg:w-96 lg:mt-10 lg:mb-8 xl:mx-10">
-          <h1 className="absolute text-gray-800 text-xl mx-2 -mt-80 ml-6 mx-5 lg:-mt-78 lg:ml-6 border-b-2 border-blue-500 cursor-point8">
+          <h1 className="absolute text-gray-800 text-md mx-2 -mt-80 ml-6 mx-5 lg:-mt-78 lg:ml-6 border-b-2 border-blue-500 cursor-cursor-pointer lg:mx-9">
             <span onClick={(e)=> seeMore(id, e)}>
               {title}
             </span>
@@ -137,14 +134,16 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
           <Moment fromNow className="absolute text-xs -mt-72 right-0 mr-10 mx-1 -my-2 lg:right-0 lg:-mt-64 lg:mr-3">
             {timestamp && timestamp.toDate()}
           </Moment>
-          <p className="absolute text-gray-600 mx-2 -mt-48 mx-7 truncate lg:mx-8 lg:-mt-24">{description}</p>
+          <p className="absolute text-sm text-gray-600 mx-2 -mt-48 mx-7 truncate lg:mx-8 lg:-mt-24">{description}</p>
           {hasLiked? (
             <HeartFullIcon onClick={likePost} className="absolute left-0 ml-6 text-red-400 border-none outline-none h-8 w-8 right-0 mt-64 mb-4 cursor-pointer mx-5 md:ml-3 lg:left-0 lg:ml-4 lg:mb-3 lg:mx-4" />
           ) : (
             <HeartIcon onClick={likePost} className="absolute left-0 ml-6 text-red-400 border-none outline-none h-8 w-8 right-0 mt-64 mb-4 cursor-pointer mx-5 md:ml-3 lg:left-0 lg:ml-4 lg:mb-3 lg:mx-4" />
           )}
           {likes.length > 0 && (
-            <span className="absolute text-md left-0 my-2 ml-16 mt-64 lg:mt-64 lg:-my-0 lg:ml-14">♡{likes.length}</span>
+            <span className="absolute text-md left-0 my-2 ml-16 mt-64 lg:mt-64 lg:-my-0 lg:ml-14">
+              ♡{likes.length}
+            </span>
           )}
           {user && uid == user.uid && (
             <>
@@ -163,7 +162,7 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
                     src={comment.data().userImage} alt=""
                   />
                   <p className="text-sm flex-1">
-                    <span className="font-bold">{comment.data().username}</span>
+                    <span className="font-md">{comment.data().username}</span>
                     <span className="ml-3">{comment.data().comment}</span>
                   </p>
                   {/* 投稿日時
