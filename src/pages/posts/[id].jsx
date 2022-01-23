@@ -99,7 +99,9 @@ function PostDetail({postProps, likesProps, id}) {
         ) : (
           <span>{post.description}</span>
         )}
-        <button type='button' onClick={()=>updatePost()}>編集</button>
+        {user && post.uid == user.uid && (
+          <button type='button' onClick={()=>updatePost()}>編集</button>
+        )}
 
       {/* {likes.map((like)=> {
         return (
