@@ -104,8 +104,7 @@ const Posts: React.FC = () => {
         <AnnotationIcon  className='absolute h-5 w-5 mt-1 ml-24' />
       </h1>
 
-      {/* Dreams表示エリア */}
-      {/* TODO:ここをComponent分割 */}
+      {/* Pots表示エリア */}
       <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
         {posts.map((post, i) => (
           <div key={i}>
