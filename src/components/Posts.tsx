@@ -83,7 +83,7 @@ const Posts: React.FC = () => {
                   <button
                     onClick={postDream}
                     type="button"
-                    className="inline-flex justify-center w-full rounded-md border border-transparent shadow-md  py-3  w-32 bg-red-400 text-base font-medium text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm disabled:bg-gray-300 disabled:cursor-not-allowed hover:disabled:bg-gray-300"
+                    className="inline-flex justify-center w-full rounded-md border border-transparent shadow-md  py-3  w-32 bg-red-400 text-base font-medium text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm disabled:bg-gray-300 disabled:cursor-not-allowed hover:disabled:bg-gray-300 hover:scale-110"
                   >
                     Post
                   </button>
@@ -99,7 +99,10 @@ const Posts: React.FC = () => {
         </div>
       </div>
 
-      <h1 className="flex justify-center text-xl pt-6 lg:pt-6">Add Your Goal!<AnnotationIcon  className='absolute h-5 w-5 mt-1 ml-24' /></h1>
+      <h1 className="flex justify-center text-xl pt-5 -mb-3 lg:pt-6">
+        Add Your Goal!
+        <AnnotationIcon  className='absolute h-5 w-5 mt-1 ml-24' />
+      </h1>
 
       {/* Dreams表示エリア */}
       {/* TODO:ここをComponent分割 */}
