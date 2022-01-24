@@ -64,11 +64,10 @@ const Posts: React.FC = () => {
             It's easy and free to post my thinking.
           </h2>
         </div>
-        {/* Dream入力エリア */}
+        {/* Post入力エリア */}
         <form className="hidden mx-auto sm:block text-center md:block text-center md:mr-8 lg:block text-center lg:mx-32 lg:ml-40 lg:p-4 xl:block text-center">
           <div className="relative rounded-md">
             <div className="inset-y-0 pt-2 flex justify-center items-center">
-              {/* <PencilIcon className="absolute mx-32 h-4 w-4 text-gray-500 md:ml-40 lg:ml-80"/> */}
               <div className="pt-2">
                 <input ref={titleRef} className="bg-white w-80 h-11 pl-10 mb-5 sm:text-sm lg:w-96 md:w-96
                 border-gray-300 focus:ring-black focus:border-black rounded-md"
