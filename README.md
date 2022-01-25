@@ -10,7 +10,7 @@ https://next-firebase-recoil-tailwind-vercel-tomo-0131.vercel.app/
 ![スクリーンショット 2022-01-15 0 15 18](https://user-images.githubusercontent.com/63157348/149538950-53201441-f60b-48e8-aea1-edcaa2e40c0b.png)
 
 
-![スクリーンショット 2022-01-15 0 16 49](https://user-images.githubusercontent.com/63157348/149539100-e53be64d-b9e5-4b46-8475-9128a14b6d58.png)
+<img width="1356" alt="スクリーンショット 2022-01-23 20 03 02" src="https://user-images.githubusercontent.com/63157348/150809080-3f9a084a-7bf5-45af-b3a5-688576d68008.png">
 
 
 
