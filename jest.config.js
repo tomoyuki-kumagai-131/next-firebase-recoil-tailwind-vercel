@@ -1,8 +1,16 @@
 module.exports = {
-	preset: "ts-jest",
-	globals: {
-		"ts-jest": {
-			tsconfig: "<rootDir>/spec/tsconfig.json",
-		},
-	},
-};
+  preset: 'ts-jest',
+  roots: ['<rootDir>/src'],
+  moduleNameMapper: {
+    '^~/(.+)': '<rootDir>/src/$1',
+    '\\.css$': '<rootDir>/node_modules/jest-css-modules',
+  },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+  globals: {
+    'ts-jest': {
+      tsconfig: {
+        jsx: 'react-jsx',
+      },
+    },
+  },
+}

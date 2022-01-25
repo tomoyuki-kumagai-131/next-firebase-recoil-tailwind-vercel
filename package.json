@@ -50,15 +50,18 @@
     "semi": false,
     "singleQuote": true,
     "jsxSingleQuote": true,
-    "printWidth": 100,
+    "printWidth": 100
   },
   "jest": {
     "testPathIgnorePatterns": [
         "<rootDir>/.next/",
         "<rootDir>/node_modules/"
     ],
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(xxxx.*?\\.js$))"
+    ],
     "moduleNameMapper": {
         "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
     }
-}
+  }
 }

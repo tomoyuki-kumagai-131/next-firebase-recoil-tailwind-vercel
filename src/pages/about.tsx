@@ -1,4 +1,4 @@
-function about() {
+function About() {
 
   return (
     <div className="h-screen">
@@ -14,4 +14,4 @@ function about() {
   )
 }
 
-export default about
+export default About
