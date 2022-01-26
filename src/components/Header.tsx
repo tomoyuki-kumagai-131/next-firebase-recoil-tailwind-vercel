@@ -31,7 +31,8 @@ const Header:React.FC = () => {
     location.reload()
   }
 
-  const defaultImage: string = 'https://cdn.imgbin.com/5/6/23/imgbin-computer-icons-avatar-user-profile-avatar-GHAXcd0jhNHcF0KLRkgjBDLPL.jpg'
+  const defaultImage: string = process.env.NEXT_PUBLIC_DEFAULT_PROFILE_IMAGE
+
   const defaultName: string = 'ゲストユーザー'
 
 
@@ -92,7 +93,7 @@ const Header:React.FC = () => {
                 {({ open }) => (
                 <>
                   <span className="">
-                    <Menu.Button className="pt-2 lg:pt-2">
+                    <Menu.Button className="pt-2 lg:pt-2 lg:ml-2">
                       {user.photoURL ? (
                         <img src={user.photoURL} className='rounded-full w-9 h-9'/>
                       ):(
