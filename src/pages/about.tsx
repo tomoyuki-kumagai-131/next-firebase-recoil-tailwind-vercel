@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 function About() {
 
   return (
@@ -10,11 +12,16 @@ function About() {
         <p className='text-xl p-4 text-center lg:text-xl'>
           Next.js(React.js) / React Hooks / TypeScript / Recoil / Jest / React Testing Library / Tailwind CSS / Firebase v9 / Vercel
         </p>
-        <img
-          className='flex justify-center items-center my-1 pb-12 md:mx-auto lg:mx-auto'
-          src={process.env.NEXT_PUBLIC_ABOUT_HERO_IMAGE}
-          alt="AboutHeroset"
-        />
+        <div className="flex items-center justify-center">
+          <Image
+            className='my-1 pb-12 md:mx-auto lg:mx-auto'
+            src={process.env.NEXT_PUBLIC_ABOUT_HERO_IMAGE}
+            alt="AboutHero"
+            height={580}
+            width={430}
+            objectFit="cover"
+          />
+        </div>
       </div>
     </div>
   )
