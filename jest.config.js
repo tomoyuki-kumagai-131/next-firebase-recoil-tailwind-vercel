@@ -13,4 +13,5 @@ module.exports = {
       },
     },
   },
+  globalSetup: '<rootDir>/src/__tests__/setupEnv.ts',
 }

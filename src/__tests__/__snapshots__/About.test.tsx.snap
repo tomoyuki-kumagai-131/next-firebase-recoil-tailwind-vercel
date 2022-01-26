@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`about img must have src = env.test 1`] = `
+<img
+  alt="AboutHeroset"
+  class="flex justify-center items-center my-1 pb-12 md:mx-auto lg:mx-auto"
+/>
+`;
+
+exports[`about img must have val = env.test.local 1`] = `
+<img
+  alt="AboutHero"
+  class="my-1 pb-12 md:mx-auto lg:mx-auto"
+  data-nimg="intrinsic"
+  decoding="async"
+  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+  style="position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+/>
+`;
+
 exports[`about should stay calm 1`] = `
 Array [
   <h1
