@@ -13,6 +13,7 @@ function About() {
         <img
           className='flex justify-center items-center my-1 pb-12 md:mx-auto lg:mx-auto'
           src={process.env.NEXT_PUBLIC_ABOUT_HERO_IMAGE}
+          alt="AboutHeroset"
         />
       </div>
     </div>
