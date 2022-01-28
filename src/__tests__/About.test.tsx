@@ -18,7 +18,7 @@ describe('about', () => {
     expect(container.getByText('⚡️Talexy')).toMatchSnapshot()
   })
 
-  it ('img must have val = env.test.local', () => {
+  it ('img must have val = env.local', () => {
     const container = render(<About />);
     expect(container.getByRole('img')).toMatchSnapshot();
   })
