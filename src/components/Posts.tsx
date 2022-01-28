@@ -53,8 +53,8 @@ const Posts: React.FC = () => {
 
   return (
     <div className='max-w-7xl mx-auto'>
-      <div className='flex justify-between items-center bg-yellow-500 border-y border-x border-black py-10 lg:py-0'>
-        <div className='px-10 space-y-5 text-white'>
+      <div className='flex justify-between items-center bg-yellow-500 py-10 lg:py-0 shadow-lg'>
+        <div className='px-10 space-y-5 text-white '>
           <h1 className='text-5xl max-w-xl font-serif'>
             <p className='underline decoration-white decoration-4 transition hover:scale-105 ease-in-out duration-100 transition-transform'>
               Talexy
@@ -65,7 +65,7 @@ const Posts: React.FC = () => {
           </h2>
         </div>
         {/* Post入力エリア */}
-        <form className="hidden mx-auto sm:block text-center md:block text-center md:mr-8 lg:block text-center lg:mx-32 lg:ml-40 lg:p-4 xl:block text-center">
+        <form className="shadow-lg hidden mx-auto sm:block text-center md:block text-center md:mr-8 lg:block text-center lg:mx-32 lg:ml-40 lg:p-4 xl:block text-center">
           <div className="relative rounded-md">
             <div className="inset-y-0 pt-2 flex justify-center items-center">
               <div className="pt-2">
@@ -104,9 +104,9 @@ const Posts: React.FC = () => {
       </h1>
 
       {/* Pots表示エリア */}
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 ">
         {posts.map((post, i) => (
-          <div key={i}>
+          <div key={i} className="">
             <Post
               key={post.id}
               id={post.id}
