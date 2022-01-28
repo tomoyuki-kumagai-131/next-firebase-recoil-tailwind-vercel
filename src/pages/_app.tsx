@@ -18,6 +18,7 @@ function MyApp({ Component, pageProps }) {
 					<Header />
 					<Component {...pageProps} />
 					{/* <ModalUpdate /> */}
+					<Footer />
 				</RecoilRoot>
 			</AuthProvider>
 		</>
