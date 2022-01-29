@@ -11,8 +11,8 @@ function Graphql(results) {
   const toast = useToast()
 
   return (
-    <div className='text-center'>
-      <div className='grid-col-1 grid md:grid-cols-3 lg:grid-cols-3'>
+    <div className='text-center max-w-7xl mx-auto'>
+      <div className='gap-4 grid-col-1 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3'>
         {characters.map((character) => {
           return (
             <div
@@ -26,7 +26,7 @@ function Graphql(results) {
               >
                 <Image src={character.image} height={320} width={320} />
               </div>
-              <span>{character.name}</span>
+              <span className='mb-3'>{character.name}</span>
             </div>
           )
         })}
