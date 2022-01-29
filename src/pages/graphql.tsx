@@ -1,0 +1,73 @@
+import { ApolloClient, gql, InMemoryCache } from '@apollo/client'
+import { useToast } from '@chakra-ui/react'
+import { useState } from 'react'
+import Image from 'next/image'
+
+function Graphql(results) {
+  console.log(results)
+  const initialState = results
+  const [characters, setCharacters] = useState(initialState.characters)
+
+  const toast = useToast()
+
+  return (
+    <div className='text-center'>
+      <div className='grid-col-1 grid md:grid-cols-3 lg:grid-cols-3'>
+        {characters.map((character) => {
+          return (
+            <div
+              key={character.id}
+              className='h-88 w-88 relative mb-8 mt-2 grid items-center justify-center space-x-9 border bg-gray-50 shadow-md md:mt-10 md:w-80 lg:mt-10 lg:mb-8 lg:w-96 xl:mx-10'
+            >
+              <div
+                className='
+                mt-6 cursor-pointer
+                transition-transform duration-300 ease-in-out hover:scale-105'
+              >
+                <Image src={character.image} height={320} width={320} />
+              </div>
+              <span>{character.name}</span>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+export async function getStaticProps() {
+  const client = new ApolloClient({
+    uri: process.env.NEXT_PUBLIC_URI,
+    cache: new InMemoryCache(),
+  })
+
+  const { data } = await client.query({
+    query: gql`
+      query {
+        characters(page: 1) {
+          results {
+            id
+            name
+            image
+            episode {
+              id
+              name
+            }
+            location {
+              id
+              name
+            }
+          }
+        }
+      }
+    `,
+  })
+
+  return {
+    props: {
+      characters: data.characters.results,
+    },
+  }
+}
+
+export default Graphql

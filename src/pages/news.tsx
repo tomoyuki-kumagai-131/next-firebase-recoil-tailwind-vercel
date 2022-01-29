@@ -7,17 +7,10 @@ import useSWRInfinite from 'swr/infinite'
 
 
 function News() {
-  // const { data, error } = useSWR('/api/news', fetcher)
 
   function fetcher(url: string) {
     return fetch(url).then((res) => res.json())
   }
-
-  // const getKey = (index, previousPageData) => {
-  //   if(previousPageData && !previousPageData.length) return null;
-  //   return `https://newsapi.org/v2/top-headlines?country=jp&page=${index+1}&pageSize=3&&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
-  // }
-  // const { data, error, size, setSize } = useSWRInfinite(getKey, fetcher)
 
   const { data, error, size, setSize } = useSWRInfinite((index: number) => `https://newsapi.org/v2/top-headlines?country=jp&page=${index +1}&pageSize=3&&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`, fetcher)
 
