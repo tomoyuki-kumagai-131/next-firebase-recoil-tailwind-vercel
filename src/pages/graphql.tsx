@@ -1,17 +1,34 @@
 import { ApolloClient, gql, InMemoryCache } from '@apollo/client'
-import { useToast } from '@chakra-ui/react'
+import { IconButton, useToast } from '@chakra-ui/react'
 import { useState } from 'react'
 import Image from 'next/image'
+import { CloseIcon, SearchIcon } from '@chakra-ui/icons'
 
 function Graphql(results) {
-  console.log(results)
   const initialState = results
+
   const [characters, setCharacters] = useState(initialState.characters)
+
+  const [isLoading, setIsLoading] = useState()
+
+  const [search, setSearch] = useState('')
 
   const toast = useToast()
 
   return (
     <div className='text-center max-w-7xl mx-auto'>
+      <form className=''>
+        <input
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+          className='border rounded-lg p-2 mt-4'
+          placeholder='search word...'
+        />
+        <CloseIcon w={4} h={4} onClick={() => setSearch('')} className='ml-3 cursor-pointer' />
+        <button type='submit' className='rounded-lg p-2 ml-1'>
+          <SearchIcon w={5} h={5} />
+        </button>
+      </form>
       <div className='gap-4 grid-col-1 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3'>
         {characters.map((character) => {
           return (
