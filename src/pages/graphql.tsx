@@ -37,6 +37,7 @@ function Graphql(results) {
         duration: 5000,
         isClosable: true,
       });
+      setIsLoading(false);
     } else {
       setIsLoading(false);
       toast({
