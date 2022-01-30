@@ -1,11 +1,12 @@
 import { ApolloClient, gql, InMemoryCache } from '@apollo/client';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 const client = new ApolloClient({
   uri: process.env.NEXT_PUBLIC_URI,
   cache: new InMemoryCache(),
 });
 
-export default async function SearchCharacters(req, res) {
+export default async function SearchCharacters(req: NextApiRequest, res: NextApiResponse) {
   const search = req.body;
 
   try {
