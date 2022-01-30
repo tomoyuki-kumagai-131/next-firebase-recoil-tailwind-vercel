@@ -23,6 +23,7 @@
     "next": "^12.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-hook-form": "^7.25.3",
     "react-moment": "^1.1.1",
     "recoil": "^0.5.2",
     "superjson": "^1.8.0",
@@ -54,7 +55,7 @@
   "prettier": {
     "trailingComma": "all",
     "tabWidth": 2,
-    "semi": false,
+    "semi": true,
     "singleQuote": true,
     "jsxSingleQuote": true,
     "printWidth": 100
