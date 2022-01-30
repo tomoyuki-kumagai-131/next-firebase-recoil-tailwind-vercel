@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Popover, Transition } from '@headlessui/react'
+import { Popover, Transition } from '@headlessui/react';
 import {
   ChatIcon,
   CogIcon,
@@ -8,38 +8,38 @@ import {
   PlusCircleIcon,
   SearchIcon,
   XIcon,
-} from '@heroicons/react/outline'
-import { useRecoilState } from 'recoil'
-import { UseAuthContext } from '../context/AuthContext'
-import { auth } from '../lib/firebase'
-import { modalLogin, modalPost } from './atoms/modalAtom'
-import ModalLogin from './ModalLogin'
-import { Menu } from '@headlessui/react'
-import ModalPost from './ModalPost'
-import Link from 'next/link'
+} from '@heroicons/react/outline';
+import { useRecoilState } from 'recoil';
+import { UseAuthContext } from '../context/AuthContext';
+import { auth } from '../lib/firebase';
+import { modalLogin, modalPost } from './atoms/modalAtom';
+import ModalLogin from './ModalLogin';
+import { Menu } from '@headlessui/react';
+import ModalPost from './ModalPost';
+import Link from 'next/link';
 
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
   { name: 'GraphQL', href: '/graphql' },
-]
+];
 
 const Header: React.FC = () => {
-  const [open, setOpen] = useRecoilState(modalLogin)
+  const [open, setOpen] = useRecoilState(modalLogin);
 
-  const [openPost, setPostOpen] = useRecoilState(modalPost)
+  const [openPost, setPostOpen] = useRecoilState(modalPost);
 
-  const { user } = UseAuthContext()
+  const { user } = UseAuthContext();
 
   const logout = () => {
-    auth.signOut()
-    alert('ログアウト完了')
-    location.reload()
-  }
+    auth.signOut();
+    alert('ログアウト完了');
+    location.reload();
+  };
 
-  const defaultImage: string = process.env.NEXT_PUBLIC_DEFAULT_PROFILE_IMAGE
+  const defaultImage: string = process.env.NEXT_PUBLIC_DEFAULT_PROFILE_IMAGE;
 
-  const defaultName: string = 'ゲストユーザー'
+  const defaultName: string = 'ゲストユーザー';
 
   return (
     <div className='relative bg-white shadow-sm border-b'>
@@ -108,15 +108,7 @@ const Header: React.FC = () => {
                               </Menu.Button>
                             </span>
 
-                            <Transition
-                              show={open}
-                              // enter="transition ease-out duration-150"
-                              // enterFrom="transform opacity-0 scale-95"
-                              // enterTo="transform opacity-100 scale-100"
-                              // leave="transition ease-in duration-75"
-                              // leaveFrom="transform opacity-100 scale-100"
-                              // leaveTo="transform opacity-0 scale-95"
-                            >
+                            <Transition show={open}>
                               <Menu.Items
                                 static
                                 className='absolute right-0 w-56 mt-0 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none lg:mr-64 lg:-mt-1'
@@ -195,7 +187,7 @@ const Header: React.FC = () => {
                                         <ChatIcon className='relative h-6 w-6 ml-0' />
                                         <Link href='/news'>
                                           <span className='flex justify-center items-center mt-0.5 ml-2'>
-                                            News
+                                            GraphQL
                                           </span>
                                         </Link>
                                       </span>
@@ -230,7 +222,7 @@ const Header: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
