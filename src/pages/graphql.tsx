@@ -66,7 +66,7 @@ function Graphql(results) {
           onClick={() => {
             setSearch(''), setCharacters(initialState.characters);
           }}
-          className='ml-3 cursor-pointer'
+          className='ml-4 mr-3 cursor-pointer'
         />
         {isLoading ? (
           <Button
@@ -74,7 +74,7 @@ function Graphql(results) {
             colorScheme='teal'
             variant='solid'
             type='submit'
-            className='rounded-lg ml-1'
+            className='rounded-lg ml-2'
           >
             検索
           </Button>
