@@ -15,7 +15,7 @@ https://next-firebase-recoil-tailwind-vercel-tomo-0131.vercel.app/
 
 ## 使用技術
 Next.js(React.js) / React Hooks / GraphQL / Apollo / Jest / React Testing Library /
-SWR / JavaScript / TypeScript / Recoil / Tailwind CSS /
+SWR / JavaScript / TypeScript / Recoil / Tailwind CSS /　Chakra UI
 Firebase v9 / Vercel
 
 - ユーザー管理はFirebase Authentication
@@ -24,6 +24,7 @@ Firebase v9 / Vercel
 - テストはJest, React Testing Library
 - 状態管理はReact Hook, SWR, Recoil
 - CSSはTailwind CSS
+- Toast機能など、一部Chakra UIを導入
 - モーダル開閉など、Recoilを導入
 - SWRを利用したNext内部apiサーバーからのfetch機能(News API利用)
 - Vercelにデプロイ
