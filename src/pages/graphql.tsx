@@ -58,7 +58,7 @@ function Graphql(results) {
         <input
           onChange={(e) => setSearch(e.target.value)}
           value={search}
-          className='border rounded-lg p-2 mt-4'
+          className='border rounded-lg p-2 mt-10'
           placeholder='search word...'
         />
         <CloseIcon

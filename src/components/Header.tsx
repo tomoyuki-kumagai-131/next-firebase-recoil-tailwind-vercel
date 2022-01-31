@@ -63,7 +63,7 @@ const Header: React.FC = () => {
               >
                 <div className='flex items-center flex-grow flex-shrink-0 lg:flex-grow-0'>
                   <div className='flex items-center justify-between w-full md:w-auto'>
-                    <span className='text-2xl -mt-4 lg:-mt-2'>
+                    <span className='text-2xl -mt-4 lg:-mt-2 duration-500 hover:scale-110 ease-in-out'>
                       <Link href='/'>⚡️ Talexy</Link>
                     </span>
                   </div>
@@ -103,7 +103,10 @@ const Header: React.FC = () => {
                                 {user.photoURL ? (
                                   <img src={user.photoURL} className='rounded-full w-9 h-9' />
                                 ) : (
-                                  <img src={defaultImage} className='rounded-full w-9 h-9' />
+                                  <img
+                                    src={defaultImage}
+                                    className='rounded-full w-9 h-9 duration-500 hover:scale-110 ease-in-out'
+                                  />
                                 )}
                               </Menu.Button>
                             </span>
