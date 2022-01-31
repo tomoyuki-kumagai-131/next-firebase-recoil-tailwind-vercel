@@ -188,7 +188,7 @@ const Header: React.FC = () => {
                                         } flex w-full px-4 py-2 text-sm leading-5 text-left`}
                                       >
                                         <ChatIcon className='relative h-6 w-6 ml-0' />
-                                        <Link href='/news'>
+                                        <Link href='/graphql'>
                                           <span className='flex justify-center items-center mt-0.5 ml-2'>
                                             GraphQL
                                           </span>
