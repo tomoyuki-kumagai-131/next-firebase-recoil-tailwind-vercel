@@ -24,8 +24,3 @@ export const modalDelete = atom({
   key: 'modalDelete',
   default: false,
 });
-
-export const modalCharacter = atom({
-  key: 'modalCharacter',
-  default: false,
-});
