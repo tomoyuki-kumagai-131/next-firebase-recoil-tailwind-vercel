@@ -5,6 +5,10 @@ import Image from 'next/image';
 import { CloseIcon, SearchIcon } from '@chakra-ui/icons';
 import { registerVersion } from 'firebase/app';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import ModalCharacter from '../components/ModalCharacter';
+import { useRecoilState } from 'recoil';
+import { modalCharacter } from '../components/atoms/modalAtom';
+import CharactersList from '../components/CharactersList';
 
 function Graphql(results) {
   const initialState = results;
@@ -14,8 +18,6 @@ function Graphql(results) {
   const [isLoading, setIsLoading] = useState(false);
 
   const [search, setSearch] = useState('');
-
-  const [submitted, setSubmitted] = useState(false);
 
   const toast = useToast();
 
@@ -58,7 +60,7 @@ function Graphql(results) {
         <input
           onChange={(e) => setSearch(e.target.value)}
           value={search}
-          className='border rounded-lg p-2 mt-10'
+          className='border rounded-lg p-3 mt-5 mb-3 lg:mt-10'
           placeholder='search word...'
         />
         <CloseIcon
@@ -93,23 +95,9 @@ function Graphql(results) {
       </form>
 
       <div className='gap-4 grid-col-1 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3'>
-        {characters.map((character) => {
-          return (
-            <div
-              key={character.id}
-              className='h-88 w-88 relative mb-8 mt-2 grid items-center justify-center space-x-9 border bg-gray-50 shadow-md md:mt-10 md:w-80 lg:mt-10 lg:mb-8 lg:w-96 xl:mx-10'
-            >
-              <div
-                className='
-                mt-6 cursor-pointer
-                transition-transform duration-300 ease-in-out hover:scale-105'
-              >
-                <Image src={character.image} height={320} width={320} />
-              </div>
-              <span className='mb-3'>{character.name}</span>
-            </div>
-          );
-        })}
+        {characters.map((character, index) => (
+          <CharactersList key={`${index} - ${character.id}`} character={character} />
+        ))}
       </div>
     </div>
   );
@@ -128,6 +116,7 @@ export async function getStaticProps() {
           results {
             id
             name
+            species
             image
             episode {
               id

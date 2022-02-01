@@ -1,26 +1,31 @@
-import { atom } from "recoil";
+import { atom } from 'recoil';
 
 export const modalLogin = atom({
   key: 'modalLogin',
-  default: false
-})
+  default: false,
+});
 
 export const modalGuestLogin = atom({
   key: 'modalGuestLogin',
-  default: false
-})
+  default: false,
+});
 
 export const modalPost = atom({
   key: 'modalPost',
-  default: false
-})
+  default: false,
+});
 
 export const modalUpdate = atom({
   key: 'modalUpdate',
-  default: false
-})
+  default: false,
+});
 
 export const modalDelete = atom({
   key: 'modalDelete',
-  default: false
-})
+  default: false,
+});
+
+export const modalCharacter = atom({
+  key: 'modalCharacter',
+  default: false,
+});
