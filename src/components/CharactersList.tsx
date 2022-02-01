@@ -24,7 +24,7 @@ function CharactersList({ character }) {
         transition-transform duration-300 ease-in-out hover:scale-105'
       >
         <Image src={character.image} height={320} width={320} onClick={onOpen} />
-        <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
+        <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader>名前：{character.name}</ModalHeader>
