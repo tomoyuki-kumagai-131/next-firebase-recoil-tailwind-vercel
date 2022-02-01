@@ -1,13 +1,13 @@
 import { ApolloClient, gql, InMemoryCache } from '@apollo/client';
 import { Button, IconButton, useToast } from '@chakra-ui/react';
 import { useState } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { CloseIcon, SearchIcon } from '@chakra-ui/icons';
-import { registerVersion } from 'firebase/app';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import ModalCharacter from '../components/ModalCharacter';
-import { useRecoilState } from 'recoil';
-import { modalCharacter } from '../components/atoms/modalAtom';
+// import { registerVersion } from 'firebase/app';
+// import { SubmitHandler, useForm } from 'react-hook-form';
+// import ModalCharacter from '../components/ModalCharacter';
+// import { useRecoilState } from 'recoil';
+// import { modalCharacter } from '../components/atoms/modalAtom';
 import CharactersList from '../components/CharactersList';
 
 function Graphql(results) {
