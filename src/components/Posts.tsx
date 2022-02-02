@@ -1,4 +1,5 @@
 import { AnnotationIcon, PencilIcon, SearchIcon, TrashIcon } from '@heroicons/react/outline';
+import { LinearProgress } from '@mui/material';
 import {
   addDoc,
   collection,
@@ -24,9 +25,11 @@ const Posts: React.FC = () => {
   const titleRef = useRef<HTMLInputElement>(null);
   const descriptionRef = useRef<HTMLInputElement>(null);
 
+  // const [title, setTitle] = useState('');
+
   // 投稿
   const postDream = async (): Promise<void> => {
-    if (loading) return;
+    if (titleRef.current.value == '') return;
     setLoading(true);
     await addDoc(collection(db, 'posts'), {
       username: user.displayName,
@@ -43,13 +46,13 @@ const Posts: React.FC = () => {
 
   // 投稿の削除
   const deletePost = async (id: string) => {
-    // setIsLoading(true);
+    setLoading(true);
     if (confirm('この夢を削除します')) {
-      // console.log(res.data());
       await deleteDoc(doc(db, 'posts', id));
-      // setIsLoading(false);
+      setLoading(false);
     } else {
       alert('削除をキャンセルしました');
+      setLoading(false);
     }
   };
 
