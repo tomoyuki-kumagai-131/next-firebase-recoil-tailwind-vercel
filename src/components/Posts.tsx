@@ -28,6 +28,10 @@ const Posts: React.FC = () => {
   const titleRef = useRef<HTMLInputElement>(null);
   const descriptionRef = useRef<HTMLInputElement>(null);
 
+  const [deadline1, setDeadline1] = useState(false);
+  const [deadline2, setDeadline2] = useState(false);
+  const [deadlineMonth, setDeadlineMonth] = useState(false);
+
   // 投稿
   const postDream = async (): Promise<void> => {
     if (titleRef.current.value == '') return;
@@ -37,6 +41,9 @@ const Posts: React.FC = () => {
       uid: user.uid,
       title: titleRef.current.value,
       description: descriptionRef.current.value,
+      deadline1: deadline1,
+      deadline2: deadline2,
+      deadlineMonth: deadlineMonth,
       photoURL: user.photoURL,
       timestamp: serverTimestamp(),
     }),
@@ -98,9 +105,24 @@ const Posts: React.FC = () => {
                   <FormGroup>
                     <h1 className='mt-6 pb-6'>When do you want to achieve your goal?</h1>
                     <div className='text-center pb-6 mx-3'>
-                      <FormControlLabel control={<Checkbox />} label='1 week' />
-                      <FormControlLabel control={<Checkbox />} label='2 week' />
-                      <FormControlLabel control={<Checkbox />} label='1 month' />
+                      <FormControlLabel
+                        control={<Checkbox />}
+                        label='1 week'
+                        value={deadline1}
+                        onClick={() => setDeadline1((prevState) => !prevState)}
+                      />
+                      <FormControlLabel
+                        control={<Checkbox />}
+                        label='2 week'
+                        value={deadline2}
+                        onClick={() => setDeadline2((prevState) => !prevState)}
+                      />
+                      <FormControlLabel
+                        control={<Checkbox />}
+                        label='1 month'
+                        value={deadlineMonth}
+                        onClick={() => setDeadlineMonth((prevState) => !prevState)}
+                      />
                     </div>
                   </FormGroup>
                 </div>
@@ -148,6 +170,9 @@ const Posts: React.FC = () => {
               photoURL={post.data().photoURL}
               title={post.data().title}
               description={post.data().description}
+              deadline1={post.data().deadline1}
+              deadline2={post.data().deadline2}
+              deadlineMonth={post.data().deadlineMonth}
               timestamp={post.data().timestamp}
               deletePost={deletePost}
             />

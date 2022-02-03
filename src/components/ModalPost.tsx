@@ -17,6 +17,12 @@ function ModalPost() {
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
 
+  const [deadline1, setDeadline1] = useState(false);
+  const [deadline2, setDeadline2] = useState(false);
+  const [deadlineMonth, setDeadlineMonth] = useState(false);
+
+  console.log(deadline1);
+
   const postDream = async () => {
     if (loading) return;
     setLoading(true);
@@ -25,6 +31,9 @@ function ModalPost() {
       uid: user.uid,
       title: titleRef.current.value,
       description: descriptionRef.current.value,
+      deadline1: deadline1,
+      deadline2: deadline2,
+      deadlineMonth: deadlineMonth,
       photoURL: user.photoURL,
       timestamp: serverTimestamp(),
     });
@@ -87,9 +96,24 @@ function ModalPost() {
                         <FormGroup>
                           <h1 className='mt-6 pb-6'>When do you want to achieve your goal?</h1>
                           <div className='text-center pb-6 mx-3'>
-                            <FormControlLabel control={<Checkbox />} label='1 week' />
-                            <FormControlLabel control={<Checkbox />} label='2 week' />
-                            <FormControlLabel control={<Checkbox />} label='1 month' />
+                            <FormControlLabel
+                              control={<Checkbox />}
+                              label='1 week'
+                              value={deadline1}
+                              onClick={() => setDeadline1((prevState) => !prevState)}
+                            />
+                            <FormControlLabel
+                              control={<Checkbox />}
+                              label='2 week'
+                              value={deadline2}
+                              onClick={() => setDeadline2((prevState) => !prevState)}
+                            />
+                            <FormControlLabel
+                              control={<Checkbox />}
+                              label='1 month'
+                              value={deadlineMonth}
+                              onClick={() => setDeadlineMonth((prevState) => !prevState)}
+                            />
                           </div>
                         </FormGroup>
                       </div>

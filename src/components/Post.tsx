@@ -12,6 +12,7 @@ import {
   setDoc,
   updateDoc,
 } from 'firebase/firestore';
+import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 
 import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
@@ -31,6 +32,9 @@ type Props = {
   photoURL: string;
   title: any;
   description: string;
+  deadline1: boolean;
+  deadline2: boolean;
+  deadlineMonth: boolean;
   timestamp: any;
   deletePost: any;
   children?: ReactNode;
@@ -43,6 +47,9 @@ const Post: React.FC<Props> = ({
   photoURL,
   title,
   description,
+  deadline1,
+  deadline2,
+  deadlineMonth,
   timestamp,
   deletePost,
 }) => {
@@ -135,6 +142,8 @@ const Post: React.FC<Props> = ({
     router.push(`/posts/${id}`);
   };
 
+  const defaultImage: string = process.env.NEXT_PUBLIC_DEFAULT_PROFILE_IMAGE;
+
   return (
     <div className='flex justify-center items-center'>
       <div className=''>
@@ -162,6 +171,26 @@ const Post: React.FC<Props> = ({
           <p className='absolute text-sm text-gray-600 mx-2 -mt-48 mx-7 truncate lg:mx-8 lg:-mt-24'>
             {description}
           </p>
+          <div className='text-center absolute mt-24 ml-32 items-center justify-center'>
+            {deadline1 && (
+              <>
+                <span>期限：</span>{' '}
+                <FormControlLabel control={<Checkbox defaultChecked />} label='1 week' />
+              </>
+            )}
+            {deadline2 && (
+              <>
+                <span>期限：</span>{' '}
+                <FormControlLabel control={<Checkbox defaultChecked />} label='2 week' />
+              </>
+            )}
+            {deadlineMonth && (
+              <>
+                <span>期限：</span>{' '}
+                <FormControlLabel control={<Checkbox defaultChecked />} label='1 month' />
+              </>
+            )}
+          </div>
           {hasLiked ? (
             <HeartFullIcon
               onClick={likePost}
@@ -186,13 +215,27 @@ const Post: React.FC<Props> = ({
               />
             </>
           )}
-          <img
-            src={photoURL}
-            className='absolute rounded-full h-7 w-7 right-0 mt-64 mr-20 mb-3 cursor-pointer lg:mr-20 lg:mt-80 lg:my-1'
-          />
-          <span className='absolute text-sm right-0 mt-64 mr-4 mb-3 cursor-pointer lg:mr-3 lg:mt-80 lg:my-1'>
-            {username}
-          </span>
+          {user.photoURL ? (
+            <img
+              src={photoURL}
+              className='absolute rounded-full h-7 w-7 right-0 mt-64 mr-20 mb-3 cursor-pointer lg:mr-20 lg:mt-80 lg:my-1'
+            />
+          ) : (
+            <img
+              src={defaultImage}
+              className='absolute rounded-full h-7 w-7 right-0 mt-64 mr-20 mb-3 cursor-pointer lg:mr-20 lg:mt-80 lg:my-1'
+            />
+          )}
+          {user.displayName ? (
+            <span className='absolute text-sm right-0 mt-64 mr-4 mb-3 cursor-pointer lg:mr-3 lg:mt-80 lg:my-1'>
+              {username}
+            </span>
+          ) : (
+            <span className='absolute text-sm right-0 mt-64 mr-6 mb-3 cursor-pointer lg:mr-6 lg:mt-80 lg:my-1'>
+              ゲスト
+            </span>
+          )}
+
           {/* Comments Area */}
           {comments.length > 0 && (
             <div className='absolute border p-2 ml-7 mt-24 h-20 w-80 overflow-y-scroll scrollbar-thumb-black scrollbar-thin'>
