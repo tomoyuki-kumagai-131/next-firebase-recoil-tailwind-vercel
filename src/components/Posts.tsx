@@ -1,5 +1,9 @@
 import { CircularProgress } from '@chakra-ui/react';
 import { AnnotationIcon, PencilIcon, SearchIcon, TrashIcon } from '@heroicons/react/outline';
+import { Button } from '@mui/material';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 import {
   addDoc,
   collection,
@@ -71,7 +75,7 @@ const Posts: React.FC = () => {
           <h2>It's easy and free to post my thinking.</h2>
         </div>
         {/* Post入力エリア */}
-        <form className='shadow-lg hidden mx-auto sm:block text-center md:block text-center md:mr-8 lg:block text-center lg:mx-32 lg:ml-40 lg:p-4 xl:block text-center'>
+        <form className=' hidden mx-auto sm:block text-center md:block text-center md:mr-8 lg:block text-center lg:mx-32 lg:ml-40 lg:p-4 xl:block text-center'>
           <div className='relative rounded-md'>
             <div className='inset-y-0 pt-2 flex justify-center items-center'>
               <div className='pt-2'>
@@ -90,7 +94,17 @@ const Posts: React.FC = () => {
                   type='text'
                   placeholder='Add your goals description'
                 />
-                <div className='mt-5 sm:mt-6 lg:mt-9'>
+                <div className='mt-8 bg-white rounded-md shadow-lg'>
+                  <FormGroup>
+                    <h1 className='mt-6 pb-6'>When do you want to achieve your goal?</h1>
+                    <div className='text-center pb-6 mx-3'>
+                      <FormControlLabel control={<Checkbox />} label='1 week' />
+                      <FormControlLabel control={<Checkbox />} label='2 week' />
+                      <FormControlLabel control={<Checkbox />} label='1 month' />
+                    </div>
+                  </FormGroup>
+                </div>
+                <div className='mt-2 sm:mt-6 lg:mt-7 lg:mb-3'>
                   <button
                     onClick={postDream}
                     type='button'
