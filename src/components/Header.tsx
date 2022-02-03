@@ -92,7 +92,7 @@ const Header: React.FC = () => {
                     <>
                       <PlusCircleIcon
                         onClick={() => setPostOpen(true)}
-                        className='relative h-8 w-8 flex mr-3 -mt-7 sm:hidden md:hidden lg:hidden'
+                        className='relative h-8 w-8 flex mr-3 -mt-7 mr-4 sm:hidden md:hidden lg:hidden'
                       />
                       <ModalPost />
                       <Menu>
