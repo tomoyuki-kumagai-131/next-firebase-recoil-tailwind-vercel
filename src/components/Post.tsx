@@ -22,6 +22,7 @@ import { UseAuthContext } from '../context/AuthContext';
 import { db } from '../lib/firebase';
 import { modalDelete, modalUpdate } from './atoms/modalAtom';
 import { Button, IconButton, useToast } from '@chakra-ui/react';
+import { LinearProgress } from '@mui/material';
 
 type Props = {
   id: string;
@@ -31,27 +32,27 @@ type Props = {
   title: any;
   description: string;
   timestamp: any;
+  deletePost: any;
   children?: ReactNode;
 };
 
-const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description, timestamp }) => {
+const Post: React.FC<Props> = ({
+  id,
+  username,
+  uid,
+  photoURL,
+  title,
+  description,
+  timestamp,
+  deletePost,
+}) => {
   const [open, setOpen] = useRecoilState(modalDelete);
 
   const [openEdit, setOpenEdit] = useRecoilState(modalUpdate);
 
   const { user } = UseAuthContext();
 
-  // 夢の削除
-  const deletePost = async (id: string): Promise<void> => {
-    // setIsLoading(true);
-    if (confirm('この投稿を削除します')) {
-      // console.log(res.data());
-      await deleteDoc(doc(db, 'posts', id));
-      // setIsLoading(false);
-    } else {
-      alert('削除をキャンセルしました');
-    }
-  };
+  const [loading, setLoading] = useState(false);
 
   // いいね機能のstate
   const [likes, setLikes] = useState([]);
@@ -134,11 +135,6 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
     router.push(`/posts/${id}`);
   };
 
-  // const showEditModal = (ctx, id) => {
-  //   console.log(ctx);
-  //   setOpenEdit(true);
-  // }
-
   return (
     <div className='flex justify-center items-center'>
       <div className=''>
@@ -155,7 +151,6 @@ const Post: React.FC<Props> = ({ id, username, uid, photoURL, title, description
                 onClick={(e) => seeMore(id, e)}
                 className='absolute h-6 w-6 -mt-80 ml-80 my-4 cursor-pointer'
               />
-              {/* <ModalUpdate /> */}
             </>
           )}
           <Moment

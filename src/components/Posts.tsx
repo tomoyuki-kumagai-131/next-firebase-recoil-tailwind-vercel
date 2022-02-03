@@ -1,5 +1,5 @@
+import { CircularProgress } from '@chakra-ui/react';
 import { AnnotationIcon, PencilIcon, SearchIcon, TrashIcon } from '@heroicons/react/outline';
-import { LinearProgress } from '@mui/material';
 import {
   addDoc,
   collection,
@@ -10,10 +10,9 @@ import {
   query,
   serverTimestamp,
 } from 'firebase/firestore';
-import { ReactNode, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { UseAuthContext } from '../context/AuthContext';
 import { db } from '../lib/firebase';
-import ModalUpdate from './ModalUpdate';
 import Post from './Post';
 
 const Posts: React.FC = () => {
@@ -24,8 +23,6 @@ const Posts: React.FC = () => {
 
   const titleRef = useRef<HTMLInputElement>(null);
   const descriptionRef = useRef<HTMLInputElement>(null);
-
-  // const [title, setTitle] = useState('');
 
   // 投稿
   const postDream = async (): Promise<void> => {
@@ -38,8 +35,8 @@ const Posts: React.FC = () => {
       description: descriptionRef.current.value,
       photoURL: user.photoURL,
       timestamp: serverTimestamp(),
-    });
-    setLoading(false);
+    }),
+      setLoading(false);
     titleRef.current.value = '';
     descriptionRef.current.value = '';
   };
@@ -119,6 +116,12 @@ const Posts: React.FC = () => {
         <AnnotationIcon className='h-5 w-5 mt-1 ml-2' />
       </h1>
 
+      {loading && (
+        <span className='flex justify-center items-center'>
+          <CircularProgress />
+        </span>
+      )}
+
       {/* Pots表示エリア */}
       <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 '>
         {posts.map((post, i) => (
@@ -132,6 +135,7 @@ const Posts: React.FC = () => {
               title={post.data().title}
               description={post.data().description}
               timestamp={post.data().timestamp}
+              deletePost={deletePost}
             />
           </div>
         ))}
