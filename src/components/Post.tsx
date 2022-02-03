@@ -215,26 +215,13 @@ const Post: React.FC<Props> = ({
               />
             </>
           )}
-          {user.photoURL ? (
-            <img
-              src={photoURL}
-              className='absolute rounded-full h-7 w-7 right-0 mt-64 mr-20 mb-3 cursor-pointer lg:mr-20 lg:mt-80 lg:my-1'
-            />
-          ) : (
-            <img
-              src={defaultImage}
-              className='absolute rounded-full h-7 w-7 right-0 mt-64 mr-20 mb-3 cursor-pointer lg:mr-20 lg:mt-80 lg:my-1'
-            />
-          )}
-          {user.displayName ? (
-            <span className='absolute text-sm right-0 mt-64 mr-4 mb-3 cursor-pointer lg:mr-3 lg:mt-80 lg:my-1'>
-              {username}
-            </span>
-          ) : (
-            <span className='absolute text-sm right-0 mt-64 mr-6 mb-3 cursor-pointer lg:mr-6 lg:mt-80 lg:my-1'>
-              ゲスト
-            </span>
-          )}
+          <img
+            src={photoURL}
+            className='absolute rounded-full h-7 w-7 right-0 mt-64 mr-20 mb-3 cursor-pointer lg:mr-20 lg:mt-80 lg:my-1'
+          />
+          <span className='absolute text-sm right-0 mt-64 mr-4 mb-3 cursor-pointer lg:mr-3 lg:mt-80 lg:my-1'>
+            {username}
+          </span>
 
           {/* Comments Area */}
           {comments.length > 0 && (
