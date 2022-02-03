@@ -1,4 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react';
+import { CacheProvider } from '@emotion/react';
+import { ThemeProvider } from '@mui/material';
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { RecoilRoot, useRecoilState } from 'recoil';
@@ -10,18 +12,26 @@ import ModalUpdate from '../components/ModalUpdate';
 import { AuthProvider } from '../context/AuthContext';
 import { db } from '../lib/firebase';
 import '../styles/globals.css';
+import createEmotionCache from '../utility/createEmotionCache';
+import lightTheme from '../styles/theme/lightTheme';
 
-function MyApp({ Component, pageProps }) {
+const clientSideEmotionCache = createEmotionCache();
+
+function MyApp({ Component, pageProps, emotionCache = clientSideEmotionCache }) {
   return (
     <>
       <AuthProvider>
         <RecoilRoot>
-          <ChakraProvider>
-            <Header />
-            <Component {...pageProps} />
-            {/* <ModalUpdate /> */}
-            <Footer />
-          </ChakraProvider>
+          <CacheProvider value={emotionCache}>
+            <ThemeProvider theme={lightTheme}>
+              <ChakraProvider>
+                <Header />
+                <Component {...pageProps} />
+                {/* <ModalUpdate /> */}
+                <Footer />
+              </ChakraProvider>
+            </ThemeProvider>
+          </CacheProvider>
         </RecoilRoot>
       </AuthProvider>
     </>
