@@ -24,3 +24,8 @@ export const modalDelete = atom({
   key: 'modalDelete',
   default: false,
 });
+
+export const renderGraphql = atom({
+  key: 'renderGraphql',
+  default: false,
+});
