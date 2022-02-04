@@ -9,14 +9,21 @@ import {
   SearchIcon,
   XIcon,
 } from '@heroicons/react/outline';
+import { Button, Switch } from '@mui/material';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+
 import { useRecoilState } from 'recoil';
 import { UseAuthContext } from '../context/AuthContext';
 import { auth } from '../lib/firebase';
-import { modalLogin, modalPost } from './atoms/modalAtom';
+import { modalLogin, modalPost, renderGraphql } from './atoms/modalAtom';
 import ModalLogin from './ModalLogin';
 import { Menu } from '@headlessui/react';
 import ModalPost from './ModalPost';
 import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -41,10 +48,26 @@ const Header: React.FC = () => {
 
   const defaultName: string = 'ゲストユーザー';
 
+  const [graphql, setGraphql] = useRecoilState(renderGraphql);
+
+  const router = useRouter();
+
+  console.log(graphql);
+
+  // const renderGraphqls = () => {
+  //   setGraphql((prevState) => !prevState);
+  //   if (graphql) {
+  //     router.push('/graphql');
+  //   } else if (graphql == false) {
+  //     router.replace('/');
+  //   }
+  //   // location.reload();
+  // };
+
   return (
-    <div className='relative bg-white shadow-sm border-b'>
+    <div className='relative bg-white'>
       <div className='max-w-7xl mx-auto'>
-        <div className='relative z-10 pb-2 bg-white sm:pb-2 md:pb-5 lg:max-w-2xl lg:w-full lg:pb-5 xl:pb-5'>
+        <div className='relative z-10 pb-2 bg-white sm:pb-2 md:pb-5 lg:max-w-xl lg:w-full lg:pb-5 xl:pb-5'>
           <svg
             className='hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2'
             fill='currentColor'
@@ -90,6 +113,14 @@ const Header: React.FC = () => {
                   )}
                   {user && (
                     <>
+                      {/* <FormGroup>
+                        <FormControlLabel
+                          control={<Switch />}
+                          label='GraphQL'
+                          onClick={() => setGraphql((prevState) => !prevState)}
+                        />
+                      </FormGroup> */}
+
                       <PlusCircleIcon
                         onClick={() => setPostOpen(true)}
                         className='relative h-8 w-8 flex mr-3 -mt-7 mr-4 sm:hidden md:hidden lg:hidden'
