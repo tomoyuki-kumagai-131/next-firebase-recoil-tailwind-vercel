@@ -21,8 +21,6 @@ function ModalPost() {
   const [deadline2, setDeadline2] = useState(false);
   const [deadlineMonth, setDeadlineMonth] = useState(false);
 
-  console.log(deadline1);
-
   const postDream = async () => {
     if (loading) return;
     setLoading(true);

@@ -9,9 +9,10 @@ import { CloseIcon, SearchIcon } from '@chakra-ui/icons';
 // import { useRecoilState } from 'recoil';
 // import { modalCharacter } from '../components/atoms/modalAtom';
 import CharactersList from '../components/CharactersList';
-import { Checkbox, FormControlLabel, FormGroup, Switch } from '@mui/material';
 
-function Graphql(results) {
+function Graphql({ results }) {
+  console.log(results);
+
   const initialState = results;
 
   const [characters, setCharacters] = useState(initialState.characters);
@@ -104,40 +105,40 @@ function Graphql(results) {
   );
 }
 
-export async function getStaticProps() {
-  const client = new ApolloClient({
-    uri: process.env.NEXT_PUBLIC_URI,
-    cache: new InMemoryCache(),
-  });
+// export async function getServerSideProps() {
+//   const client = new ApolloClient({
+//     uri: process.env.NEXT_PUBLIC_URI,
+//     cache: new InMemoryCache(),
+//   });
 
-  const { data } = await client.query({
-    query: gql`
-      query {
-        characters(page: 1) {
-          results {
-            id
-            name
-            species
-            image
-            episode {
-              id
-              name
-            }
-            location {
-              id
-              name
-            }
-          }
-        }
-      }
-    `,
-  });
+//   const { data } = await client.query({
+//     query: gql`
+//       query {
+//         characters(page: 1) {
+//           results {
+//             id
+//             name
+//             species
+//             image
+//             episode {
+//               id
+//               name
+//             }
+//             location {
+//               id
+//               name
+//             }
+//           }
+//         }
+//       }
+//     `,
+//   });
 
-  return {
-    props: {
-      characters: data.characters.results,
-    },
-  };
-}
+//   return {
+//     props: {
+//       characters: data.characters.results,
+//     },
+//   };
+// }
 
 export default Graphql;
