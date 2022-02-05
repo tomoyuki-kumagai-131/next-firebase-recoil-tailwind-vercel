@@ -1,4 +1,12 @@
-import { CircularProgress, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
+import {
+  CircularProgress,
+  Divider,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+} from '@chakra-ui/react';
 import { AnnotationIcon, PencilIcon, SearchIcon, TrashIcon } from '@heroicons/react/outline';
 import { Button, Switch } from '@mui/material';
 import FormGroup from '@mui/material/FormGroup';

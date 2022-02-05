@@ -22,7 +22,7 @@ import { useRecoilState } from 'recoil';
 import { UseAuthContext } from '../context/AuthContext';
 import { db } from '../lib/firebase';
 import { modalDelete, modalUpdate } from './atoms/modalAtom';
-import { Button, IconButton, useToast } from '@chakra-ui/react';
+import { Button, Divider, IconButton, useToast } from '@chakra-ui/react';
 import { LinearProgress } from '@mui/material';
 
 type Props = {
@@ -260,6 +260,7 @@ const Post: React.FC<Props> = ({
             </button>
           </form>
         </div>
+        <Divider />
       </div>
     </div>
   );
