@@ -28,7 +28,7 @@ import { useRouter } from 'next/router';
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'GraphQL', href: '/graphql' },
+  // { name: 'GraphQL', href: '/graphql' },
 ];
 
 const Header: React.FC = () => {
@@ -211,7 +211,7 @@ const Header: React.FC = () => {
                                       </span>
                                     )}
                                   </Menu.Item>
-                                  <Menu.Item>
+                                  {/* <Menu.Item>
                                     {({ active }) => (
                                       <span
                                         className={`${
@@ -226,7 +226,7 @@ const Header: React.FC = () => {
                                         </Link>
                                       </span>
                                     )}
-                                  </Menu.Item>
+                                  </Menu.Item> */}
                                 </div>
                                 <div className='py-1'>
                                   <Menu.Item>
