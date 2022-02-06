@@ -1,6 +1,6 @@
 import { ApolloClient, gql, InMemoryCache } from '@apollo/client';
 import { IconButton, Input, useToast } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 // import Image from 'next/image';
 import { CloseIcon, SearchIcon } from '@chakra-ui/icons';
 // import { registerVersion } from 'firebase/app';
@@ -69,10 +69,20 @@ function Graphql({ results }) {
     }
   };
 
+  const inputElement = useRef(null);
+
+  useEffect(() => {
+    inputElement.current.onfocus = function () {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+    };
+  }, []);
+
   return (
     <div className='text-center max-w-7xl mx-auto'>
       {/* <form onSubmit={(e) => handleSubmit(e)}> */}
       <input
+        ref={inputElement}
         onClick={onOpen}
         onChange={(e) => setSearch(e.target.value)}
         value={search}
@@ -92,6 +102,7 @@ function Graphql({ results }) {
                 value={search}
                 className='border rounded-lg p-3 mt-5 mb-3 w-54 cursor-pointer'
                 placeholder='search characters...'
+                ref={inputElement}
               />
               {isLoading ? (
                 <Button
