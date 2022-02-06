@@ -90,7 +90,7 @@ function Graphql({ results }) {
                 onClick={onOpen}
                 onChange={(e) => setSearch(e.target.value)}
                 value={search}
-                className='border rounded-lg p-3 mt-5 mb-3 cursor-pointer'
+                className='border rounded-lg p-3 mt-5 mb-3 w-54 cursor-pointer'
                 placeholder='search characters...'
               />
               {isLoading ? (
@@ -109,7 +109,7 @@ function Graphql({ results }) {
                   type='submit'
                   colorScheme='teal'
                   variant='solid'
-                  className='rounded-lg lg:ml-32'
+                  className='rounded-lg ml-12 lg:ml-32'
                   onClick={onClose}
                 >
                   検索
