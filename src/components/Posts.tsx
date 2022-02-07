@@ -7,8 +7,6 @@ import {
   TabPanels,
   Tabs,
 } from '@chakra-ui/react';
-import { AnnotationIcon, PencilIcon, SearchIcon, TrashIcon } from '@heroicons/react/outline';
-import { Button, Switch } from '@mui/material';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
