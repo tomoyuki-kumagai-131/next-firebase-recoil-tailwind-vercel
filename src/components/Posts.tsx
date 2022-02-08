@@ -1,12 +1,4 @@
-import {
-  CircularProgress,
-  Divider,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
-} from '@chakra-ui/react';
+import { CircularProgress } from '@chakra-ui/react';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -24,7 +16,6 @@ import { useEffect, useRef, useState } from 'react';
 import { UseAuthContext } from '../context/AuthContext';
 import { db } from '../lib/firebase';
 import Post from './Post';
-import Graphql from './Graphql';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { renderGraphql } from './atoms/modalAtom';
@@ -160,31 +151,6 @@ const Posts: React.FC = () => {
             />
           </div>
         </div>
-
-        {/* <h1 className='flex justify-center text-xl pt-5 -mb-3 lg:pt-6'>
-          Add Your Goal!
-          <AnnotationIcon className='h-5 w-5 mt-1 ml-2' />
-        </h1> */}
-
-        {/* <Tabs className='mt-4 mb-4'>
-          <TabList>
-            <Tab>Posts</Tab>
-            <Tab>GraphQl</Tab>
-            <Tab>Three</Tab>
-          </TabList>
-
-          <TabPanels>
-            <TabPanel>
-              <p>one!</p>
-            </TabPanel>
-            <TabPanel>
-              <p>two!</p>
-            </TabPanel>
-            <TabPanel>
-              <p>three!</p>
-            </TabPanel>
-          </TabPanels>
-        </Tabs> */}
 
         {loading && (
           <span className='flex justify-center items-center'>
