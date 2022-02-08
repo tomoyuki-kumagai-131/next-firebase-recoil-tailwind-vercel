@@ -1,15 +1,12 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import Todos from '../components/Posts';
 import { UseAuthContext } from '../context/AuthContext';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { modalGuestLogin, modalLogin } from '../components/atoms/modalAtom';
-import ModalLogin from '../components/ModalLogin';
-import Posts from '../components/Posts';
+ssimport Posts from '../components/Posts';
 import Graphql from '../components/Graphql';
 import ModalGuestLogin from '../components/ModalGuestLogin';
-import { CircularProgress, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import { ApolloClient, gql, InMemoryCache } from '@apollo/client';
 import { useState } from 'react';
 
