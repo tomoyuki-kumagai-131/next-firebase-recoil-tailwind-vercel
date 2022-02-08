@@ -40,7 +40,7 @@ export default function Home(results) {
             <Tabs>
               <div className=''>
                 <TabList className='w-full bg-white'>
-                  <div className='flex ml-4 md:pl-96'>
+                  <div className='flex ml-4 md:pl-96 lg:pl-32'>
                     <Tab _focus={{ boxShadow: 'none' }}>Posts</Tab>
                     <Tab _focus={{ boxShadow: 'none' }}>GraphQl</Tab>
                     {/* <Tab>Three</Tab> */}
