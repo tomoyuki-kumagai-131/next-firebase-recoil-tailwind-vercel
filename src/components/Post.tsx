@@ -23,7 +23,17 @@ import { UseAuthContext } from '../context/AuthContext';
 import { db } from '../lib/firebase';
 import { modalDelete, modalUpdate } from './atoms/modalAtom';
 import { Button, Divider, IconButton, useToast } from '@chakra-ui/react';
-import { LinearProgress } from '@mui/material';
+import {
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  useDisclosure,
+} from '@chakra-ui/react';
 
 type Props = {
   id: string;
@@ -144,6 +154,28 @@ const Post: React.FC<Props> = ({
 
   const defaultImage: string = process.env.NEXT_PUBLIC_DEFAULT_PROFILE_IMAGE;
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [titleRef, setTitleRef] = useState(title);
+  const [descriptionRef, setDescriptionRef] = useState(description);
+
+  const updatePost = async () => {
+    if (loading) return;
+    setLoading(true);
+    const docRef = doc(db, 'posts', id);
+    await setDoc(docRef, {
+      username: user.displayName,
+      uid: user.uid,
+      title: titleRef,
+      description: descriptionRef,
+      photoURL: user.photoURL,
+      timestamp: serverTimestamp(),
+    });
+    setLoading(false);
+    alert('編集が完了しました');
+    router.push('/');
+  };
+
   return (
     <div className='flex justify-center items-center'>
       <div className=''>
@@ -157,9 +189,52 @@ const Post: React.FC<Props> = ({
           {user && uid == user.uid && (
             <>
               <PencilAltIcon
-                onClick={(e) => seeMore(id, e)}
+                onClick={onOpen}
                 className='absolute h-6 w-6 -mt-80 ml-80 my-4 cursor-pointer'
               />
+              <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered>
+                <ModalOverlay />
+                <ModalContent className=''>
+                  <ModalHeader className='text-gray-600'>編集</ModalHeader>
+                  <ModalCloseButton />
+                  <ModalBody className=''>
+                    <div className='relative grid justify-center items-center mx-auto mt-2 h-96 w-80 mb-4 bg-yellow-500 rounded-md shadow-md md:w-80 md:mt-10 lg:h-96 lg:w-96 lg:mt-1 lg:mb-8'>
+                      <h1 className='text-gray-800 text-xl mx-2'>
+                        {user && uid == user.uid ? (
+                          <input
+                            type='text'
+                            value={titleRef}
+                            onChange={(e) => setTitleRef(e.target.value)}
+                            className='w-72 lg:w-80 rounded-md p-3'
+                          />
+                        ) : (
+                          <span>{title}</span>
+                        )}
+                      </h1>
+                      {user && uid == user.uid ? (
+                        <input
+                          type='text'
+                          value={descriptionRef}
+                          className='w-72 lg:w-80 rounded-md p-6 ml-2'
+                          onChange={(e) => setDescriptionRef(e.target.value)}
+                        />
+                      ) : (
+                        <span>{description}</span>
+                      )}
+                      {user && uid == user.uid && (
+                        <button
+                          type='button'
+                          onClick={() => updatePost()}
+                          className='bg-pink-600 text-white rounded-lg font-bold p-2'
+                        >
+                          編集
+                        </button>
+                      )}
+                      <p className='text-white text-center'>{likes.length} Likes</p>
+                    </div>
+                  </ModalBody>
+                </ModalContent>
+              </Modal>
             </>
           )}
           <Moment

@@ -74,6 +74,8 @@ const Posts: React.FC = () => {
   const [graphql, setGraphql] = useRecoilState(renderGraphql);
   const router = useRouter();
 
+  console.log(deadline2);
+
   return (
     <>
       <div className='max-w-7xl mx-auto'>
