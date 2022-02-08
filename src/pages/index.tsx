@@ -3,7 +3,7 @@ import { UseAuthContext } from '../context/AuthContext';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 import { modalGuestLogin, modalLogin } from '../components/atoms/modalAtom';
-ssimport Posts from '../components/Posts';
+import Posts from '../components/Posts';
 import Graphql from '../components/Graphql';
 import ModalGuestLogin from '../components/ModalGuestLogin';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
