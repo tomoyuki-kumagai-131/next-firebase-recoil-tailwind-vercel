@@ -40,6 +40,7 @@ type Props = {
   username: string;
   uid: string;
   photoURL: string;
+  image: string;
   title: any;
   description: string;
   deadline1: boolean;
@@ -62,6 +63,7 @@ const Post: React.FC<Props> = ({
   deadlineMonth,
   timestamp,
   deletePost,
+  image,
 }) => {
   const [open, setOpen] = useRecoilState(modalDelete);
 
