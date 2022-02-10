@@ -29,3 +29,8 @@ export const renderGraphql = atom({
   key: 'renderGraphql',
   default: false,
 });
+
+export const modalUploadPhoto = atom({
+  key: 'modalUploadPhoto',
+  default: false,
+});
