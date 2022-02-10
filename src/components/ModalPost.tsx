@@ -1,12 +1,13 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { AnnotationIcon, LoginIcon } from '@heroicons/react/outline';
+import { AnnotationIcon, CameraIcon, LoginIcon } from '@heroicons/react/outline';
 import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 import { signInWithPopup, signInWithRedirect } from 'firebase/auth';
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { addDoc, collection, doc, serverTimestamp, updateDoc } from 'firebase/firestore';
+import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { Fragment, useRef, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { UseAuthContext } from '../context/AuthContext';
-import { auth, db, provider } from '../lib/firebase';
+import { auth, db, provider, storage } from '../lib/firebase';
 import { modalPost } from './atoms/modalAtom';
 
 function ModalPost() {
@@ -24,7 +25,7 @@ function ModalPost() {
   const postDream = async () => {
     if (loading) return;
     setLoading(true);
-    await addDoc(collection(db, 'posts'), {
+    const docRef = await addDoc(collection(db, 'posts'), {
       username: user.displayName,
       uid: user.uid,
       title: titleRef.current.value,
@@ -35,8 +36,33 @@ function ModalPost() {
       photoURL: user.photoURL,
       timestamp: serverTimestamp(),
     });
+    console.log('new doc added with ID', docRef.id);
+
+    const imageRef = ref(storage, `posts/${docRef.id}/image`);
+    await uploadString(imageRef, selectedFile, 'data_url').then(async (snapshot) => {
+      const downloadURL = await getDownloadURL(imageRef);
+      await updateDoc(doc(db, 'posts', docRef.id), {
+        image: downloadURL,
+      });
+    });
     setLoading(false);
+    setSelectedFile(null);
     setOpen(false);
+  };
+
+  const filePickerRef = useRef(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  // 写真投稿
+  const uploadPhoto = async (e) => {
+    const reader = new FileReader();
+
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]);
+    }
+    reader.onload = (readerEvent) => {
+      setSelectedFile(readerEvent.target.result);
+    };
   };
 
   return (
@@ -67,10 +93,7 @@ function ModalPost() {
             leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
           >
             <div className='inline-block align-bottom bg-white w-86 rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-full sm:p-6 '>
-              <h1 className='flex justify-center text-xl pt-1'>
-                Add Your Dream
-                <AnnotationIcon className='absolute h-5 w-5 mt-1 ml-24' />
-              </h1>
+              <h1 className='flex justify-center text-xl pt-1'>Add Your Fashion Item</h1>
               <form className='text-center'>
                 <div className='relative rounded-md'>
                   <div className='inset-y-0 pt-2 flex justify-center items-center'>
@@ -114,6 +137,28 @@ function ModalPost() {
                             />
                           </div>
                         </FormGroup>
+                      </div>
+                      <div className='inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-full sm:p-6'>
+                        {selectedFile ? (
+                          <img
+                            className='w-full object-contain cursor-pointer'
+                            src={selectedFile}
+                            onClick={() => setSelectedFile(null)}
+                          />
+                        ) : (
+                          <div
+                            onClick={() => filePickerRef.current.click()}
+                            className='mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 cursor-pointer'
+                          >
+                            <CameraIcon className='h-6 w-6 text-red-500' aria-hidden='true' />
+                          </div>
+                        )}
+
+                        <div className='mt-3 text-center sm:mt-5'>
+                          <div>
+                            <input ref={filePickerRef} onChange={uploadPhoto} type='file' hidden />
+                          </div>
+                        </div>
                       </div>
                       <div className='mt-5 sm:mt-6'>
                         <button

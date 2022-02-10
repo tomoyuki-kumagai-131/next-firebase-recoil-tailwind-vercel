@@ -246,26 +246,7 @@ const Post: React.FC<Props> = ({
           <p className='absolute text-sm text-gray-600 mx-2 -mt-48 mx-7 truncate lg:mx-8 lg:-mt-24'>
             {description}
           </p>
-          <div className='text-center absolute mt-24 ml-32 items-center justify-center'>
-            {deadline1 && (
-              <>
-                <span>期限：</span>{' '}
-                <FormControlLabel control={<Checkbox defaultChecked />} label='1 week' />
-              </>
-            )}
-            {deadline2 && (
-              <>
-                <span>期限：</span>{' '}
-                <FormControlLabel control={<Checkbox defaultChecked />} label='2 week' />
-              </>
-            )}
-            {deadlineMonth && (
-              <>
-                <span>期限：</span>{' '}
-                <FormControlLabel control={<Checkbox defaultChecked />} label='1 month' />
-              </>
-            )}
-          </div>
+          {/* s */}
           {hasLiked ? (
             <HeartFullIcon
               onClick={likePost}
