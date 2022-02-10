@@ -91,17 +91,17 @@ const Posts: React.FC = () => {
   return (
     <>
       <div className='max-w-7xl mx-auto'>
-        {/* <div className='flex justify-between items-center bg-yellow-500 py-10 lg:py-0 shadow-lg'> */}
-        {/* <div className='px-10 space-y-5 text-white '>
+        <div className='flex justify-between items-center bg-yellow-500 py-10 lg:py-0 shadow-lg'>
+          <div className='px-10 space-y-5 text-white '>
             <h1 className='text-5xl max-w-xl font-serif'>
               <p className='underline decoration-white decoration-4 transition hover:scale-105 ease-in-out duration-100 transition-transform'>
                 Talexy
               </p>
             </h1>
             <h2>It's easy and free to post my thinking.</h2>
-          </div> */}
-        {/* Post入力エリア */}
-        {/* <form className=' hidden mx-auto sm:block text-center md:block text-center md:mr-8 lg:block text-center lg:mx-32 lg:ml-40 lg:p-4 xl:block text-center'>
+          </div>
+          {/* Post入力エリア */}
+          {/* <form className=' hidden mx-auto sm:block text-center md:block text-center md:mr-8 lg:block text-center lg:mx-32 lg:ml-40 lg:p-4 xl:block text-center'>
             <div className='relative rounded-md'>
               <div className='inset-y-0 pt-2 flex justify-center items-center'>
                 <div className='pt-2'>
@@ -180,13 +180,13 @@ const Posts: React.FC = () => {
               </div>
             </div>
           </form> */}
-        {/* <div className='mr-12'>
+          <div className='mr-12'>
             <img
               src='images/04_05_005.png'
               className='hidden md:inline-flex h-4 object-contain sm:h-96 md:mr-12 lg:h-96'
             />
-          </div> */}
-        {/* </div> */}
+          </div>
+        </div>
 
         {loading && (
           <span className='flex justify-center items-center'>
