@@ -71,7 +71,7 @@ export default function Home(results) {
               className='shadow-lg flex justify-center items-center my-4 mb-8'
               src='https://image.freepik.com/free-vector/business-team-work-process-steps-from-idea-target-business-workflow-business-process-efficiency-working-activity-pattern-concept-pinkish-coral-bluevector-isolated-illustration_335657-1649.jpg'
             />
-            <div className='flex justify-center items-center'>
+            <div className='flex justify-center items-center mt-4'>
               <button
                 onClick={() => setOpen(true)}
                 className='bg-teal-500 text-white border m-2 p-1 w-40 rounded-lg hover:bg-teal-600'
@@ -94,7 +94,7 @@ export default function Home(results) {
             <ModalGuestLogin />
             <button
               onClick={() => router.push('/graphql')}
-              className='bg-pink-500 text-white border m-2 inline p-1 w-40 ml-28 rounded-lg hover:bg-blue-600 lg:ml-56'
+              className='mb-12 bg-pink-500 text-white border m-2 inline p-1 w-40 ml-28 rounded-lg hover:bg-blue-600 lg:ml-56'
             >
               GraphQLを試す
             </button>
