@@ -54,9 +54,6 @@ export default function Home(results) {
                 <TabPanel>
                   <Graphql results={results} />
                 </TabPanel>
-                {/* <TabPanel>
-                  <p>three!</p>
-                </TabPanel> */}
               </TabPanels>
             </Tabs>
           </>
