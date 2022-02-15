@@ -58,7 +58,6 @@ export default function Home(results) {
             </Tabs>
           </>
         ) : (
-          // <Posts />
           <div className='flex grid items-center justify-center'>
             <h1 className='text-2xl my-3 p-5 text-center lg:text-3xl lg:p-9 lg:my-3'>⚡️Talexy</h1>
             <h1 className='text-2xl p-1 text-center lg:mb-8 lg:text-3xl'>
