@@ -192,10 +192,10 @@ const Post: React.FC<Props> = ({
 
   return (
     <div
-      className='p-3 flex cursor-pointer border-b border-gray-700'
+      className='p-3 flex cursor-pointer border-b border-gray-700 w-full mx-auto'
       // onClick={() => router.push(`/${id}`)}
     >
-      <div className='flex flex-col space-y-2 w-full'>
+      <div className='flex flex-col space-y-3 w-full mt-4 mb-4'>
         <div className='flex justify-between'>
           {photoURL ? (
             <img src={photoURL} alt='Profile Pic' className='h-11 w-11 rounded-full mr-4' />
@@ -223,7 +223,6 @@ const Post: React.FC<Props> = ({
             <p className='text-gray-600 text-[15px] sm:text-base mt-0.5'>Title: {title}</p>
           </div>
           <div className='icon group flex-shrink-0 ml-auto'>
-            {/* <DotsHorizontalIcon className='h-5 text-[#6e767d] group-hover:text-[#1d9bf0]' /> */}
             {user && uid == user.uid && (
               <PencilIcon
                 onClick={onOpen}
