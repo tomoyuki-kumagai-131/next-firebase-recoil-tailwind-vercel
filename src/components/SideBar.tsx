@@ -66,7 +66,7 @@ function SideBar() {
 
   return (
     <div className='hidden sm:flex flex-col items-center p-1 fixed'>
-      <div className='space-y-10 mt-12 mb-12 xl:ml-24'>
+      <div className='space-y-10 mt-12 mb-12 xl:ml-12'>
         {NavMenu.map((item) => {
           return (
             <div key={item.id}>
@@ -92,9 +92,17 @@ function SideBar() {
 
       <div className='text-white mt-12 flex items-center justify-center'>
         {user.photoURL ? (
-          <img src={user.photoURL} alt='Profile Pic' className='h-11 w-11 rounded-full mr-4' />
+          <img
+            src={user.photoURL}
+            alt='Profile Pic'
+            className='absolute h-11 w-11 rounded-full mr-20'
+          />
         ) : (
-          <img src={defaultImage} alt='Profile Pic' className='h-11 w-11 rounded-full mr-4 ml-20' />
+          <img
+            src={defaultImage}
+            alt='Profile Pic'
+            className='absolute h-11 w-11 rounded-full mr-20'
+          />
         )}
         {/* <img
           src={user.photoURL}
@@ -103,9 +111,9 @@ function SideBar() {
         /> */}
         <div className='xl:inline leading-5'>
           {user.displayName ? (
-            <h4 className='font-bold text-gray-600'>{user.displayName}</h4>
+            <h4 className='absolute ml-12 -mt-2 font-bold text-gray-600'>{user.displayName}</h4>
           ) : (
-            <h4 className='font-bold text-gray-600'>{defaultName}</h4>
+            <h4 className='absolute font-bold  ml-10 -mt-2 text-gray-600'>{defaultName}</h4>
           )}
         </div>
         {/* <div className='flex items-center ml-2'> */}
@@ -134,14 +142,14 @@ function SideBar() {
                         <>
                           <span className=''>
                             <Menu.Button className=''>
-                              <DotsHorizontalIcon className='-mt-6 h-5 hidden xl:inline ml-2 text-gray-600' />
+                              <DotsHorizontalIcon className='absolute -mt-6 h-5 hidden xl:inline ml-40 text-gray-600' />
                             </Menu.Button>
                           </span>
 
                           <Transition show={open}>
                             <Menu.Items
                               static
-                              className='absolute w-56 origin-top-right border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none lg:-ml-48 lg:mt-3'
+                              className='absolute w-40 origin-top-right border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none lg:-ml-4 lg:-mt-3'
                             >
                               <div className='px-4 py-3'>
                                 <p className='text-sm leading-5 text-gray-500'>Signed in as</p>
