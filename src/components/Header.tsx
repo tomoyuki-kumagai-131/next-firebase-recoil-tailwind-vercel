@@ -65,7 +65,7 @@ const Header: React.FC = () => {
   // };
 
   return (
-    <div className='relative bg-white'>
+    <div className='relative bg-white sticky'>
       <div className='max-w-7xl mx-auto'>
         <div className='relative z-10 pb-2 bg-white sm:pb-2 md:pb-5 lg:max-w-xl lg:w-full lg:pb-5 xl:pb-5'>
           <svg
@@ -123,7 +123,7 @@ const Header: React.FC = () => {
 
                       <PlusCircleIcon
                         onClick={() => setPostOpen(true)}
-                        className='relative h-8 w-8 flex mr-3 -mt-7 mr-4 lg:absolute lg:ml-32 lg:mt-3'
+                        className='relative h-8 w-8 flex mr-3 -mt-7 mr-4 lg:hidden'
                       />
                       <ModalPost />
                       <Menu>
