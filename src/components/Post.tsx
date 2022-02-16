@@ -271,8 +271,8 @@ const Post: React.FC<Props> = ({
         </div>
         <p className='text-gray-500 mb-6 text-xl p-3 truncate'>{description}</p>
         {image && (
-          <div className='rounded-2xl'>
-            <img src={image} alt='' className='mx-auto rounded-2xl h-[400px] object-cover' />
+          <div className='rounded-2xl mx-auto'>
+            <img src={image} alt='' className='w-full object-cover h-80 mx-auto rounded-2xl' />
           </div>
         )}
         <div className='mt-6 text-[#6e767d] flex justify-between w-24'>
