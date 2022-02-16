@@ -91,7 +91,7 @@ export default function Home(results) {
             />
           </div>
         )}
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </>
   );
