@@ -25,6 +25,7 @@ import { Menu } from '@headlessui/react';
 import { Popover, Transition } from '@headlessui/react';
 import { auth } from '../lib/firebase';
 import ModalLogin from './ModalLogin';
+import { Divider } from '@chakra-ui/react';
 
 const NavMenu = [
   {
@@ -69,16 +70,19 @@ function SideBar() {
       <div className='space-y-8 mt-12 mb-12 xl:ml-2'>
         {NavMenu.map((item) => {
           return (
-            <div key={item.id}>
-              <Link href={item.href}>
-                <span className='text-gray-600 font-bold text-lg flex cursor-pointer hover:rounded-md hover:bg-gray-200 hover:text-gray-600 p-1 mr-24'>
-                  {item.id === 1 && <HomeIcon className='h-7 w-7' />}
-                  {item.id === 2 && <AnnotationIcon className='h-7 w-7' />}
-                  {item.id === 3 && <PuzzleIcon className='h-7 w-7' />}
-                  <span className='ml-2 mt-1'>{item.name}</span>
-                </span>
-              </Link>
-            </div>
+            <>
+              <div key={item.id}>
+                <Link href={item.href}>
+                  <span className='text-gray-600 font-bold text-lg flex cursor-pointer hover:rounded-md hover:bg-gray-200 hover:text-gray-600 p-1 mr-24'>
+                    {item.id === 1 && <HomeIcon className='h-7 w-7' />}
+                    {item.id === 2 && <AnnotationIcon className='h-7 w-7' />}
+                    {item.id === 3 && <PuzzleIcon className='h-7 w-7' />}
+                    <span className='ml-2 mt-1'>{item.name}</span>
+                  </span>
+                </Link>
+              </div>
+              <Divider />
+            </>
           );
         })}
       </div>
@@ -89,7 +93,7 @@ function SideBar() {
       >
         POST
       </button>
-
+      <Divider className='mt-12' />
       <div className='text-white mt-12 flex items-center justify-center'>
         {user.photoURL ? (
           <img
