@@ -47,11 +47,11 @@ export default function Home(results) {
           </>
         ) : (
           <div className='flex grid items-center justify-center mx-auto'>
-            <img
+            {/* <img
               className='hidden lg:flex justify-center items-center mt-5 mb-3 p-3 rounded-lg'
               src='https://image.freepik.com/free-vector/business-team-work-process-steps-from-idea-target-business-workflow-business-process-efficiency-working-activity-pattern-concept-pinkish-coral-bluevector-isolated-illustration_335657-1649.jpg'
-            />
-            <h1 className='text-2xl my-2 p-2 text-center lg:text-3xl lg:p-1 lg:my-2 mb-2 text-black'>
+            /> */}
+            <h1 className='text-2xl my-2 p-2 text-center lg:text-3xl lg:p-8 lg:my-2 mb-2 text-black'>
               ⚡️Talexy
             </h1>
             <h1 className='text-2xl p-1 text-center lg:mb-8 lg:text-3xl text-black mb-6'>
@@ -60,19 +60,19 @@ export default function Home(results) {
             <div className='inline-block justify-center items-center text-center'>
               <button
                 onClick={() => setOpen(true)}
-                className='bg-teal-500 text-black border m-2 p-3 w-40 rounded-lg hover:bg-teal-600'
+                className='bg-teal-500 text-white border m-2 p-3 w-40 rounded-lg hover:bg-teal-600 font-bold'
               >
                 Log in
               </button>
               <button
                 onClick={() => router.push('/about')}
-                className='border text-black bg-yellow-400 m-2 p-3 w-40 rounded-lg hover:bg-yellow-500'
+                className='border text-white bg-yellow-400 m-2 p-3 w-40 rounded-lg hover:bg-yellow-500 font-bold'
               >
                 About
               </button>
               <button
                 onClick={() => setOpenGuestModal(true)}
-                className='bg-blue-500 text-black border m-2 p-3 w-40 rounded-lg hover:bg-blue-600'
+                className='bg-blue-500 text-white border m-2 p-3 w-40 rounded-lg hover:bg-blue-600 font-bold'
               >
                 ゲストログイン
               </button>
@@ -80,13 +80,13 @@ export default function Home(results) {
               <ModalGuestLogin />
               <button
                 onClick={() => router.push('/graphql')}
-                className='bg-pink-500 text-black border m-2 p-3 w-40 rounded-lg hover:bg-blue-600'
+                className='bg-pink-500 text-white border m-2 p-3 w-40 rounded-lg hover:bg-blue-600 font-bold'
               >
                 GraphQLを試す
               </button>
             </div>
             <img
-              className='lg:flex justify-center items-center mt-5 mb-3 p-3 rounded-lg mb-12'
+              className='ml-4 justify-center items-center mt-5 mb-3 p-3 rounded-lg mb-12'
               src='https://image.freepik.com/free-vector/business-team-work-process-steps-from-idea-target-business-workflow-business-process-efficiency-working-activity-pattern-concept-pinkish-coral-bluevector-isolated-illustration_335657-1649.jpg'
             />
           </div>
