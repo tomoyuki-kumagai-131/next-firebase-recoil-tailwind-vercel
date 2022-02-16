@@ -29,7 +29,6 @@ function MyApp({ Component, pageProps, emotionCache = clientSideEmotionCache }) 
                 <Header />
                 <Component {...pageProps} />
                 {/* <ModalUpdate /> */}
-                {/* <Footer /> */}
               </ChakraProvider>
             </ThemeProvider>
           </CacheProvider>
