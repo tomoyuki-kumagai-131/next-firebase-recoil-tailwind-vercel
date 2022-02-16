@@ -217,7 +217,7 @@ const Post: React.FC<Props> = ({
             <span className='hover:underline text-sm sm:text-[15px]'>
               <Moment fromNow>{timestamp && timestamp.toDate()}</Moment>
             </span>
-            <p className='text-gray-600 text-[15px] sm:text-base mt-0.5'>Title: {title}</p>
+            <p className='text-gray-600 text-[14px] sm:text-base mt-1'>{title}</p>
           </div>
           <div className='icon group flex-shrink-0 ml-auto'>
             {user && uid == user.uid && (
@@ -271,7 +271,7 @@ const Post: React.FC<Props> = ({
             </Modal>
           </div>
         </div>
-        <p className='text-gray-500 mb-6 text-xl p-3 truncate'>{description}</p>
+        <p className='text-gray-500 mb-6 text-lg p-3 truncate'>{description}</p>
         {image && (
           <div className='rounded-2xl mx-auto'>
             <img src={image} alt='' className='w-full object-cover h-80 mx-auto rounded-2xl' />
