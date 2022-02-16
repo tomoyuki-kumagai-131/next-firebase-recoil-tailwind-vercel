@@ -90,15 +90,15 @@ const Posts: React.FC = () => {
 
   return (
     <>
-      <div className='mt-6 border-gray-700 max-w-2xl sm:ml-[73px] md:ml-[330px] rounded-2xl border h-full'>
-        <div className='text-[#d9d9d9] flex items-center sm:justify-between py-2 px-3 sticky top-0  border-b border-gray-700 '>
+      <div className='mx-auto mt-2 md:mt-6 border-gray-700 max-w-[370px] md:max-w-2xl md:ml-[330px] rounded-2xl border md:mr-6 mb-12'>
+        <div className='text-[#d9d9d9] flex items-center py-2 px-3 sticky top-0  border-b border-gray-700 '>
           <h2 className='text-gray-600 text-lg sm:text-xl font-bold p-2'>Everyone's Posts</h2>
           <div className='hoverAnimation w-9 h-9 flex items-center justify-center xl:px-0 ml-auto'>
             <SparklesIcon className='h-5 text-gray-600' />
           </div>
         </div>
 
-        <div className='pb-72 ml-4'>
+        <div className='p-3'>
           <div className=''>
             {posts.map((post, i) => (
               <div key={i} className=''>
