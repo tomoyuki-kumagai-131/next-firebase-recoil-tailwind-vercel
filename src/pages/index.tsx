@@ -9,6 +9,10 @@ import ModalGuestLogin from '../components/ModalGuestLogin';
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import { ApolloClient, gql, InMemoryCache } from '@apollo/client';
 import { useState } from 'react';
+import SideBar from '../components/SideBar';
+import Footer from '../components/Footer';
+
+import RightNav from '../components/RightNav';
 
 export default function Home(results) {
   const { user }: any = UseAuthContext();
@@ -34,68 +38,60 @@ export default function Home(results) {
         ></meta>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div className='h-full mb-12 bg-blue-50'>
+      <div className='flex mx-auto'>
         {user ? (
           <>
-            <Tabs>
-              <div className=''>
-                <TabList className='w-full bg-white'>
-                  <div className='flex ml-4 md:pl-96 lg:pl-32'>
-                    <Tab _focus={{ boxShadow: 'none' }}>Posts</Tab>
-                    <Tab _focus={{ boxShadow: 'none' }}>GraphQl</Tab>
-                    {/* <Tab>Three</Tab> */}
-                  </div>
-                </TabList>
-              </div>
-              <TabPanels>
-                <TabPanel>
-                  <Posts />
-                </TabPanel>
-                <TabPanel>
-                  <Graphql results={results} />
-                </TabPanel>
-              </TabPanels>
-            </Tabs>
+            <SideBar />
+            <Posts />
+            <RightNav />
           </>
         ) : (
-          <div className='flex grid items-center justify-center'>
-            <h1 className='text-2xl my-3 p-5 text-center lg:text-3xl lg:p-9 lg:my-3'>⚡️Talexy</h1>
-            <h1 className='text-2xl p-1 text-center lg:mb-8 lg:text-3xl'>
-              Make your small goals come true!
-            </h1>
+          <div className='flex grid items-center justify-center mx-auto'>
             <img
-              className='shadow-lg flex justify-center items-center my-4 mb-8'
+              className='hidden lg:flex justify-center items-center mt-5 mb-3 p-3 rounded-lg'
               src='https://image.freepik.com/free-vector/business-team-work-process-steps-from-idea-target-business-workflow-business-process-efficiency-working-activity-pattern-concept-pinkish-coral-bluevector-isolated-illustration_335657-1649.jpg'
             />
-            <div className='flex justify-center items-center mt-4'>
+            <h1 className='text-2xl my-2 p-2 text-center lg:text-3xl lg:p-1 lg:my-2 mb-2 text-black'>
+              ⚡️Talexy
+            </h1>
+            <h1 className='text-2xl p-1 text-center lg:mb-8 lg:text-3xl text-black mb-6'>
+              Make your small goals come true!
+            </h1>
+            <div className='inline-block justify-center items-center text-center'>
               <button
                 onClick={() => setOpen(true)}
-                className='bg-teal-500 text-white border m-2 p-1 w-40 rounded-lg hover:bg-teal-600'
+                className='bg-teal-500 text-black border m-2 p-3 w-40 rounded-lg hover:bg-teal-600'
               >
                 Log in
               </button>
               <button
                 onClick={() => router.push('/about')}
-                className='border text-white bg-yellow-400 m-2 p-1 w-40 rounded-lg hover:bg-yellow-500'
+                className='border text-black bg-yellow-400 m-2 p-3 w-40 rounded-lg hover:bg-yellow-500'
               >
                 About
               </button>
+              <button
+                onClick={() => setOpenGuestModal(true)}
+                className='bg-blue-500 text-black border m-2 p-3 w-40 rounded-lg hover:bg-blue-600'
+              >
+                ゲストログイン
+              </button>
+
+              <ModalGuestLogin />
+              <button
+                onClick={() => router.push('/graphql')}
+                className='bg-pink-500 text-black border m-2 p-3 w-40 rounded-lg hover:bg-blue-600'
+              >
+                GraphQLを試す
+              </button>
             </div>
-            <button
-              onClick={() => setOpenGuestModal(true)}
-              className='bg-blue-500 text-white border m-2 p-1 w-40 ml-28 rounded-lg hover:bg-blue-600 lg:ml-56'
-            >
-              ゲストログイン
-            </button>
-            <ModalGuestLogin />
-            <button
-              onClick={() => router.push('/graphql')}
-              className='mb-12 bg-pink-500 text-white border m-2 inline p-1 w-40 ml-28 rounded-lg hover:bg-blue-600 lg:ml-56'
-            >
-              GraphQLを試す
-            </button>
+            <img
+              className='lg:flex justify-center items-center mt-5 mb-3 p-3 rounded-lg mb-12'
+              src='https://image.freepik.com/free-vector/business-team-work-process-steps-from-idea-target-business-workflow-business-process-efficiency-working-activity-pattern-concept-pinkish-coral-bluevector-isolated-illustration_335657-1649.jpg'
+            />
           </div>
         )}
+        {/* <Footer /> */}
       </div>
     </>
   );
