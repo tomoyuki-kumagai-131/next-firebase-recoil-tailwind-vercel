@@ -1,4 +1,5 @@
 import {
+  AnnotationIcon,
   ChartBarIcon,
   ChatIcon,
   DotsHorizontalIcon,
@@ -8,6 +9,7 @@ import {
   PencilIcon,
   ShareIcon,
   SwitchHorizontalIcon,
+  TagIcon,
   TrashIcon,
 } from '@heroicons/react/outline';
 import { HeartIcon as HeartFullIcon } from '@heroicons/react/solid';
@@ -192,7 +194,7 @@ const Post: React.FC<Props> = ({
 
   return (
     <div className='p-1 flex cursor-pointer border-b border-gray-700 w-full mx-auto'>
-      <div className='flex flex-col space-y-3 w-full mt-3 mb-6'>
+      <div className='flex flex-col space-y-3 w-full mt-3 mb-3'>
         <div className='flex justify-between'>
           {photoURL ? (
             <img src={photoURL} alt='Profile Pic' className='h-11 w-11 rounded-full mr-4' />
@@ -290,7 +292,7 @@ const Post: React.FC<Props> = ({
             )}
           </div>
 
-          {user && uid == user.uid && (
+          {user && uid == user.uid ? (
             <>
               <div
                 className='flex items-center space-x-1 group'
@@ -301,6 +303,20 @@ const Post: React.FC<Props> = ({
               >
                 <div className='icon group-hover:bg-red-600/10 ml-4 mr-4'>
                   <TrashIcon className='h-6 group-hover:text-red-600' />
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <div
+                className='flex items-center space-x-1 group'
+                onClick={(e) => {
+                  e.stopPropagation();
+                  deletePost(id);
+                }}
+              >
+                <div className='icon group-hover:bg-blue-600/10 ml-4 mr-4'>
+                  <TagIcon className='h-6 group-hover:text-blue-600' />
                 </div>
               </div>
             </>
