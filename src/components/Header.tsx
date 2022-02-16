@@ -79,7 +79,7 @@ const Header: React.FC = () => {
           </svg>
 
           <Popover>
-            <div className='relative pt-6 px-6 sm:px-6 lg:px-8'>
+            <div className='relative pt-6 px-6 sm:px-6 lg:px-8 bg-white'>
               <nav
                 className='relative flex items-center justify-between sm:h-10 lg:justify-start'
                 aria-label='Global'
@@ -145,9 +145,9 @@ const Header: React.FC = () => {
                             <Transition show={open}>
                               <Menu.Items
                                 static
-                                className='absolute right-0 w-56 mt-0 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none lg:mr-64 lg:-mt-1'
+                                className='z-50 absolute right-0 w-56 mt-0 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none lg:mr-64 lg:-mt-1'
                               >
-                                <div className='px-4 py-3'>
+                                <div className='px-4 py-3 bg-white'>
                                   <p className='text-sm leading-5'>Signed in as</p>
                                   {user.displayName ? (
                                     <p className='text-sm font-medium leading-8 text-gray-700 truncate'>
