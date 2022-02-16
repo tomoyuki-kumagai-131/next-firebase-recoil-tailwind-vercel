@@ -18,9 +18,13 @@ function ModalPost() {
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
 
-  const [deadline1, setDeadline1] = useState(false);
-  const [deadline2, setDeadline2] = useState(false);
-  const [deadlineMonth, setDeadlineMonth] = useState(false);
+  const [markdown, setMarkdown] = useState();
+
+  const setData = (e: any) => {
+    e.preventDefault();
+
+    setMarkdown(e.target.value);
+  };
 
   const postDream = async () => {
     if (loading) return;
@@ -30,9 +34,6 @@ function ModalPost() {
       uid: user.uid,
       title: titleRef.current.value,
       description: descriptionRef.current.value,
-      deadline1: deadline1,
-      deadline2: deadline2,
-      deadlineMonth: deadlineMonth,
       photoURL: user.photoURL,
       timestamp: serverTimestamp(),
     });
@@ -113,7 +114,7 @@ function ModalPost() {
                         type='text'
                         placeholder='Add your dreams description'
                       />
-                      <div className='mt-8 bg-white rounded-md'>
+                      {/* <div className='mt-8 bg-white rounded-md'>
                         <FormGroup>
                           <h1 className='mt-6 pb-6'>When do you want to achieve your goal?</h1>
                           <div className='text-center pb-6 mx-3'>
@@ -137,7 +138,7 @@ function ModalPost() {
                             />
                           </div>
                         </FormGroup>
-                      </div>
+                      </div> */}
                       <div className='inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-full sm:p-6'>
                         {selectedFile ? (
                           <img
