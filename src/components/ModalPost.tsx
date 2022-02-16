@@ -94,7 +94,7 @@ function ModalPost() {
             leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
           >
             <div className='inline-block align-bottom bg-white w-86 rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-full sm:p-6 '>
-              <h1 className='flex justify-center text-xl pt-1'>Add Your Fashion Item</h1>
+              <h1 className='flex justify-center text-xl pt-1'>Add Your Post</h1>
               <form className='text-center'>
                 <div className='relative rounded-md'>
                   <div className='inset-y-0 pt-2 flex justify-center items-center'>
@@ -139,10 +139,10 @@ function ModalPost() {
                           </div>
                         </FormGroup>
                       </div> */}
-                      <div className='inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-full sm:p-6'>
+                      <div className='text-center items-center justify-center bg-white rounded-lg px-4 pt-5 pb-4 overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-full sm:p-6'>
                         {selectedFile ? (
                           <img
-                            className='w-full object-contain cursor-pointer'
+                            className=' cursor-pointer w-[300px] text-center mx-auto -mb-6'
                             src={selectedFile}
                             onClick={() => setSelectedFile(null)}
                           />
