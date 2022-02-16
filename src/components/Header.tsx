@@ -123,14 +123,14 @@ const Header: React.FC = () => {
 
                       <PlusCircleIcon
                         onClick={() => setPostOpen(true)}
-                        className='relative h-8 w-8 flex mr-3 -mt-7 mr-4 lg:hidden'
+                        className='h-8 w-8 flex -mt-6 mr-4 lg:hidden'
                       />
                       <ModalPost />
                       <Menu>
                         {({ open }) => (
                           <>
                             <span className=''>
-                              <Menu.Button className='pt-2 lg:pt-2 lg:ml-2'>
+                              <Menu.Button className='pt-4 lg:hidden'>
                                 {user.photoURL ? (
                                   <img src={user.photoURL} className='rounded-full w-9 h-9' />
                                 ) : (
@@ -211,7 +211,7 @@ const Header: React.FC = () => {
                                       </span>
                                     )}
                                   </Menu.Item>
-                                  {/* <Menu.Item>
+                                  <Menu.Item>
                                     {({ active }) => (
                                       <span
                                         className={`${
@@ -226,7 +226,7 @@ const Header: React.FC = () => {
                                         </Link>
                                       </span>
                                     )}
-                                  </Menu.Item> */}
+                                  </Menu.Item>
                                 </div>
                                 <div className='py-1'>
                                   <Menu.Item>
