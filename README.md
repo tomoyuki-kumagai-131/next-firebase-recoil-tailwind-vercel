@@ -1,17 +1,25 @@
 ## Talexy
-Talexyは小さな目標から大きな目標まで、カジュアルに投稿することができるアプリです。
+Talexyは社内でカジュアルにコミュニケーションを取ることができるSaaSプロダクトです。
 
-現代では、自己肯定感が低い方が多いというニュースを見たことが制作のきっかけとなりました。
+つぶやき、社内の業務ツール等、使用用途は様々です。
 
-小さな目標の達成を積み重ねることで、自己肯定感を高めて欲しい、そして私自身も利用したいと思い、制作に着手しました。
+リモートワーク全盛となった今、Talexyを利用して社内コミュニケーションを活性化させて社員のモチベーションを高めましょう。
 
 https://next-firebase-recoil-tailwind-vercel-tomo-0131.vercel.app/
 
+## Image1
 ![スクリーンショット 2022-01-30 1 21 43](https://user-images.githubusercontent.com/63157348/151668656-a20fa06f-34e1-4649-9441-9ec53671f323.png)
 
-<img width="1356" alt="スクリーンショット 2022-01-23 20 03 02" src="https://user-images.githubusercontent.com/63157348/150809080-3f9a084a-7bf5-45af-b3a5-688576d68008.png">
+## Image2
+<img width="716" alt="スクリーンショット 2022-02-16 22 15 59" src="https://user-images.githubusercontent.com/63157348/154273660-8b3cbae9-712b-4800-9496-a8fdd2b22262.png">
+
+----------------------------------------------------------------------------------------------------------
+## Image3
+<img width="７１６" alt="スクリーンショット 2022-02-16 22 08 52" src="https://user-images.githubusercontent.com/63157348/154273655-16b6cee7-df2e-4e0b-9046-1af245e4de3b.png">
+
 
 いいな！と思った投稿にはいいねを付けて交流することができます。
+またコメント機能もありますので、業務ツールとして利用する場合はコメントして交流もできます。
 
 ## 使用技術
 Next.js(React.js) / React Hooks / GraphQL / Apollo / Jest / React Testing Library /
