@@ -12,6 +12,7 @@ import ModalUpdate from '../components/ModalUpdate';
 import { AuthProvider } from '../context/AuthContext';
 import { db } from '../lib/firebase';
 import '../styles/globals.css';
+import '../styles/markdown.css';
 import createEmotionCache from '../utility/createEmotionCache';
 import lightTheme from '../styles/theme/lightTheme';
 
@@ -28,7 +29,7 @@ function MyApp({ Component, pageProps, emotionCache = clientSideEmotionCache }) 
                 <Header />
                 <Component {...pageProps} />
                 {/* <ModalUpdate /> */}
-                <Footer />
+                {/* <Footer /> */}
               </ChakraProvider>
             </ThemeProvider>
           </CacheProvider>
