@@ -191,11 +191,8 @@ const Post: React.FC<Props> = ({
   };
 
   return (
-    <div
-      className='p-3 flex cursor-pointer border-b border-gray-700 w-full mx-auto'
-      // onClick={() => router.push(`/${id}`)}
-    >
-      <div className='flex flex-col space-y-3 w-full mt-4 mb-4'>
+    <div className='p-1 flex cursor-pointer border-b border-gray-700 w-full mx-auto'>
+      <div className='flex flex-col space-y-3 w-full mt-3 mb-6'>
         <div className='flex justify-between'>
           {photoURL ? (
             <img src={photoURL} alt='Profile Pic' className='h-11 w-11 rounded-full mr-4' />
@@ -213,8 +210,6 @@ const Post: React.FC<Props> = ({
                   ゲストユーザー
                 </h4>
               )}
-
-              {/* <span className='text-sm sm:text-[15px]'>@{post?.tag}</span> */}
             </div>
 
             <span className='hover:underline text-sm sm:text-[15px]'>
@@ -226,7 +221,7 @@ const Post: React.FC<Props> = ({
             {user && uid == user.uid && (
               <PencilIcon
                 onClick={onOpen}
-                className='h-5 text-[#6e767d] group-hover:text-[#1d9bf0]'
+                className='h-5 text-[#6e767d] group-hover:text-[#1d9bf0] mr-2 -mt-1'
               />
             )}
             <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} isCentered>
@@ -277,7 +272,7 @@ const Post: React.FC<Props> = ({
         <p className='text-gray-500 mb-6 text-xl p-3 truncate'>{description}</p>
         {image && (
           <div className='rounded-2xl'>
-            <img src={image} alt='' className='mx-auto rounded-2xl max-h-[700px] object-cover' />
+            <img src={image} alt='' className='mx-auto rounded-2xl h-[400px] object-cover' />
           </div>
         )}
         <div className='mt-6 text-[#6e767d] flex justify-between w-24'>
