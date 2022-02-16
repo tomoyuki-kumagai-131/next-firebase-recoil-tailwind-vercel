@@ -89,7 +89,7 @@ function SideBar() {
 
       <button
         className='hidden xl:inline bg-pink-600 text-white rounded-full w-56 h-[52px] text-lg font-bold shadow-md hover:bg-pink-400'
-        onClick={() => router.push('/post')}
+        onClick={() => setPostOpen(true)}
       >
         POST
       </button>
@@ -153,7 +153,7 @@ function SideBar() {
                           <Transition show={open}>
                             <Menu.Items
                               static
-                              className='absolute w-40 origin-top-right border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none lg:-ml-4 lg:-mt-3'
+                              className='absolute bg-white w-40 origin-top-right border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg outline-none lg:-ml-4 lg:-mt-72'
                             >
                               <div className='px-4 py-3'>
                                 <p className='text-sm leading-5 text-gray-500'>Signed in as</p>

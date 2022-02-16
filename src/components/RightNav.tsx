@@ -16,7 +16,7 @@ function RightNav() {
   }, []);
 
   return (
-    <div className='hidden lg:inline ml-8 xl:w-[450px] py-1 space-y-5 sticky'>
+    <div className='hidden lg:inline xl:w-[450px] py-1 space-y-5 sticky'>
       <div className='text-[#d9d9d9] space-y-5  p-5 rounded-3xl w-96 ml-5'>
         <h4 className='text-gray-600 font-bold text-xl px-4'>Yout Posts</h4>
         {posts.map((post) => {
