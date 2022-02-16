@@ -245,7 +245,7 @@ const Post: React.FC<Props> = ({
                           className='w-72 lg:w-80 rounded-md p-3 text-gray-600'
                         />
                       ) : (
-                        <span className='text-gray-600'>{title}</span>
+                        <span className='text-gray-600 truncate'>{title}</span>
                       )}
                     </h1>
                     {user && uid == user.uid ? (
@@ -274,7 +274,7 @@ const Post: React.FC<Props> = ({
             </Modal>
           </div>
         </div>
-        <p className='text-gray-500 mb-6 text-xl p-3'>{description}</p>
+        <p className='text-gray-500 mb-6 text-xl p-3 truncate'>{description}</p>
         {image && (
           <div className='rounded-2xl'>
             <img src={image} alt='' className='mx-auto rounded-2xl max-h-[700px] object-cover' />
@@ -304,7 +304,7 @@ const Post: React.FC<Props> = ({
                   deletePost(id);
                 }}
               >
-                <div className='icon group-hover:bg-red-600/10'>
+                <div className='icon group-hover:bg-red-600/10 ml-4 mr-4'>
                   <TrashIcon className='h-6 group-hover:text-red-600' />
                 </div>
               </div>

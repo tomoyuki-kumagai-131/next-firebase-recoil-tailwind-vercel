@@ -65,13 +65,13 @@ function SideBar() {
   const defaultName: string = 'ゲストユーザー';
 
   return (
-    <div className='hidden sm:flex flex-col items-center p-1 fixed'>
-      <div className='space-y-10 mt-12 mb-12 xl:ml-12'>
+    <div className='hidden sm:flex flex-col items-center p-1 fixed ml-5'>
+      <div className='space-y-8 mt-12 mb-12 xl:ml-2'>
         {NavMenu.map((item) => {
           return (
             <div key={item.id}>
               <Link href={item.href}>
-                <span className='text-gray-600 font-bold text-lg flex cursor-pointer hover:rounded-md hover:bg-gray-200 hover:text-gray-600 p-1 mr-12'>
+                <span className='text-gray-600 font-bold text-lg flex cursor-pointer hover:rounded-md hover:bg-gray-200 hover:text-gray-600 p-1 mr-24'>
                   {item.id === 1 && <HomeIcon className='h-7 w-7' />}
                   {item.id === 2 && <AnnotationIcon className='h-7 w-7' />}
                   {item.id === 3 && <PuzzleIcon className='h-7 w-7' />}
@@ -84,7 +84,7 @@ function SideBar() {
       </div>
 
       <button
-        className='hidden xl:inline bg-pink-600 text-white rounded-full w-56 h-[52px] text-lg font-bold shadow-md hover:bg-pink-400 ml-24'
+        className='hidden xl:inline bg-pink-600 text-white rounded-full w-56 h-[52px] text-lg font-bold shadow-md hover:bg-pink-400'
         onClick={() => router.push('/post')}
       >
         POST
@@ -95,13 +95,13 @@ function SideBar() {
           <img
             src={user.photoURL}
             alt='Profile Pic'
-            className='absolute h-11 w-11 rounded-full mr-20'
+            className='absolute h-11 w-11 rounded-full mr-40'
           />
         ) : (
           <img
             src={defaultImage}
             alt='Profile Pic'
-            className='absolute h-11 w-11 rounded-full mr-20'
+            className='absolute h-11 w-11 rounded-full mr-40'
           />
         )}
         {/* <img
@@ -111,9 +111,9 @@ function SideBar() {
         /> */}
         <div className='xl:inline leading-5'>
           {user.displayName ? (
-            <h4 className='absolute ml-12 -mt-2 font-bold text-gray-600'>{user.displayName}</h4>
+            <h4 className='absolute -mt-2 font-bold text-gray-600'>{user.displayName}</h4>
           ) : (
-            <h4 className='absolute font-bold  ml-10 -mt-2 text-gray-600'>{defaultName}</h4>
+            <h4 className='absolute font-bold -mt-2 text-gray-600'>{defaultName}</h4>
           )}
         </div>
         {/* <div className='flex items-center ml-2'> */}
@@ -142,7 +142,7 @@ function SideBar() {
                         <>
                           <span className=''>
                             <Menu.Button className=''>
-                              <DotsHorizontalIcon className='absolute -mt-6 h-5 hidden xl:inline ml-40 text-gray-600' />
+                              <DotsHorizontalIcon className='absolute -mt-6 h-5 hidden xl:inline ml-24 text-gray-600' />
                             </Menu.Button>
                           </span>
 

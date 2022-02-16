@@ -90,7 +90,7 @@ const Posts: React.FC = () => {
 
   return (
     <>
-      <div className='mt-6 border-gray-700 max-w-2xl sm:ml-[73px] md:ml-[400px] rounded-2xl border'>
+      <div className='mt-6 border-gray-700 max-w-2xl sm:ml-[73px] md:ml-[400px] rounded-2xl border h-full'>
         <div className='text-[#d9d9d9] flex items-center sm:justify-between py-2 px-3 sticky top-0  border-b border-gray-700 '>
           <h2 className='text-gray-600 text-lg sm:text-xl font-bold p-2'>Everyone's Posts</h2>
           <div className='hoverAnimation w-9 h-9 flex items-center justify-center xl:px-0 ml-auto'>
