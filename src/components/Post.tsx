@@ -1,9 +1,5 @@
 import {
-  AnnotationIcon,
-  ChartBarIcon,
   ChatIcon,
-  DotsHorizontalIcon,
-  EmojiHappyIcon,
   HeartIcon,
   PencilAltIcon,
   PencilIcon,
