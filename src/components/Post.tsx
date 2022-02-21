@@ -1,13 +1,4 @@
-import {
-  ChatIcon,
-  HeartIcon,
-  PencilAltIcon,
-  PencilIcon,
-  ShareIcon,
-  SwitchHorizontalIcon,
-  TagIcon,
-  TrashIcon,
-} from '@heroicons/react/outline';
+import { ChatIcon, HeartIcon, PencilIcon, TagIcon, TrashIcon } from '@heroicons/react/outline';
 import { HeartIcon as HeartFullIcon } from '@heroicons/react/solid';
 import {
   addDoc,
